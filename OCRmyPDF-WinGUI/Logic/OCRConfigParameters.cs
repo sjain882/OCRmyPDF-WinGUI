@@ -15,5 +15,24 @@ namespace OcrMyPdf.Logic
         "--redo-ocr",
         "--force-ocr"
         };
+
+        public static string[] PDFType =
+        {
+        "--output-type pdf",
+        "--output-type pdfa"
+        };
+
+        public static string[] OptimisationLevel =
+{
+        "--optimize 0",
+        "--optimize 1",
+        "--optimize 2",
+        "--optimize 3"
+        };
+
+        public static string rotate = "--rotate";
+
+        public static string deskew = "--deskew";
+
     }
 }
