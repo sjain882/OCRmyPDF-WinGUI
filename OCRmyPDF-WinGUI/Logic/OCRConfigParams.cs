@@ -26,10 +26,11 @@ namespace OcrMyPdf.Logic
 
         public static string[] OptimisationLevel =
 {
-        "--optimize 0",
+        "",
         "--optimize 1",
         "--optimize 2",
-        "--optimize 3"
+        "--optimize 3",
+        "--optimize 0"
         };
 
         public static string rotate = "--rotate";
