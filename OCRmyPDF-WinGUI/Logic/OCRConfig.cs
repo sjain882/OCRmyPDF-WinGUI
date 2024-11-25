@@ -40,7 +40,7 @@ namespace OcrMyPdf.Logic
 
         public bool deskew { get; set; }               // Make default T in GUI
 
-        public string outputSuffix { get; set; }       // Default "_Searchable"
+        public string outputSuffix { get; set; } = "_Searchable";
 
     }
 }
