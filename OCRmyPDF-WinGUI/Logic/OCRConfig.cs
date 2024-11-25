@@ -22,7 +22,7 @@ namespace OcrMyPdf.Logic
 
     enum OptimisationLevel
     {
-        Default    = 0,
+        Default     = 0,
         Lossless    = 1,        // Default in CLI + GUI
         Lossy       = 2,
         AggrLossy   = 3,
