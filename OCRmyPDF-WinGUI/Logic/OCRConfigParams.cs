@@ -8,6 +8,8 @@ namespace OcrMyPdf.Logic
 {
     static class OCRParams
     {
+        public static char argsSprtr = ' ';
+
         public static string[] ProcessingPolicy =
         {
         "",
