@@ -36,9 +36,9 @@ namespace OcrMyPdf.Logic
 
                 cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, args);
 
-                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, path);
+                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, "\"" + path + "\"");
 
-                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, Utilities.AddSuffix(path, config.outputSuffix));
+                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, "\"" + Utilities.AddSuffix(path, config.outputSuffix) + "\"");
 
                 System.Diagnostics.Process process = System.Diagnostics.Process.Start(@"cmd.exe", cmdBuilder.ToString());
 
