@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic
 {
-    internal class OCRConfig
+    public enum ProcessingPolicy
     {
-        public ProcessingPolicy processingPolicy { get; set; }
-
+        Default = 0,
+        SkipText = 1,
+        RedoOCR = 2,
+        ForceOCR = 3
     }
+
 }
