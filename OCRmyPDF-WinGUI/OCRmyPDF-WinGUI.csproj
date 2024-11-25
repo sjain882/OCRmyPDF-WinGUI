@@ -8,6 +8,7 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageId>OcrMyPdf</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="WPF-UI" Version="3.0.4" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0 " />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2 "/>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2 " />
   </ItemGroup>
 
   <ItemGroup>
