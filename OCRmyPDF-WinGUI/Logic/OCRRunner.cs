@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic
 {
-    internal static class OCRRunner
+    public static class OCRRunner
     {
 
         static void RunOCR(string[] filePaths, OCRConfig config)

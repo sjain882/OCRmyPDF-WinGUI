@@ -6,31 +6,32 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic
 {
-    enum ProcessingPolicy
-    {
-        Default     = 0,        // Default in CLI + GUI
-        SkipText    = 1,
-        RedoOCR     = 2,
-        ForceOCR    = 3
-    }
 
-    enum PDFType
+    public class OCRConfig
     {
-        PDF         = 0,        // Make this default in GUI
-        PDFA        = 1         // Defualt in CLI
-    }
+        public enum ProcessingPolicy
+        {
+            Default = 0,        // Default in CLI + GUI
+            SkipText = 1,
+            RedoOCR = 2,
+            ForceOCR = 3
+        }
 
-    enum OptimisationLevel
-    {
-        Default     = 0,
-        Lossless    = 1,        // Default in CLI + GUI
-        Lossy       = 2,
-        AggrLossy   = 3,
-        Disabled    = 4
-    }
+        public enum PDFType
+        {
+            PDF = 0,        // Make this default in GUI
+            PDFA = 1         // Defualt in CLI
+        }
 
-    internal class OCRConfig
-    {
+        public enum OptimisationLevel
+        {
+            Default = 0,
+            Lossless = 1,        // Default in CLI + GUI
+            Lossy = 2,
+            AggrLossy = 3,
+            Disabled = 4
+        }
+
         public ProcessingPolicy processingPolicy { get; set; }
 
         public PDFType pdfType { get; set; }

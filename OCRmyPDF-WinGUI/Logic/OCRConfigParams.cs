@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic
 {
-    static class OCRParams
+    public static class OCRParams
     {
         public static char argsSprtr = ' ';
 
