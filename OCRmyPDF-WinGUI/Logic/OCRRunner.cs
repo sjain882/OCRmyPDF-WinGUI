@@ -9,7 +9,7 @@ namespace OcrMyPdf.Logic
     public static class OCRRunner
     {
 
-        static void RunOCR(string[] filePaths, OCRConfig config)
+        public static void RunOCR(string[] filePaths, OCRConfig config)
         {
 
             StringBuilder argsBuilder = new StringBuilder();
