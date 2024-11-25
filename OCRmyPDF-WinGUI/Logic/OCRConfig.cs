@@ -32,6 +32,10 @@ namespace OcrMyPdf.Logic
     {
         public ProcessingPolicy processingPolicy { get; set; }
 
+        public PDFType pdfType { get; set; }
+
+        public OptimisationLevel optimisationLevel { get; set; }
+
         public bool rotate { get; set; }               // Make default T in GUI
 
         public bool deskew { get; set; }               // Make default T in GUI
