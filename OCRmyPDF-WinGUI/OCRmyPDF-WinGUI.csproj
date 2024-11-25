@@ -8,7 +8,8 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <PackageId>OcrMyPdf</PackageId>
+    <PackageId>$(AssemblyName)</PackageId>
+    <RootNamespace>OcrMyPdf</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
