@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic
 {
-    static class OcrParams
+    static class OCRParams
     {
         public static string[] ProcessingPolicy =
         {
