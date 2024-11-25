@@ -8,7 +8,7 @@ namespace OcrMyPdf.Logic
 {
     public static class Utilities
     {
-        public static StringBuilder AppendWithSeparator(StringBuilder sb,
+        public static StringBuilder AppendWithSeparator(this StringBuilder sb,
                                                         char separator,
                                                         string valueToAppend)
         {
