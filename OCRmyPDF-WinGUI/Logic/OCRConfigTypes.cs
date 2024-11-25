@@ -8,10 +8,10 @@ namespace OcrMyPdf.Logic
 {
     public enum ProcessingPolicy
     {
-        Default = 0,
-        SkipText = 1,
-        RedoOCR = 2,
-        ForceOCR = 3
+        Default     = 0,
+        SkipText    = 1,
+        RedoOCR     = 2,
+        ForceOCR    = 3
     }
 
 }
