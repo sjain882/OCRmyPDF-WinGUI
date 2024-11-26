@@ -11,25 +11,25 @@ namespace OcrMyPdf.Logic
     {
         public enum ProcessingPolicy
         {
-            Default = 0,        // Default in CLI + GUI
-            SkipText = 1,
-            RedoOCR = 2,
-            ForceOCR = 3
+            Default     = 0,        // Default in CLI + GUI
+            SkipText    = 1,
+            RedoOCR     = 2,
+            ForceOCR    = 3
         }
 
         public enum PDFType
         {
-            PDF = 0,        // Make this default in GUI
-            PDFA = 1         // Defualt in CLI
+            PDF         = 0,        // Make this default in GUI
+            PDFA        = 1         // Defualt in CLI
         }
 
         public enum OptimisationLevel
         {
-            Default = 0,
-            Lossless = 1,        // Default in CLI + GUI
-            Lossy = 2,
-            AggrLossy = 3,
-            Disabled = 4
+            Default     = 0,        // Default in CLI + GUI
+            Lossless    = 1,        
+            Lossy       = 2,
+            AggrLossy   = 3,
+            Disabled    = 4
         }
 
         public ProcessingPolicy processingPolicy { get; set; }
@@ -38,9 +38,9 @@ namespace OcrMyPdf.Logic
 
         public OptimisationLevel optimisationLevel { get; set; }
 
-        public bool rotate { get; set; }               // Make default T in GUI
+        public bool rotate { get; set; }            // Make default T in GUI
 
-        public bool deskew { get; set; }               // Make default T in GUI
+        public bool deskew { get; set; }            // Make default T in GUI
 
         public string outputSuffix { get; set; } = "_Searchable";
 
