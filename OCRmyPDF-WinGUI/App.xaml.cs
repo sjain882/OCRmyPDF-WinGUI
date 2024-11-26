@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace OCRmyPDF_WinGUI
+namespace OcrMyPdf
 {
     /// <summary>
     /// Interaction logic for App.xaml

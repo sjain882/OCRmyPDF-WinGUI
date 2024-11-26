@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="OCRmyPDF_WinGUI.App"
+    x:Class="OcrMyPdf.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:OCRmyPDF_WinGUI"
+    xmlns:local="clr-namespace:OcrMyPdf"
     StartupUri="GUI/MainWindow.xaml">
     <Application.Resources />
 </Application>
