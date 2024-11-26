@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OcrMyPdf
+namespace OcrMyPdf.GUI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
