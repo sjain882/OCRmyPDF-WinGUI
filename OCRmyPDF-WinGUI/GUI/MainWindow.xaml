@@ -191,7 +191,14 @@
             Content="Status:"
             FontSize="13" />
 
-        <TextBlock Grid.Row="7" />
+
+        <!--  Console output  -->
+        <Border
+            Grid.Row="7"
+            BorderBrush="#abadb3"
+            BorderThickness="1">
+            <TextBlock Grid.Row="7" />
+        </Border>
 
     </Grid>
 
