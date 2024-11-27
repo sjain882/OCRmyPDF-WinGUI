@@ -16,7 +16,7 @@
 
         <!--  Rows  -->
         <Grid.RowDefinitions>
-            <!--  "Selected files:" label  -->
+            <!--  File selection labels & buttons  -->
             <RowDefinition Height="30" />
 
             <!--  File list  -->
@@ -42,13 +42,45 @@
         </Grid.RowDefinitions>
 
 
-        <!--  "Selected files:" label  -->
-        <Label
-            Grid.Row="0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Selected files:"
-            FontSize="13" />
+        <!--  File selection labels & buttons  -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="170" />
+            </Grid.ColumnDefinitions>
+
+            <!--  "Selected files:" label  -->
+            <Label
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Select or drop files:"
+                FontSize="13" />
+
+
+            <!--  Select files from OpenFileDialog  -->
+            <Button
+                Grid.Column="1"
+                Padding="15,2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Content="Select Files..."
+                FontSize="13" />
+
+
+            <!--  Clear selected file list  -->
+            <Button
+                Grid.Column="1"
+                Padding="15,2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Content="Clear"
+                FontSize="13" />
+
+        </Grid>
+
+
+
 
 
         <!--  Input File list  -->
