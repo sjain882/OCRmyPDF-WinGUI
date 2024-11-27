@@ -12,9 +12,8 @@ namespace OcrMyPdf.Logic
         public enum ProcessingPolicy
         {
             Default     = 0,        // Default in CLI + GUI
-            SkipText    = 1,
-            RedoOCR     = 2,
-            ForceOCR    = 3
+            RedoOCR     = 1,
+            ForceOCR    = 2
         }
 
         public enum PDFType

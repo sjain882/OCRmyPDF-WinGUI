@@ -13,7 +13,6 @@ namespace OcrMyPdf.Logic
         public static string[] ProcessingPolicy =
         {
         "",
-        "--skip-text",
         "--redo-ocr",
         "--force-ocr"
         };
