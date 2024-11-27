@@ -31,10 +31,6 @@ namespace OcrMyPdf.Logic
 
         // ---------- DATA BINDINGS (OCRConfig) ----------
 
-        public ComboBoxItem OptimisationLevel
-        {
-            get { return 
-        }
 
         public string Suffix
         {
