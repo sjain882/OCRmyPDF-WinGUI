@@ -166,7 +166,7 @@
                 </CheckBox>
 
                 <!--  Rotate  -->
-                <CheckBox Margin="3,3,3,3">
+                <CheckBox Margin="3,3,3,3" IsChecked="{Binding Rotate}">
                     Rotate
                 </CheckBox>
             </StackPanel>
