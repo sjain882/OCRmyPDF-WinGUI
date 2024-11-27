@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using OcrMyPdf.Logic;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,6 +19,8 @@ namespace OcrMyPdf.Gui
     {
         public MainWindow()
         {
+            MainWindowHandler winHandler = new MainWindowHandler();
+            DataContext = winHandler;
             InitializeComponent();
         }
     }
