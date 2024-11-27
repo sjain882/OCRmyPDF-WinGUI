@@ -107,13 +107,68 @@
         <!--  Second row of options  -->
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
+                <ColumnDefinition Width="225" />
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" />
+            <!--  Optimisation level  -->
+            <StackPanel Grid.Column="0">
+                <Label
+                    Margin="5,4,4,0"
+                    Padding="0,4"
+                    HorizontalAlignment="Center"
+                    Content="Optimisation level:" />
+
+                <ComboBox
+                    Height="30"
+                    Margin="15,0,15,0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="Default (recommended)" />
+                    <ComboBoxItem Content="Lossless" />
+                    <ComboBoxItem Content="Lossy" />
+                    <ComboBoxItem Content="Aggressive Lossy" />
+                    <ComboBoxItem Content="Disabled (not recommended)" />
+                </ComboBox>
+            </StackPanel>
+
+
+            <!--  Custom output suffix  -->
+            <StackPanel Grid.Column="1">
+                <Label
+                    Margin="5,4,4,0"
+                    Padding="0,4"
+                    HorizontalAlignment="Center"
+                    Content="Output suffix:" />
+
+                <TextBox
+                    Height="30"
+                    Margin="15,0,15,0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    TextWrapping="NoWrap" />
+            </StackPanel>
+
+
+            <!--  Deskew & Rotate  -->
+            <StackPanel
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+                <!--  Deskew  -->
+                <CheckBox Margin="4,4,4,4">
+                    Deskew
+                </CheckBox>
+
+                <!--  Rotate  -->
+                <CheckBox Margin="4,4,4,4">
+                    Rotate
+                </CheckBox>
+            </StackPanel>
         </Grid>
+
 
         <!--  Start button  -->
         <Button
@@ -123,7 +178,6 @@
             VerticalAlignment="Center"
             Content="Start!"
             FontSize="14" />
-
 
     </Grid>
 
