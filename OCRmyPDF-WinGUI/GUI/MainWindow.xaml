@@ -51,6 +51,10 @@
             FontSize="13" />
 
 
+        <!--  Input File list  -->
+        <ListView Grid.Row="1" />
+
+
         <!--  "Options:" label  -->
         <Label
             Grid.Row="2"
