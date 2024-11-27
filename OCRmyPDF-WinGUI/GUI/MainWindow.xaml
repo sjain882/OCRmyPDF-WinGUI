@@ -17,26 +17,44 @@
         <!--  Rows  -->
         <Grid.RowDefinitions>
             <!--  "Selected files:" label  -->
-            <RowDefinition />
+            <RowDefinition Height="30" />
 
             <!--  File list  -->
             <RowDefinition />
 
             <!--  "Options:" label  -->
-            <RowDefinition />
+            <RowDefinition Height="30" />
 
             <!--  First row of options  -->
-            <RowDefinition />
+            <RowDefinition Height="75" />
 
             <!--  Second row of options  -->
-            <RowDefinition />
+            <RowDefinition Height="75" />
 
             <!--  Start button  -->
-            <RowDefinition />
+            <RowDefinition Height="45" />
 
             <!--  Console output  -->
             <RowDefinition />
         </Grid.RowDefinitions>
+
+
+        <!--  "Selected files:" label  -->
+        <Label
+            Grid.Row="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Selected files:"
+            FontSize="13" />
+
+
+        <!--  "Options:" label  -->
+        <Label
+            Grid.Row="2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Options:"
+            FontSize="13" />
 
 
         <!--  First row of options  -->
@@ -64,12 +82,7 @@
             <StackPanel Grid.Column="0" />
         </Grid>
 
-        <Label
-            Grid.Row="0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Selected files:"
-            FontSize="14" />
+
 
     </Grid>
 
