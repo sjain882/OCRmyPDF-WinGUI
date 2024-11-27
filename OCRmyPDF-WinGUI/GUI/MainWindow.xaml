@@ -34,6 +34,9 @@
             <!--  Start button  -->
             <RowDefinition Height="45" />
 
+            <!--  "Status:" label (console output)  -->
+            <RowDefinition Height="30" />
+
             <!--  Console output  -->
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -174,6 +177,17 @@
             VerticalAlignment="Center"
             Content="Start!"
             FontSize="14" />
+
+
+        <!--  "Status:" label (console output)  -->
+        <Label
+            Grid.Row="6"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Status:"
+            FontSize="13" />
+
+        <TextBlock Grid.Row="7" />
 
     </Grid>
 
