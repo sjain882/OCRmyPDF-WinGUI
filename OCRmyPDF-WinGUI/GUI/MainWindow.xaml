@@ -26,13 +26,13 @@
             <RowDefinition Height="30" />
 
             <!--  First row of options  -->
-            <RowDefinition Height="75" />
+            <RowDefinition Height="60" />
 
             <!--  Second row of options  -->
-            <RowDefinition Height="75" />
+            <RowDefinition Height="60" />
 
             <!--  Start button  -->
-            <RowDefinition Height="40" />
+            <RowDefinition Height="45" />
 
             <!--  Console output  -->
             <RowDefinition />
@@ -67,7 +67,6 @@
             <!--  Processing policy  -->
             <StackPanel Grid.Column="0">
                 <Label
-                    Margin="5,4,4,0"
                     Padding="0,4"
                     HorizontalAlignment="Center"
                     Content="Processing Policy:" />
@@ -87,7 +86,6 @@
             <!--  PDF Type  -->
             <StackPanel Grid.Column="1">
                 <Label
-                    Margin="5,4,4,0"
                     Padding="0,4"
                     HorizontalAlignment="Center"
                     Content="PDF Type:" />
@@ -115,7 +113,6 @@
             <!--  Optimisation level  -->
             <StackPanel Grid.Column="0">
                 <Label
-                    Margin="5,4,4,0"
                     Padding="0,4"
                     HorizontalAlignment="Center"
                     Content="Optimisation level:" />
@@ -137,7 +134,6 @@
             <!--  Custom output suffix  -->
             <StackPanel Grid.Column="1">
                 <Label
-                    Margin="5,4,4,0"
                     Padding="0,4"
                     HorizontalAlignment="Center"
                     Content="Output suffix:" />
@@ -158,12 +154,12 @@
                 VerticalAlignment="Center">
 
                 <!--  Deskew  -->
-                <CheckBox Margin="4,4,4,4">
+                <CheckBox Margin="3,3,3,3">
                     Deskew
                 </CheckBox>
 
                 <!--  Rotate  -->
-                <CheckBox Margin="4,4,4,4">
+                <CheckBox Margin="3,3,3,3">
                     Rotate
                 </CheckBox>
             </StackPanel>
