@@ -15,7 +15,7 @@ namespace OcrMyPdf.Logic
 
         public OCRConfig ocrConfig;
 
-        public List<string> inputFilePaths;
+        public List<string> inputFilePaths { get; set; }
 
         public MainWindowHandler()
         {

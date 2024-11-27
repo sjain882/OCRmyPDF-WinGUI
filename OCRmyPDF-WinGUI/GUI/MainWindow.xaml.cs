@@ -1,4 +1,5 @@
-﻿using OcrMyPdf.Logic;
+﻿using Microsoft.Win32;
+using OcrMyPdf.Logic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,11 +18,26 @@ namespace OcrMyPdf.Gui
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        MainWindowHandler winHandler;
+
         public MainWindow()
         {
-            MainWindowHandler winHandler = new MainWindowHandler();
+            winHandler = new MainWindowHandler();
             DataContext = winHandler;
             InitializeComponent();
+        }
+
+        private void SelectFiles_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.Title = "Select PDF Files";
+            fileDialog.DefaultExt = "pdf";
+            fileDialog.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+            fileDialog.Multiselect = true;
+            fileDialog.CheckFileExists = true;
+            fileDialog.CheckPathExists = true;
+            winHandler.inputFilePaths.AddRange(fileDialog.FileNames);
         }
     }
 }

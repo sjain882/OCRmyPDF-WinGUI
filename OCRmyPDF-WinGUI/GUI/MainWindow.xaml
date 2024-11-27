@@ -60,10 +60,12 @@
 
             <!--  Select files from OpenFileDialog  -->
             <Button
+                Name="SelectFiles"
                 Grid.Column="1"
                 Padding="15,2"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
+                Click="SelectFiles_Click"
                 Content="Select Files..."
                 FontSize="13" />
 
