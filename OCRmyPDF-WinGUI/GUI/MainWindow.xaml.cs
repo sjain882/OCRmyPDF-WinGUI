@@ -37,7 +37,13 @@ namespace OcrMyPdf.Gui
             fileDialog.Multiselect = true;
             fileDialog.CheckFileExists = true;
             fileDialog.CheckPathExists = true;
-            winHandler.inputFilePaths.AddRange(fileDialog.FileNames);
+
+            bool? fileDialogSuccess = fileDialog.ShowDialog();
+
+            if (fileDialogSuccess == true)
+            {
+                winHandler.inputFilePaths.AddRange(fileDialog.FileNames);
+            }
         }
     }
 }
