@@ -31,15 +31,15 @@ namespace OcrMyPdf.Logic
             Disabled    = 4
         }
 
-        public ProcessingPolicy processingPolicy { get; set; }
+        public ProcessingPolicy processingPolicy { get; set; } = ProcessingPolicy.Default;
 
-        public PDFType pdfType { get; set; }
+        public PDFType pdfType { get; set; } = PDFType.PDF;
 
-        public OptimisationLevel optimisationLevel { get; set; }
+        public OptimisationLevel optimisationLevel { get; set; } = OptimisationLevel.Default;
 
-        public bool rotate { get; set; } = true;       // Make default T in GUI
+        public bool rotate { get; set; } = true;      
 
-        public bool deskew { get; set; } = true;       // Make default T in GUI
+        public bool deskew { get; set; } = true;      
 
         public string outputSuffix { get; set; } = "_Searchable";
 
