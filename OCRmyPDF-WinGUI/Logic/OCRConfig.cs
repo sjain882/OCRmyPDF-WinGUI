@@ -9,6 +9,7 @@ namespace OcrMyPdf.Logic
 
     public class OCRConfig
     {
+
         public enum ProcessingPolicy
         {
             Default     = 0,        // Default in CLI + GUI
