@@ -72,10 +72,12 @@
 
             <!--  Clear selected file list  -->
             <Button
+                Name="ClearFiles"
                 Grid.Column="1"
                 Padding="15,2"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
+                Click="ClearFiles_Click"
                 Content="Clear"
                 FontSize="13" />
 

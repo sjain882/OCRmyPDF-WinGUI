@@ -45,5 +45,10 @@ namespace OcrMyPdf.Gui
                 winHandler.inputFilePaths.AddRange(fileDialog.FileNames);
             }
         }
+
+        private void ClearFiles_Click(object sender, RoutedEventArgs e)
+        {
+            winHandler.inputFilePaths.Clear();
+        }
     }
 }
