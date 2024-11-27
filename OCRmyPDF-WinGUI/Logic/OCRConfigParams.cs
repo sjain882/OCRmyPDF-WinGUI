@@ -24,7 +24,7 @@ namespace OcrMyPdf.Logic
         };
 
         public static string[] OptimisationLevel =
-{
+        {
         "",
         "--optimize 1",
         "--optimize 2",
