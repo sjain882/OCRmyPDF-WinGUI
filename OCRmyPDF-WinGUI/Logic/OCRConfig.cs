@@ -37,9 +37,9 @@ namespace OcrMyPdf.Logic
 
         public OptimisationLevel optimisationLevel { get; set; }
 
-        public bool rotate { get; set; }            // Make default T in GUI
+        public bool rotate { get; set; } = true;       // Make default T in GUI
 
-        public bool deskew { get; set; }            // Make default T in GUI
+        public bool deskew { get; set; } = true;       // Make default T in GUI
 
         public string outputSuffix { get; set; } = "_Searchable";
 
