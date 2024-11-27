@@ -5,18 +5,71 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:OcrMyPdf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="OCRmyPDF - Add text layers to image-only PDFs"
     Width="500"
     Height="600"
+    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <Grid>
+    <!--  Main grid  -->
+    <Grid Margin="5">
 
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="36"
-            Text="Text" />
+        <!--  Rows  -->
+        <Grid.RowDefinitions>
+            <!--  "Selected files:" label  -->
+            <RowDefinition />
+
+            <!--  File list  -->
+            <RowDefinition />
+
+            <!--  "Options:" label  -->
+            <RowDefinition />
+
+            <!--  First row of options  -->
+            <RowDefinition />
+
+            <!--  Second row of options  -->
+            <RowDefinition />
+
+            <!--  Start button  -->
+            <RowDefinition />
+
+            <!--  Console output  -->
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+
+        <!--  First row of options  -->
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" />
+            <StackPanel Grid.Column="1" />
+            <StackPanel Grid.Column="2" />
+        </Grid>
+
+
+        <!--  Second row of options  -->
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" />
+        </Grid>
+
+        <Label
+            Grid.Row="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Selected files:"
+            FontSize="14" />
 
     </Grid>
 
