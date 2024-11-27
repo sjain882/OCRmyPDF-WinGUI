@@ -150,6 +150,7 @@
                     Margin="15,0,15,0"
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
+                    Text="{Binding Suffix, UpdateSourceTrigger=PropertyChanged}"
                     TextWrapping="NoWrap" />
             </StackPanel>
 
@@ -161,7 +162,7 @@
                 VerticalAlignment="Center">
 
                 <!--  Deskew  -->
-                <CheckBox Margin="3,3,3,3">
+                <CheckBox Margin="3,3,3,3" IsChecked="{Binding Deskew}">
                     Deskew
                 </CheckBox>
 
