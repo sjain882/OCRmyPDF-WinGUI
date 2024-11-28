@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using OcrMyPdf.GUI.ViewModel;
 using OcrMyPdf.Logic;
 using System.Text;
 using System.Windows;
@@ -11,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OcrMyPdf.Gui
+namespace OcrMyPdf.Gui.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -19,12 +20,12 @@ namespace OcrMyPdf.Gui
     public partial class MainWindow : Window
     {
 
-        MainWindowHandler winHandler;
+        MainWindowViewModel winHandler;
 
         // InitializeComponent() must be called last!
         public MainWindow()
         {
-            winHandler = new MainWindowHandler();
+            winHandler = new MainWindowViewModel();
             DataContext = winHandler;
             InitializeComponent();
         }

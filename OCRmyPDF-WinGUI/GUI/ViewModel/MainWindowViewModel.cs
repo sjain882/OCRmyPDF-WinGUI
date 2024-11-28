@@ -7,16 +7,15 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using OcrMyPdf.GUI.MVVM;
 using OcrMyPdf.Logic;
 
-namespace OcrMyPdf.Gui
+namespace OcrMyPdf.GUI.ViewModel
 {
-    internal class MainWindowHandler : INotifyPropertyChanged
+    internal class MainWindowViewModel : ViewModelBase
     {
 
         // Init
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         public OCRConfig ocrConfig;
 
         public List<string> filePaths { get; set; }
@@ -25,18 +24,12 @@ namespace OcrMyPdf.Gui
 
 
         // Constructor
-        public MainWindowHandler()
+        public MainWindowViewModel()
         {
             ocrConfig = new OCRConfig();
             filePaths = new List<string>();
             filePathsList = new ObservableCollection<string>();
-            
-        }
 
-        // Call at end of each property's setter
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
 

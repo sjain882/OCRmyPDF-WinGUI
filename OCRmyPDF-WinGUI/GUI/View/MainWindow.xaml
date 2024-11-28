@@ -1,5 +1,5 @@
 ﻿<Window
-    x:Class="OcrMyPdf.Gui.MainWindow"
+    x:Class="OcrMyPdf.Gui.View.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -50,34 +50,34 @@
             Content="Select or drop files:"
             FontSize="13" />
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
 
             <!--  Select files from OpenFileDialog  -->
             <Button
-            Name="SelectFiles"
-            Grid.Column="1"
-            Padding="15,2"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Center"
-            Click="SelectFiles_Click"
-            Content="Select Files..."
-            FontSize="13" />
+                Name="SelectFiles"
+                Grid.Column="1"
+                Padding="15,2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Click="SelectFiles_Click"
+                Content="Select Files..."
+                FontSize="13" />
 
 
             <!--  Clear selected file list  -->
             <Button
-            Name="ClearFiles"
-            Grid.Column="1"
-            Padding="15,2"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Center"
-            Click="ClearFiles_Click"
-            Content="Clear"
-            FontSize="13" />
+                Name="ClearFiles"
+                Grid.Column="1"
+                Padding="15,2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Click="ClearFiles_Click"
+                Content="Clear"
+                FontSize="13" />
 
         </StackPanel>
 
-        
+
         <!--  Input File list  -->
         <ListBox Name="FilesListBox" Grid.Row="1" />
 
