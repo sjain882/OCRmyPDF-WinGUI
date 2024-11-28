@@ -18,8 +18,6 @@ namespace OcrMyPdf.GUI.ViewModel
         // Init
         public OCRConfig ocrConfig;
 
-        public List<string> filePaths { get; set; }
-
         public ObservableCollection<string> filePathsList;
 
 
@@ -27,13 +25,17 @@ namespace OcrMyPdf.GUI.ViewModel
         public MainWindowViewModel()
         {
             ocrConfig = new OCRConfig();
-            filePaths = new List<string>();
             filePathsList = new ObservableCollection<string>();
 
         }
 
+        // ---------- DATA BINDINGS ----------
 
-        // ---------- DATA BINDINGS (OCRConfig) ----------
+        public ObservableCollection<string> FilePathsList
+        {
+            get { return filePathsList; }
+            set { filePathsList = value; }
+        }
 
         public string Suffix
         {

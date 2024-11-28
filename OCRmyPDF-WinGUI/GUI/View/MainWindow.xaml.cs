@@ -44,13 +44,17 @@ namespace OcrMyPdf.Gui.View
 
             if (fileDialogSuccess == true)
             {
-                winHandler.filePaths.AddRange(fileDialog.FileNames);
+
+                foreach (string path in fileDialog.FileNames)
+                {
+                    winHandler.filePathsList.Add(path);
+                }
             }
         }
 
         private void ClearFiles_Click(object sender, RoutedEventArgs e)
         {
-            winHandler.filePaths.Clear();
+            winHandler.filePathsList.Clear();
         }
     }
 }

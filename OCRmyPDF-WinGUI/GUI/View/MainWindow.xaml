@@ -79,7 +79,10 @@
 
 
         <!--  Input File list  -->
-        <ListBox Name="FilesListBox" Grid.Row="1" />
+        <ListBox
+            x:Name="eventList"
+            Grid.Row="1"
+            ItemsSource="{Binding FilePathsList}" />
 
 
         <!--  "Options:" label  -->
