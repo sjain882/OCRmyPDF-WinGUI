@@ -42,47 +42,42 @@
         </Grid.RowDefinitions>
 
 
-        <!--  File selection labels & buttons  -->
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="170" />
-            </Grid.ColumnDefinitions>
+        <!--  "Selected files:" label  -->
+        <Label
+            Grid.Column="0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Select or drop files:"
+            FontSize="13" />
 
-            <!--  "Selected files:" label  -->
-            <Label
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Select or drop files:"
-                FontSize="13" />
-
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
 
             <!--  Select files from OpenFileDialog  -->
             <Button
-                Name="SelectFiles"
-                Grid.Column="1"
-                Padding="15,2"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Click="SelectFiles_Click"
-                Content="Select Files..."
-                FontSize="13" />
+            Name="SelectFiles"
+            Grid.Column="1"
+            Padding="15,2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Click="SelectFiles_Click"
+            Content="Select Files..."
+            FontSize="13" />
 
 
             <!--  Clear selected file list  -->
             <Button
-                Name="ClearFiles"
-                Grid.Column="1"
-                Padding="15,2"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Click="ClearFiles_Click"
-                Content="Clear"
-                FontSize="13" />
-        </Grid>
+            Name="ClearFiles"
+            Grid.Column="1"
+            Padding="15,2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Click="ClearFiles_Click"
+            Content="Clear"
+            FontSize="13" />
 
+        </StackPanel>
 
+        
         <!--  Input File list  -->
         <ListBox Name="FilesListBox" Grid.Row="1" />
 
