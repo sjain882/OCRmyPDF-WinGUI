@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -11,18 +12,27 @@ namespace OcrMyPdf.Logic
 {
     internal class MainWindowHandler : INotifyPropertyChanged
     {
+
+        // Init
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public OCRConfig ocrConfig;
 
-        public List<string> inputFilePaths { get; set; }
+        public List<string> filePaths { get; set; }
 
+        public ObservableCollection<string> filePathsList;
+
+
+        // Constructor
         public MainWindowHandler()
         {
             ocrConfig = new OCRConfig();
-            inputFilePaths = new List<string>();
+            filePaths = new List<string>();
+            filePathsList = new ObservableCollection<string>();
+            
         }
 
+        // Call at end of each property's setter
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -30,7 +40,6 @@ namespace OcrMyPdf.Logic
 
 
         // ---------- DATA BINDINGS (OCRConfig) ----------
-
 
         public string Suffix
         {

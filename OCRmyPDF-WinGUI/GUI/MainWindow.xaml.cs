@@ -21,6 +21,7 @@ namespace OcrMyPdf.Gui
 
         MainWindowHandler winHandler;
 
+        // InitializeComponent() must be called last!
         public MainWindow()
         {
             winHandler = new MainWindowHandler();
@@ -42,13 +43,13 @@ namespace OcrMyPdf.Gui
 
             if (fileDialogSuccess == true)
             {
-                winHandler.inputFilePaths.AddRange(fileDialog.FileNames);
+                winHandler.filePaths.AddRange(fileDialog.FileNames);
             }
         }
 
         private void ClearFiles_Click(object sender, RoutedEventArgs e)
         {
-            winHandler.inputFilePaths.Clear();
+            winHandler.filePaths.Clear();
         }
     }
 }

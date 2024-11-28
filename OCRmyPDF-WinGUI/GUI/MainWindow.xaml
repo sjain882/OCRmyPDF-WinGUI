@@ -80,15 +80,11 @@
                 Click="ClearFiles_Click"
                 Content="Clear"
                 FontSize="13" />
-
         </Grid>
 
 
-
-
-
         <!--  Input File list  -->
-        <ListView Grid.Row="1" />
+        <ListBox Name="FilesListBox" Grid.Row="1" />
 
 
         <!--  "Options:" label  -->
