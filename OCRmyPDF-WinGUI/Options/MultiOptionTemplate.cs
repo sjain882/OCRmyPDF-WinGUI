@@ -10,7 +10,7 @@ namespace OcrMyPdf.Options
     {
         public string argument { get; set; }
 
-        public string displayName {  get; set; }
+        public string displayName { get; set; }
 
         public string description { get; set; }
 
@@ -19,6 +19,13 @@ namespace OcrMyPdf.Options
             this.argument = argument;
             this.displayName = displayName;
             this.description = displayName + ":" + Environment.NewLine + description;
+        }
+
+        public MultiOptionTemplate(MultiOptionTemplate multiOptionTemplate)
+        {
+            this.argument = multiOptionTemplate.argument;
+            this.displayName = multiOptionTemplate.displayName;
+            this.description = multiOptionTemplate.description;
         }
     }
 }
