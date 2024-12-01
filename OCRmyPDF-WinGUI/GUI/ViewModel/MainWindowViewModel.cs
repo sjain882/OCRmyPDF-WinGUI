@@ -43,14 +43,44 @@ namespace OcrMyPdf.GUI.ViewModel
             get { return Options.ProcessingPolicy.OptionList; }
         }
 
+        public MultiOptionTemplate ProcessingPolicy_Selected
+        {
+            get { return ocrOptions.processingPolicy; }
+            set
+            { 
+                ocrOptions.processingPolicy = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<MultiOptionTemplate> PDFType
         {
             get { return Options.PDFType.OptionList; }
         }
 
+        public MultiOptionTemplate PDFType_Selected
+        {
+            get { return ocrOptions.pdfType; }
+            set
+            {
+                ocrOptions.pdfType = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<MultiOptionTemplate> OptimisationLevel
         {
             get { return Options.OptimisationLevel.OptionList; }
+        }
+
+        public MultiOptionTemplate OptimisationLevel_Selected
+        {
+            get { return ocrOptions.optimisationLevel; }
+            set
+            {
+                ocrOptions.optimisationLevel = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Suffix

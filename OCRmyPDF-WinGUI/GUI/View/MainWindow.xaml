@@ -114,7 +114,8 @@
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="displayName"
-                    ItemsSource="{Binding ProcessingPolicy}" />
+                    ItemsSource="{Binding ProcessingPolicy}"
+                    SelectedItem="{Binding ProcessingPolicy_Selected}" />
             </StackPanel>
 
 
@@ -131,7 +132,8 @@
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="displayName"
-                    ItemsSource="{Binding PDFType}" />
+                    ItemsSource="{Binding PDFType}"
+                    SelectedItem="{Binding PDFType_Selected}" />
             </StackPanel>
         </Grid>
 
@@ -157,7 +159,8 @@
                     HorizontalContentAlignment="Center"
                     VerticalContentAlignment="Center"
                     DisplayMemberPath="displayName"
-                    ItemsSource="{Binding OptimisationLevel}" />
+                    ItemsSource="{Binding OptimisationLevel}"
+                    SelectedItem="{Binding OptimisationLevel_Selected}" />
             </StackPanel>
 
 
