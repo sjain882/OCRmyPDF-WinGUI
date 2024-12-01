@@ -42,22 +42,31 @@
         </Grid.RowDefinitions>
 
 
-        <!--  "Selected files:" label  -->
-        <Label
-            Grid.Column="0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Select or drop files:"
-            FontSize="13" />
+        <!--  File selection labels & buttons  -->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*" />
+                <ColumnDefinition Width="17*" />
+                <ColumnDefinition Width="18*" />
+            </Grid.ColumnDefinitions>
 
 
-        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <!--  "Selected files:" label  -->
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Select or drop files:"
+                FontSize="13" />
+
 
             <!--  Warning when non-PDF files dropped on File List  -->
             <Label
                 x:Name="PDFOnlyWarningLbl"
-                Margin="0,0,27,0"
-                HorizontalAlignment="Left"
+                Grid.Row="0"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
@@ -67,30 +76,36 @@
                 Visibility="Collapsed" />
 
 
-            <!--  Select files from OpenFileDialog  -->
-            <Button
-                Name="SelectFilesBtn"
-                Grid.Column="1"
-                Padding="15,2"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                Click="SelectFilesBtn_Click"
-                Content="Select Files..."
-                FontSize="13" />
-
-
-            <!--  Clear selected file list  -->
-            <Button
-                Name="ClearFilesBtn"
-                Grid.Column="1"
-                Padding="15,2"
+            <!--  FileList management buttons  -->
+            <StackPanel
+                Grid.Column="2"
                 HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                Click="ClearFilesBtn_Click"
-                Content="Clear"
-                FontSize="13" />
+                Orientation="Horizontal">
 
-        </StackPanel>
+
+                <!--  Select files from OpenFileDialog  -->
+                <Button
+                    Name="SelectFilesBtn"
+                    Padding="15,2"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Click="SelectFilesBtn_Click"
+                    Content="Select Files..."
+                    FontSize="13" />
+
+
+                <!--  Clear selected file list  -->
+                <Button
+                    Name="ClearFilesBtn"
+                    Padding="15,2"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Click="ClearFilesBtn_Click"
+                    Content="Clear"
+                    FontSize="13" />
+
+            </StackPanel>
+        </Grid>
 
 
         <!--  Input File list  -->
