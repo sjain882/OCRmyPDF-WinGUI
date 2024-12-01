@@ -57,7 +57,7 @@ namespace OcrMyPdf.Gui.View
             winHandler.filePathsList.Clear();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

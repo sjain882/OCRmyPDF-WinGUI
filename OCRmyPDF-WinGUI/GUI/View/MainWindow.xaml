@@ -207,7 +207,7 @@
             Padding="20,4"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Click="Button_Click"
+            Click="StartBtn_Click"
             Content="Start!"
             FontSize="14" />
 
