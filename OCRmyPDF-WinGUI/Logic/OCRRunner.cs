@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OcrMyPdf.Options;
 
 namespace OcrMyPdf.Logic
 {
@@ -22,9 +23,9 @@ namespace OcrMyPdf.Logic
 
             argsBuilder.AppendWithSeparator(argsSprtr, optionSet.optimisationLevel.argument);
 
-            if (optionSet.rotate) argsBuilder.AppendWithSeparator(argsSprtr, OCRSimpleOptionParams.rotate);
+            if (optionSet.rotate) argsBuilder.AppendWithSeparator(argsSprtr, SimpleOptionParams.rotate);
 
-            if (optionSet.deskew) argsBuilder.AppendWithSeparator(argsSprtr, OCRSimpleOptionParams.deskew);
+            if (optionSet.deskew) argsBuilder.AppendWithSeparator(argsSprtr, SimpleOptionParams.deskew);
 
             string args = argsBuilder.ToString();
 

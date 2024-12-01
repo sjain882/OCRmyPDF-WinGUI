@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcrMyPdf.Logic
+namespace OcrMyPdf.Options
 {
-    public static class OCRSimpleOptionParams
+    public static class SimpleOptionParams
     {
         public static string rotate = "--rotate";
 
