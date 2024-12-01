@@ -19,7 +19,7 @@ namespace OcrMyPdf.Logic
 
         public bool rotate { get; set; } = true;
 
-        public bool deskew { get; set; } = true;
+        public bool deskew { get; set; } = false;
 
     }
 }
