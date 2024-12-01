@@ -129,10 +129,9 @@
                     Height="30"
                     Margin="15,0,15,0"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center">
-                    <ComboBoxItem Content="PDF" />
-                    <ComboBoxItem Content="PDF/A" />
-                </ComboBox>
+                    VerticalContentAlignment="Center"
+                    DisplayMemberPath="displayName"
+                    ItemsSource="{Binding PDFType}" />
             </StackPanel>
         </Grid>
 

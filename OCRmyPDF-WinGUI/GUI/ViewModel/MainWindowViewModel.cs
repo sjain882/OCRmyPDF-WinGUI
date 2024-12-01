@@ -44,6 +44,12 @@ namespace OcrMyPdf.GUI.ViewModel
             set { Options.ProcessingPolicy.OptionList = value; }
         }
 
+        public ObservableCollection<MultiOptionTemplate> PDFType
+        {
+            get { return Options.PDFType.OptionList; }
+            set { Options.PDFType.OptionList = value; }
+        }
+
         public string Suffix
         {
             get { return ocrOptions.outputSuffix; }
