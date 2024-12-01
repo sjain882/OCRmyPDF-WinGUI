@@ -83,6 +83,8 @@
             x:Name="fileList"
             Grid.Row="1"
             AllowDrop="true"
+            DragEnter="FileList_DragOver"
+            DragOver="FileList_DragOver"
             Drop="FileList_Drop"
             ItemsSource="{Binding FilePathsList}" />
 

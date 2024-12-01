@@ -62,6 +62,7 @@ namespace OcrMyPdf.Gui.View
             OCRRunner.RunOCR(winHandler.filePathsList.ToArray(), winHandler.ocrOptions);
         }
 
+        // Drag & drop onto files box
         private void FileList_Drop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -76,6 +77,37 @@ namespace OcrMyPdf.Gui.View
                         winHandler.filePathsList.Add(file);
                     }
                 }
+            }
+        }
+
+        // As the dragged files enter the ListBox area, make sure they're PDF files
+        // If not, prevent drag & drop
+        private void FileList_DragOver(object sender, DragEventArgs e)
+        {
+            bool dropEnabled = true;
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                foreach (string file in files)
+                {
+                    if (System.IO.Path.GetExtension(file).ToUpperInvariant() != ".PDF")
+                    {
+                        dropEnabled = false;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                dropEnabled = false;
+            }
+
+            if (!dropEnabled)
+            {
+                e.Effects = DragDropEffects.None;
+                e.Handled = true;
             }
         }
     }
