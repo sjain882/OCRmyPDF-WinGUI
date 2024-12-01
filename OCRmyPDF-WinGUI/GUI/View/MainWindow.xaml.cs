@@ -30,7 +30,7 @@ namespace OcrMyPdf.Gui.View
             InitializeComponent();
         }
 
-        private void SelectFiles_Click(object sender, RoutedEventArgs e)
+        private void SelectFilesBtn_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Title = "Select PDF Files";
@@ -52,9 +52,14 @@ namespace OcrMyPdf.Gui.View
             }
         }
 
-        private void ClearFiles_Click(object sender, RoutedEventArgs e)
+        private void ClearFilesBtn_Click(object sender, RoutedEventArgs e)
         {
             winHandler.filePathsList.Clear();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

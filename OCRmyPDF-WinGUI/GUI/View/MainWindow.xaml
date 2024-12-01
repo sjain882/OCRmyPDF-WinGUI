@@ -54,7 +54,7 @@
 
             <!--  Select files from OpenFileDialog  -->
             <Button
-                Name="SelectFiles"
+                Name="SelectFilesBtn"
                 Grid.Column="1"
                 Padding="15,2"
                 HorizontalAlignment="Left"
@@ -66,7 +66,7 @@
 
             <!--  Clear selected file list  -->
             <Button
-                Name="ClearFiles"
+                Name="ClearFilesBtn"
                 Grid.Column="1"
                 Padding="15,2"
                 HorizontalAlignment="Right"
@@ -202,10 +202,12 @@
 
         <!--  Start button  -->
         <Button
+            Name="StartBtn"
             Grid.Row="5"
             Padding="20,4"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
+            Click="Button_Click"
             Content="Start!"
             FontSize="14" />
 
