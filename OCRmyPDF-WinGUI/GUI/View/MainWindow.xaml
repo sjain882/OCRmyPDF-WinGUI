@@ -80,8 +80,10 @@
 
         <!--  Input File list  -->
         <ListBox
-            x:Name="eventList"
+            x:Name="fileList"
             Grid.Row="1"
+            AllowDrop="true"
+            Drop="FileList_Drop"
             ItemsSource="{Binding FilePathsList}" />
 
 

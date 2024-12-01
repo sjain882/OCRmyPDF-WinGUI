@@ -61,5 +61,22 @@ namespace OcrMyPdf.Gui.View
         {
             OCRRunner.RunOCR(winHandler.filePathsList.ToArray(), winHandler.ocrOptions);
         }
+
+        private void FileList_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+                foreach (string file in files)
+                {
+                    // Prevent duplicates from being dropped
+                    if (!winHandler.filePathsList.Contains(file))
+                    {
+                        winHandler.filePathsList.Add(file);
+                    }
+                }
+            }
+        }
     }
 }
