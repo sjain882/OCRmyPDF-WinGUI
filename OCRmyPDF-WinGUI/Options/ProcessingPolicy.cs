@@ -20,13 +20,13 @@ namespace OcrMyPdf.Options
             new MultiOptionTemplate(
                 "RedoOCR",
                 "--redo-ocr",
-                "Redo: Analyse &amp; redo text where applicable",
+                "Redo: Analyse & redo text where applicable",
                 ""),
 
             new MultiOptionTemplate(
                 "ForceOCR",
                 "--force-ocr",
-                "Force: Wipe &amp; redo all text from scratch",
+                "Force: Wipe & redo all text from scratch",
                 "")
         };
     }
