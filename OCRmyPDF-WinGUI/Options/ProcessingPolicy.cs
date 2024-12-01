@@ -9,7 +9,7 @@ namespace OcrMyPdf.Options
 {
     public static class ProcessingPolicy
     {
-        public static readonly ObservableCollection<MultiOptionTemplate> OptionList = new ObservableCollection<MultiOptionTemplate>
+        public static ObservableCollection<MultiOptionTemplate> OptionList = new ObservableCollection<MultiOptionTemplate>
         {
             new MultiOptionTemplate(
                 "Default",

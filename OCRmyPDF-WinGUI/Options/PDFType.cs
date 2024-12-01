@@ -9,7 +9,7 @@ namespace OcrMyPdf.Options
 {
     public static class PDFType
     {
-        public static readonly ObservableCollection<MultiOptionTemplate> OptionList = new ObservableCollection<MultiOptionTemplate>
+        public static ObservableCollection<MultiOptionTemplate> OptionList = new ObservableCollection<MultiOptionTemplate>
         {
             new MultiOptionTemplate(
                 "PDF",
