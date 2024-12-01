@@ -8,19 +8,22 @@ namespace OcrMyPdf.Options
 {
     public static class ProcessingPolicy
     {
-        public static readonly MultiOptionTemplate Default = new MultiOptionTemplate(
-            "",
-            "Default: Stop if text already present",
-            "");
+        public static readonly List<MultiOptionTemplate> optionList = new List<MultiOptionTemplate>
+        {
+            new MultiOptionTemplate(
+                "",
+                "Default: Stop if text already present",
+                ""),
 
-        public static readonly MultiOptionTemplate RedoOCR = new MultiOptionTemplate(
-            "--redo-ocr",
-            "Redo: Analyse &amp; redo text where applicable",
-            "");
+            new MultiOptionTemplate(
+                "--redo-ocr",
+                "Redo: Analyse &amp; redo text where applicable",
+                ""),
 
-        public static readonly MultiOptionTemplate ForceOCR = new MultiOptionTemplate(
-            "--force-ocr",
-            "Force: Wipe &amp; redo all text from scratch",
-            "");
+            new MultiOptionTemplate(
+                "--force-ocr",
+                "Force: Wipe &amp; redo all text from scratch",
+                "")
+        };
     }
 }
