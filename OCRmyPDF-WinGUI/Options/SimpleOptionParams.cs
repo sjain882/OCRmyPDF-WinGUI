@@ -8,7 +8,7 @@ namespace OcrMyPdf.Options
 {
     public static class SimpleOptionParams
     {
-        public static string rotate = "--rotate";
+        public static string rotate = "--rotate-pages";
 
         public static string deskew = "--deskew";
     }
