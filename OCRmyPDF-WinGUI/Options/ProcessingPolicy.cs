@@ -11,16 +11,19 @@ namespace OcrMyPdf.Options
         public static readonly List<MultiOptionTemplate> optionList = new List<MultiOptionTemplate>
         {
             new MultiOptionTemplate(
+                "Default",
                 "",
                 "Default: Stop if text already present",
                 ""),
 
             new MultiOptionTemplate(
+                "RedoOCR",
                 "--redo-ocr",
                 "Redo: Analyse &amp; redo text where applicable",
                 ""),
 
             new MultiOptionTemplate(
+                "ForceOCR",
                 "--force-ocr",
                 "Force: Wipe &amp; redo all text from scratch",
                 "")
