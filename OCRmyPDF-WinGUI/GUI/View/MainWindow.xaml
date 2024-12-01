@@ -112,11 +112,9 @@
                     Height="30"
                     Margin="15,0,15,0"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center">
-                    <ComboBoxItem Content="Default: Stop if text already present" />
-                    <ComboBoxItem Content="Redo: Analyse &amp; redo text where applicable" />
-                    <ComboBoxItem Content="Force: Wipe &amp; redo all text from scratch" />
-                </ComboBox>
+                    VerticalContentAlignment="Center"
+                    DisplayMemberPath="displayName"
+                    ItemsSource="{Binding ProcessingPolicy}" />
             </StackPanel>
 
 

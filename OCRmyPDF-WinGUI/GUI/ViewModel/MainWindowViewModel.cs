@@ -38,6 +38,12 @@ namespace OcrMyPdf.GUI.ViewModel
             set { filePathsList = value; }
         }
 
+        public ObservableCollection<MultiOptionTemplate> ProcessingPolicy
+        {
+            get { return Options.ProcessingPolicy.OptionList; }
+            set { Options.ProcessingPolicy.OptionList = value; }
+        }
+
         public string Suffix
         {
             get { return ocrOptions.outputSuffix; }
