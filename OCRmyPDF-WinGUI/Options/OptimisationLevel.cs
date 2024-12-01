@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace OcrMyPdf.Options
 {
     public static class OptimisationLevel
     {
-        public static readonly List<MultiOptionTemplate> OptionList = new List<MultiOptionTemplate>
+        public static readonly ObservableCollection<MultiOptionTemplate> OptionList = new ObservableCollection<MultiOptionTemplate>
         {
             new MultiOptionTemplate(
                 "Default",
