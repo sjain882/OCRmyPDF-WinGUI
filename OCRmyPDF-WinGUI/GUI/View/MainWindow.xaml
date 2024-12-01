@@ -59,7 +59,7 @@
                 Padding="15,2"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
-                Click="SelectFiles_Click"
+                Click="SelectFilesBtn_Click"
                 Content="Select Files..."
                 FontSize="13" />
 
@@ -71,7 +71,7 @@
                 Padding="15,2"
                 HorizontalAlignment="Right"
                 VerticalAlignment="Center"
-                Click="ClearFiles_Click"
+                Click="ClearFilesBtn_Click"
                 Content="Clear"
                 FontSize="13" />
 
