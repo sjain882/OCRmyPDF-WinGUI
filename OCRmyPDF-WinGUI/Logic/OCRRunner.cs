@@ -9,20 +9,22 @@ namespace OcrMyPdf.Logic
     public static class OCRRunner
     {
 
-        public static void RunOCR(string[] filePaths, OCRConfig config)
+        public static char argsSprtr = ' ';
+
+        public static void RunOCR(string[] filePaths, OCROptionSet optionSet)
         {
 
             StringBuilder argsBuilder = new StringBuilder();
 
-            argsBuilder.AppendWithSeparator(OCRParams.argsSprtr, OCRParams.ProcessingPolicy[(int) config.processingPolicy]);
+            argsBuilder.AppendWithSeparator(argsSprtr, optionSet.processingPolicy.argument);
 
-            argsBuilder.AppendWithSeparator(OCRParams.argsSprtr, OCRParams.PDFType[(int) config.pdfType]);
+            argsBuilder.AppendWithSeparator(argsSprtr, optionSet.pdfType.argument);
 
-            argsBuilder.AppendWithSeparator(OCRParams.argsSprtr, OCRParams.OptimisationLevel[(int) config.optimisationLevel]);
+            argsBuilder.AppendWithSeparator(argsSprtr, optionSet.optimisationLevel.argument);
 
-            if (config.rotate) argsBuilder.AppendWithSeparator(OCRParams.argsSprtr, OCRParams.rotate);
+            if (optionSet.rotate) argsBuilder.AppendWithSeparator(argsSprtr, OCRSimpleOptionParams.rotate);
 
-            if (config.deskew) argsBuilder.AppendWithSeparator(OCRParams.argsSprtr, OCRParams.deskew);
+            if (optionSet.deskew) argsBuilder.AppendWithSeparator(argsSprtr, OCRSimpleOptionParams.deskew);
 
             string args = argsBuilder.ToString();
 
@@ -32,13 +34,13 @@ namespace OcrMyPdf.Logic
 
                 StringBuilder cmdBuilder = new StringBuilder();
 
-                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, "/C ocrmypdf");
+                cmdBuilder.AppendWithSeparator(argsSprtr, "/C ocrmypdf");
 
-                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, args);
+                cmdBuilder.AppendWithSeparator(argsSprtr, args);
 
-                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, "\"" + path + "\"");
+                cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + path + "\"");
 
-                cmdBuilder.AppendWithSeparator(OCRParams.argsSprtr, "\"" + Utilities.AddSuffix(path, config.outputSuffix) + "\"");
+                cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + Utilities.AddSuffix(path, optionSet.outputSuffix) + "\"");
 
                 System.Diagnostics.Process process = System.Diagnostics.Process.Start(@"cmd.exe", cmdBuilder.ToString());
 
