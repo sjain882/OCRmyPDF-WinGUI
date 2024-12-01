@@ -8,7 +8,7 @@ namespace OcrMyPdf.Options
 {
     public static class PDFType
     {
-        public static readonly List<MultiOptionTemplate> optionList = new List<MultiOptionTemplate>
+        public static readonly List<MultiOptionTemplate> OptionList = new List<MultiOptionTemplate>
         {
             new MultiOptionTemplate(
                 "PDF",
