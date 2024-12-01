@@ -19,6 +19,6 @@ namespace OcrMyPdf.Options
                 "--output-type pdfa",
                 "PDFA",
                 "")
-        }
+        };
     }
 }
