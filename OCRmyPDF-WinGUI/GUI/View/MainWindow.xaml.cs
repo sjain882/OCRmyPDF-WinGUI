@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace OcrMyPdf.Gui.View
 {
@@ -22,12 +23,19 @@ namespace OcrMyPdf.Gui.View
 
         MainWindowViewModel winHandler;
 
+        private DispatcherTimer dispatcherTimer;
+
         // InitializeComponent() must be called last!
         public MainWindow()
         {
             winHandler = new MainWindowViewModel();
             DataContext = winHandler;
             InitializeComponent();
+
+            //Create a timer with interval of 4 seconds
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 4);
         }
 
         private void SelectFilesBtn_Click(object sender, RoutedEventArgs e)
@@ -95,6 +103,8 @@ namespace OcrMyPdf.Gui.View
                     if (System.IO.Path.GetExtension(file).ToUpperInvariant() != ".PDF")
                     {
                         dropEnabled = false;
+                        PDFOnlyWarningLbl.Visibility = System.Windows.Visibility.Visible;
+                        dispatcherTimer.Start();
                         break;
                     }
                 }
@@ -109,6 +119,16 @@ namespace OcrMyPdf.Gui.View
                 e.Effects = DragDropEffects.None;
                 e.Handled = true;
             }
+        }
+
+        // 5 second auto-dismiss for non-PDF file drag & drop warning label
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            // After 1 timer interval...
+            PDFOnlyWarningLbl.Visibility = System.Windows.Visibility.Collapsed;
+
+            // Stop timer
+            dispatcherTimer.IsEnabled = false;
         }
     }
 }
