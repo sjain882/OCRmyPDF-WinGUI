@@ -50,6 +50,12 @@ namespace OcrMyPdf.GUI.ViewModel
             set { Options.PDFType.OptionList = value; }
         }
 
+        public ObservableCollection<MultiOptionTemplate> OptimisationLevel
+        {
+            get { return Options.OptimisationLevel.OptionList; }
+            set { Options.OptimisationLevel.OptionList = value; }
+        }
+
         public string Suffix
         {
             get { return ocrOptions.outputSuffix; }

@@ -155,13 +155,9 @@
                     Height="30"
                     Margin="15,0,15,0"
                     HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center">
-                    <ComboBoxItem Content="Default (recommended)" />
-                    <ComboBoxItem Content="Lossless" />
-                    <ComboBoxItem Content="Lossy" />
-                    <ComboBoxItem Content="Aggressive Lossy" />
-                    <ComboBoxItem Content="Disabled (not recommended)" />
-                </ComboBox>
+                    VerticalContentAlignment="Center"
+                    DisplayMemberPath="displayName"
+                    ItemsSource="{Binding OptimisationLevel}" />
             </StackPanel>
 
 
