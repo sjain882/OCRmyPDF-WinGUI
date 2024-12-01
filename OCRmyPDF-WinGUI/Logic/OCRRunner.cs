@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using OcrMyPdf.Options;
 
 namespace OcrMyPdf.Logic
@@ -35,7 +36,7 @@ namespace OcrMyPdf.Logic
 
                 StringBuilder cmdBuilder = new StringBuilder();
 
-                cmdBuilder.AppendWithSeparator(argsSprtr, "/C ocrmypdf");
+                cmdBuilder.AppendWithSeparator(argsSprtr, "/K ocrmypdf");
 
                 cmdBuilder.AppendWithSeparator(argsSprtr, args);
 
@@ -43,12 +44,14 @@ namespace OcrMyPdf.Logic
 
                 cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + Utilities.AddSuffix(path, optionSet.outputSuffix) + "\"");
 
+                // MessageBox.Show(cmdBuilder.ToString());
+
                 System.Diagnostics.Process process = System.Diagnostics.Process.Start(@"cmd.exe", cmdBuilder.ToString());
 
                 process.WaitForExit();
                 int result = process.ExitCode;
 
-            }        
+            }
         }
     }
 }
