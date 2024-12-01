@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using OcrMyPdf.GUI.MVVM;
 using OcrMyPdf.Logic;
+using OcrMyPdf.Options;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -16,7 +17,7 @@ namespace OcrMyPdf.GUI.ViewModel
     {
 
         // Init
-        public OCRConfig ocrConfig;
+        public OCROptionSet ocrOptions;
 
         public ObservableCollection<string> filePathsList;
 
@@ -24,7 +25,7 @@ namespace OcrMyPdf.GUI.ViewModel
         // Constructor
         public MainWindowViewModel()
         {
-            ocrConfig = new OCRConfig();
+            ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
 
         }
@@ -39,30 +40,30 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public string Suffix
         {
-            get { return ocrConfig.outputSuffix; }
+            get { return ocrOptions.outputSuffix; }
             set
             {
-                ocrConfig.outputSuffix = value;
+                ocrOptions.outputSuffix = value;
                 OnPropertyChanged();
             }
         }
 
         public bool Deskew
         {
-            get { return ocrConfig.deskew; }
+            get { return ocrOptions.deskew; }
             set
             {
-                ocrConfig.deskew = value;
+                ocrOptions.deskew = value;
                 OnPropertyChanged();
             }
         }
 
         public bool Rotate
         {
-            get { return ocrConfig.rotate; }
+            get { return ocrOptions.rotate; }
             set
             {
-                ocrConfig.rotate = value;
+                ocrOptions.rotate = value;
                 OnPropertyChanged();
             }
         }
