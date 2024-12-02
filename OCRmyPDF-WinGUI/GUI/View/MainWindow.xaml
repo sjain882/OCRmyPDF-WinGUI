@@ -10,10 +10,7 @@
     Height="600"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-
-    <Window.Resources>
-        <ResourceDictionary Source="../Theme/WPFDefault/aero2.normalcolor.xaml" />
-    </Window.Resources>
+    <!--  Background="#232323"  -->
 
     <!--  Main grid  -->
     <Grid Margin="5">
@@ -280,19 +277,15 @@
 
 
         <!--  Console output  -->
-        <Border
-            Grid.Row="7"
-            BorderBrush="#abadb3"
-            BorderThickness="1">
-            <ScrollViewer>
-                <TextBlock
-                    x:Name="ConsoleOutputBox"
-                    Grid.Row="7"
-                    Text="{Binding ConsoleOutput}"
-                    TextWrapping="Wrap" />
-            </ScrollViewer>
-        </Border>
 
+        <TextBox Grid.Row="7" Panel.ZIndex="-1" />
+        <ScrollViewer Grid.Row="7">
+            <TextBlock
+                x:Name="ConsoleOutputBox"
+                Grid.Row="7"
+                Text="{Binding ConsoleOutput}"
+                TextWrapping="Wrap" />
+        </ScrollViewer>
     </Grid>
 
 
