@@ -246,13 +246,33 @@
             FontSize="14" />
 
 
-        <!--  "Status:" label (console output)  -->
-        <Label
+
+        <!--  Console output labels  -->
+        <StackPanel
             Grid.Row="6"
+            Grid.Column="2"
             HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Status:"
-            FontSize="13" />
+            Orientation="Horizontal">
+
+
+            <!--  "Status:" label (console output)  -->
+            <Label
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Status:"
+                FontSize="13" 
+                Margin="0,0,-5,0"/>
+
+
+            <!--  Current PDF status label (console output)  -->
+            <Label
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="{Binding CurrentPDFLbl}"
+                FontSize="13"
+                FontWeight="Bold" />
+
+        </StackPanel>
 
 
         <!--  Console output  -->

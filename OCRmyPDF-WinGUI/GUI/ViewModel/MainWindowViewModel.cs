@@ -12,6 +12,7 @@ using OcrMyPdf.Logic;
 using OcrMyPdf.Options;
 using System.Diagnostics;
 using System.Windows;
+using System.Configuration;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -25,11 +26,14 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public string consoleOutput;
 
+        public string currentPDFstatus;
+
 
         // Constructor
         public MainWindowViewModel()
         {
             consoleOutput = "";
+            currentPDFstatus = "";
             ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
 
@@ -128,13 +132,26 @@ namespace OcrMyPdf.GUI.ViewModel
             }
         }
 
+        public string CurrentPDFLbl
+        {
+            get { return this.currentPDFstatus; }
+            set
+            {
+                this.currentPDFstatus = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public void RunOCR()
         {
+            // Init
+            int currentPDF = 1;
+            int totalPDFs = filePathsList.Count;
             char argsSprtr = ' ';
-
             StringBuilder argsBuilder = new StringBuilder();
 
+            // Compile arguments
             argsBuilder.AppendWithSeparator(argsSprtr, ocrOptions.processingPolicy.argument);
 
             argsBuilder.AppendWithSeparator(argsSprtr, ocrOptions.pdfType.argument);
@@ -150,6 +167,7 @@ namespace OcrMyPdf.GUI.ViewModel
             // Process each file
             foreach (string path in filePathsList)
             {
+                CurrentPDFLbl = $"Processing PDF {currentPDF} of {totalPDFs}";
 
                 StringBuilder cmdBuilder = new StringBuilder();
 
@@ -203,7 +221,7 @@ namespace OcrMyPdf.GUI.ViewModel
                     process.WaitForExit();
                 }).Start();
 
-
+                currentPDF++;
 
                 //while (!process.StandardError.EndOfStream)
                 //{
@@ -212,6 +230,9 @@ namespace OcrMyPdf.GUI.ViewModel
                 //consoleOutput = "";
 
             }
+
+            CurrentPDFLbl = $"Finished processing {totalPDFs} PDFs";
+
         }
 
 
