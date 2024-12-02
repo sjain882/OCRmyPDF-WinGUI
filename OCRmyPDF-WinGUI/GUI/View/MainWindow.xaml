@@ -135,8 +135,8 @@
         <!--  First row of options  -->
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="350" />
-                <ColumnDefinition />
+                <ColumnDefinition Width="75*" />
+                <ColumnDefinition Width="25*" />
             </Grid.ColumnDefinitions>
 
             <!--  Processing policy  -->
@@ -179,9 +179,9 @@
         <!--  Second row of options  -->
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="225" />
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition Width="60*" />
+                <ColumnDefinition Width="30*" />
+                <ColumnDefinition Width="30*" />
             </Grid.ColumnDefinitions>
 
             <!--  Optimisation level  -->
