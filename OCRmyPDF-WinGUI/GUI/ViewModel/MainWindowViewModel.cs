@@ -10,6 +10,8 @@ using System.Windows.Controls;
 using OcrMyPdf.GUI.MVVM;
 using OcrMyPdf.Logic;
 using OcrMyPdf.Options;
+using System.Diagnostics;
+using System.Windows;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -21,10 +23,13 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public ObservableCollection<string> filePathsList;
 
+        public string consoleOutput;
+
 
         // Constructor
         public MainWindowViewModel()
         {
+            consoleOutput = "";
             ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
 
@@ -113,12 +118,15 @@ namespace OcrMyPdf.GUI.ViewModel
             }
         }
 
-
-
-
-
+        public string ConsoleOutput
+        {
+            get { return this.consoleOutput; }
+            set
+            {
+                this.consoleOutput = value;
+                OnPropertyChanged();
+            }
+        }
 
     }
-
-
 }

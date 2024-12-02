@@ -260,7 +260,11 @@
             Grid.Row="7"
             BorderBrush="#abadb3"
             BorderThickness="1">
-            <TextBlock Grid.Row="7" />
+            <TextBlock
+                x:Name="ConsoleOutputBox"
+                Grid.Row="7"
+                Text="{Binding ConsoleOutput}"
+                TextWrapping="Wrap" />
         </Border>
 
     </Grid>

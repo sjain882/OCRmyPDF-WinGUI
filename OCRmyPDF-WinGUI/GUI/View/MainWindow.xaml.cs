@@ -67,7 +67,8 @@ namespace OcrMyPdf.Gui.View
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
-            OCRRunner.RunOCR(winHandler.filePathsList.ToArray(), winHandler.ocrOptions);
+            //OCRRunner.RunOCR(winHandler.filePathsList.ToArray(), winHandler.ocrOptions);
+            winHandler.RunOCR();
         }
 
         // Drag & drop onto files box
