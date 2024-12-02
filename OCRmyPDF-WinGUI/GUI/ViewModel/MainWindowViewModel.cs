@@ -128,5 +128,104 @@ namespace OcrMyPdf.GUI.ViewModel
             }
         }
 
+
+        public void RunOCR()
+        {
+            char argsSprtr = ' ';
+
+            StringBuilder argsBuilder = new StringBuilder();
+
+            argsBuilder.AppendWithSeparator(argsSprtr, ocrOptions.processingPolicy.argument);
+
+            argsBuilder.AppendWithSeparator(argsSprtr, ocrOptions.pdfType.argument);
+
+            argsBuilder.AppendWithSeparator(argsSprtr, ocrOptions.optimisationLevel.argument);
+
+            if (ocrOptions.rotate) argsBuilder.AppendWithSeparator(argsSprtr, SimpleOptionParams.rotate);
+
+            if (ocrOptions.deskew) argsBuilder.AppendWithSeparator(argsSprtr, SimpleOptionParams.deskew);
+
+            string args = argsBuilder.ToString();
+
+            // Process each file
+            foreach (string path in filePathsList)
+            {
+
+                StringBuilder cmdBuilder = new StringBuilder();
+
+                cmdBuilder.AppendWithSeparator(argsSprtr, "/C ocrmypdf");
+
+                cmdBuilder.AppendWithSeparator(argsSprtr, args);
+
+                cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + path + "\"");
+
+                cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + Utilities.AddSuffix(path, ocrOptions.outputSuffix) + "\"");
+
+                // MessageBox.Show(cmdBuilder.ToString());
+
+                //System.Diagnostics.Process process = System.Diagnostics.Process.Start(@"cmd.exe", cmdBuilder.ToString());
+
+                //process.Start();
+
+                //process.WaitForExit();
+                //int result = process.ExitCode;
+
+                new Thread(() =>
+                {
+                    Thread.CurrentThread.IsBackground = true;
+                    /* run your code here */
+                    Process process = new Process()
+                    {
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = @"cmd.exe",
+                            Arguments = cmdBuilder.ToString(),
+                            UseShellExecute = false,
+                            RedirectStandardError = true,
+                            RedirectStandardOutput = true,
+                            CreateNoWindow = true
+                        }
+                    };
+
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.RedirectStandardError = true;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.CreateNoWindow = true;
+
+                    process.OutputDataReceived += Process_OutputDataReceived;
+                    process.ErrorDataReceived += Process_ErrorDataReceived;
+
+                    process.Start();
+
+                    process.BeginOutputReadLine();
+                    process.BeginErrorReadLine();
+
+                    process.WaitForExit();
+                }).Start();
+
+
+
+                //while (!process.StandardError.EndOfStream)
+                //{
+                //    this.consoleOutput += process.StandardError.ReadLine();
+                //}
+                //consoleOutput = "";
+
+            }
+        }
+
+
+        private void Process_ErrorDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        {
+            /* e.Data will contain string with error message */
+            this.ConsoleOutput += e.Data + Environment.NewLine;
+        }
+
+        private void Process_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
+        {
+            /* e.Data will contain string with output */
+            this.ConsoleOutput += e.Data + Environment.NewLine;
+        }
+
     }
 }

@@ -34,7 +34,7 @@
             <!--  Start button  -->
             <RowDefinition Height="45" />
 
-            <!--  "Status:" label (console output)  -->
+            <!--  Console output labels  -->
             <RowDefinition Height="30" />
 
             <!--  Console output  -->
@@ -267,7 +267,6 @@
                     Text="{Binding ConsoleOutput}"
                     TextWrapping="Wrap" />
             </ScrollViewer>
-
         </Border>
 
     </Grid>
