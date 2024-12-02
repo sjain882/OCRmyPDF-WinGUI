@@ -12,7 +12,7 @@
     mc:Ignorable="d">
 
     <Window.Resources>
-        <ResourceDictionary Source="../Theme/aero2.normalcolor.xaml" />
+        <ResourceDictionary Source="../Theme/WPFDefault/aero2.normalcolor.xaml" />
     </Window.Resources>
 
     <!--  Main grid  -->
