@@ -11,6 +11,10 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <ResourceDictionary Source="../Theme/aero2.normalcolor.xaml" />
+    </Window.Resources>
+
     <!--  Main grid  -->
     <Grid Margin="5">
 
@@ -257,11 +261,11 @@
 
             <!--  "Status:" label (console output)  -->
             <Label
+                Margin="0,0,-5,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Content="Status:"
-                FontSize="13" 
-                Margin="0,0,-5,0"/>
+                FontSize="13" />
 
 
             <!--  Current PDF status label (console output)  -->

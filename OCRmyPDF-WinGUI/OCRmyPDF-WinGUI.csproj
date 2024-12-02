@@ -14,4 +14,8 @@
     <Content Include="Assets\OCRmyPDF-WinGUI.ico" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="GUI\Theme\" />
+  </ItemGroup>
+
 </Project>
