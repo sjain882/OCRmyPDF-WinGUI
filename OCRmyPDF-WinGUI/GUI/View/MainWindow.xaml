@@ -10,7 +10,7 @@
     Height="600"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
-    <!--  Background="#232323"  -->
+    <!--  Background="#292929" for DarkGreyTheme  -->
 
     <!--  Main grid  -->
     <Grid Margin="5">
