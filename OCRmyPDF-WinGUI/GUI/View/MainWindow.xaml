@@ -260,11 +260,14 @@
             Grid.Row="7"
             BorderBrush="#abadb3"
             BorderThickness="1">
-            <TextBlock
-                x:Name="ConsoleOutputBox"
-                Grid.Row="7"
-                Text="{Binding ConsoleOutput}"
-                TextWrapping="Wrap" />
+            <ScrollViewer>
+                <TextBlock
+                    x:Name="ConsoleOutputBox"
+                    Grid.Row="7"
+                    Text="{Binding ConsoleOutput}"
+                    TextWrapping="Wrap" />
+            </ScrollViewer>
+
         </Border>
 
     </Grid>
