@@ -35,7 +35,10 @@ namespace OcrMyPdf.Gui.View
 
             InitializeComponent();
 
-            //Create a timer with interval of 4 seconds
+            // Subscribe to OS theme change event
+            SystemEvents.UserPreferenceChanged += (s, e) => { this.SystemEvents_UserPreferenceChanged(s, e); };
+
+            // Create a timer with interval of 4 seconds
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 4);
@@ -164,6 +167,8 @@ namespace OcrMyPdf.Gui.View
                 // Unfortunately, we can't move Theme functionality to a separate file because of this single line:
                 this.Style = (Style)FindResource("CustomWindowStyle");
 
+                RefreshControls();
+
                 currentAppThemeIsDark = true;
 
             }
@@ -176,8 +181,6 @@ namespace OcrMyPdf.Gui.View
                 this.Style = null;
                 App.Current.Resources.Clear();
                 App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
-
-                MessageBox.Show(App.Current.Resources.Count.ToString());
                 RefreshControls();
 
                 currentAppThemeIsDark = false;
@@ -194,6 +197,11 @@ namespace OcrMyPdf.Gui.View
                 merged.RemoveAt(2);
                 merged.Insert(2, dictionary);
             }
+        }
+
+        public void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            ChangeTheme();
         }
     }
 }
