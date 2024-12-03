@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Collections.ObjectModel;
 
 namespace OcrMyPdf.Gui.View
 {
@@ -20,9 +21,8 @@ namespace OcrMyPdf.Gui.View
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        bool currentAppThemeIsDark;
         MainWindowViewModel winHandler;
-        OSThemeDetector themeDetector;
         private DispatcherTimer dispatcherTimer;
 
         // InitializeComponent() must be called last!
@@ -31,7 +31,6 @@ namespace OcrMyPdf.Gui.View
             winHandler = new MainWindowViewModel();
             DataContext = winHandler;
 
-            themeDetector = new OSThemeDetector();
             this.ChangeTheme();
 
             InitializeComponent();
@@ -142,7 +141,7 @@ namespace OcrMyPdf.Gui.View
         public void ChangeTheme()
         {
             // Dark theme
-            if (themeDetector.osDarkThemeEnabled)
+            if (OSThemeDetector.DetectOSTheme())
             {
                 // Contains all of the colours and brushes for a theme
                 ResourceDictionary DarkThemeColourDict = new ResourceDictionary()
@@ -161,17 +160,39 @@ namespace OcrMyPdf.Gui.View
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeColourDict);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
+
+                // Unfortunately, we can't move Theme functionality to a separate file because of this single line:
                 this.Style = (Style)FindResource("CustomWindowStyle");
+
+                currentAppThemeIsDark = true;
 
             }
             // Light theme
             else
             {
-                // Do nothing, as we are using default WPF Aero2 style for the light theme.
-                // Theme will not be changed during runtime.
+                ResourceDictionary DefaultStyle = new ResourceDictionary()
+                { Source = new Uri("GUI/Theme/WPFDefault/aero2.normalcolor.xaml", UriKind.Relative) };
 
-                // App.Current.Resources.Clear();
-                // this.Style = null;
+                this.Style = null;
+                App.Current.Resources.Clear();
+                App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
+
+                MessageBox.Show(App.Current.Resources.Count.ToString());
+                RefreshControls();
+
+                currentAppThemeIsDark = false;
+            }
+        }
+
+        private void RefreshControls()
+        {
+            if (currentAppThemeIsDark)
+            {
+                // This seems to be faster than reloading the whole file, and it also seems to work
+                Collection<ResourceDictionary> merged = Application.Current.Resources.MergedDictionaries;
+                ResourceDictionary dictionary = merged[2];
+                merged.RemoveAt(2);
+                merged.Insert(2, dictionary);
             }
         }
     }

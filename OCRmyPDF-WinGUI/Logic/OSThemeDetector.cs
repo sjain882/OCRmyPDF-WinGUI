@@ -9,20 +9,9 @@ using Microsoft.Win32;
 
 namespace OcrMyPdf.Logic
 {
-    public class OSThemeDetector
+    public static class OSThemeDetector
     {
-        public bool osDarkThemeEnabled
-        {
-            get { return detectOSTheme(); }
-            set { osDarkThemeEnabled = value; }
-        }
-
-        public OSThemeDetector()
-        {
-            this.osDarkThemeEnabled = detectOSTheme();
-        }
-
-        public bool detectOSTheme()
+        public static bool DetectOSTheme()
         {
             // Default: Light theme
             int appsUseLightTheme = 1;
