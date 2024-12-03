@@ -1,5 +1,4 @@
 ﻿using Microsoft.Win32;
-using OcrMyPdf.GUI.Theme;
 using OcrMyPdf.GUI.ViewModel;
 using OcrMyPdf.Logic;
 using System.Text;
@@ -23,7 +22,7 @@ namespace OcrMyPdf.Gui.View
     {
 
         MainWindowViewModel winHandler;
-        ThemeSwitcher themeSwitcher;
+        OSThemeDetector themeDetector;
         private DispatcherTimer dispatcherTimer;
 
         // InitializeComponent() must be called last!
@@ -32,7 +31,8 @@ namespace OcrMyPdf.Gui.View
             winHandler = new MainWindowViewModel();
             DataContext = winHandler;
 
-            themeSwitcher = new ThemeSwitcher();
+            themeDetector = new OSThemeDetector();
+            this.ChangeTheme();
 
             InitializeComponent();
 
@@ -137,6 +137,42 @@ namespace OcrMyPdf.Gui.View
 
             // Stop timer
             dispatcherTimer.IsEnabled = false;
+        }
+
+        public void ChangeTheme()
+        {
+            // Dark theme
+            if (themeDetector.osDarkThemeEnabled)
+            {
+                // Contains all of the colours and brushes for a theme
+                ResourceDictionary DarkThemeColourDict = new ResourceDictionary()
+                { Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/DarkGreyTheme.xaml", UriKind.Relative) };
+
+                // Contains most of the control-specific brushes which reference
+                // the above theme. I aim for this to contain ALL brushes, not most
+                ResourceDictionary DarkThemeControlColours = new ResourceDictionary()
+                { Source = new Uri("GUI/Theme/WPFDarkTheme/ControlColours.xaml", UriKind.Relative) };
+
+                // Contains all of the control styles(Button, ListBox, etc)
+                ResourceDictionary DarkThemeControlStyles = new ResourceDictionary()
+                { Source = new Uri("GUI/Theme/WPFDarkTheme/Controls.xaml", UriKind.Relative) };
+
+                App.Current.Resources.Clear();
+                App.Current.Resources.MergedDictionaries.Add(DarkThemeColourDict);
+                App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
+                App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
+                this.Style = (Style)FindResource("CustomWindowStyle");
+
+            }
+            // Light theme
+            else
+            {
+                // Do nothing, as we are using default WPF Aero2 style for the light theme.
+                // Theme will not be changed during runtime.
+
+                // App.Current.Resources.Clear();
+                // this.Style = null;
+            }
         }
     }
 }
