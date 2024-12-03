@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using OcrMyPdf.GUI.Theme;
 using OcrMyPdf.GUI.ViewModel;
 using OcrMyPdf.Logic;
 using System.Text;
@@ -22,7 +23,7 @@ namespace OcrMyPdf.Gui.View
     {
 
         MainWindowViewModel winHandler;
-
+        ThemeSwitcher themeSwitcher;
         private DispatcherTimer dispatcherTimer;
 
         // InitializeComponent() must be called last!
@@ -30,6 +31,9 @@ namespace OcrMyPdf.Gui.View
         {
             winHandler = new MainWindowViewModel();
             DataContext = winHandler;
+
+            themeSwitcher = new ThemeSwitcher();
+
             InitializeComponent();
 
             //Create a timer with interval of 4 seconds
