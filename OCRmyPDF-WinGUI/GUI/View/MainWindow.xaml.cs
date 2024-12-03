@@ -148,7 +148,7 @@ namespace OcrMyPdf.Gui.View
             {
                 // Contains all of the colours and brushes for a theme
                 ResourceDictionary DarkThemeColourDict = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/DarkGreyTheme.xaml", UriKind.Relative) };
+                { Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/DarkGreyTheme-Modified.xaml", UriKind.Relative) };
 
                 // Contains most of the control-specific brushes which reference
                 // the above theme. I aim for this to contain ALL brushes, not most
