@@ -11,7 +11,11 @@ namespace OcrMyPdf.Logic
 {
     public class OSThemeDetector
     {
-        public bool osDarkThemeEnabled { get; }
+        public bool osDarkThemeEnabled
+        {
+            get { return detectOSTheme(); }
+            set { osDarkThemeEnabled = value; }
+        }
 
         public OSThemeDetector()
         {
