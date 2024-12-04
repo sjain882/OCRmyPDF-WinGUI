@@ -5,7 +5,7 @@
 
     <Color x:Key="AColour.Foreground.Static"                   R="240" G="240" B="240" A="255" />
     <Color x:Key="AColour.Foreground.Deeper"                   R="220" G="220" B="220" A="255" />
-    <Color x:Key="AColour.Foreground.Disabled"                 R="190" G="190" B="190" A="255" />
+    <Color x:Key="AColour.Foreground.Disabled"                 R="255" G="190" B="190" A="255" />
     <Color x:Key="AColour.Glyph.Static"                        R="220" G="220" B="220" A="255" />
     <Color x:Key="AColour.Glyph.Disabled"                      R="180" G="180" B="180" A="255" />
     <Color x:Key="AColour.Glyph.MouseOver"                     R="250" G="250" B="250" A="255" />

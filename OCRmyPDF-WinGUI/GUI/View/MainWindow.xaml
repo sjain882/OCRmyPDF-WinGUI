@@ -12,6 +12,12 @@
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
 
+    <!--  This Window Resource is automatically removed at runtime.  -->
+    <!--  It is present so that the Designer remains usable.  -->
+    <!--<Window.Resources>
+        <ResourceDictionary x:Name="ForDesignerOnly" Source="../Theme/Custom/LightThemeAdditions.xaml" />
+    </Window.Resources>-->
+
     <!--  Main grid  -->
     <Grid Margin="5">
 
@@ -139,9 +145,11 @@
             <!--  Processing policy  -->
             <StackPanel Grid.Column="0">
                 <Label
+                    x:Name="ProcessingPolicyLbl"
                     Padding="0,4"
                     HorizontalAlignment="Center"
-                    Content="Processing Policy:" />
+                    Content="Processing Policy:"
+                    IsEnabled="false" />
 
                 <ComboBox
                     Height="30"
@@ -159,7 +167,8 @@
                 <Label
                     Padding="0,4"
                     HorizontalAlignment="Center"
-                    Content="PDF Type:" />
+                    Content="PDF Type:"
+                    IsEnabled="false" />
 
                 <ComboBox
                     Height="30"
@@ -186,7 +195,8 @@
                 <Label
                     Padding="0,4"
                     HorizontalAlignment="Center"
-                    Content="Optimisation level:" />
+                    Content="Optimisation level:"
+                    IsEnabled="false" />
 
                 <ComboBox
                     Height="30"
@@ -204,7 +214,8 @@
                 <Label
                     Padding="0,4"
                     HorizontalAlignment="Center"
-                    Content="Output suffix:" />
+                    Content="Output suffix:"
+                    IsEnabled="false" />
 
                 <TextBox
                     Height="30"

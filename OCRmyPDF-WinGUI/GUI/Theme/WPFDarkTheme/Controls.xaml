@@ -1283,6 +1283,7 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Foreground" Value="{DynamicResource ABrush.Foreground.Disabled}" />
+                            <!-- <Setter Property="Background" Value="{DynamicResource ABrush.Foreground.Disabled}" /> -->
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

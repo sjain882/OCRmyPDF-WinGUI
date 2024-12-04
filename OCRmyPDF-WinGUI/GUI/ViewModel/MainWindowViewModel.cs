@@ -13,6 +13,7 @@ using OcrMyPdf.Options;
 using System.Diagnostics;
 using System.Windows;
 using System.Configuration;
+using System.Windows.Media;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -40,6 +41,7 @@ namespace OcrMyPdf.GUI.ViewModel
         }
 
         // ---------- DATA BINDINGS ----------
+
 
         public ObservableCollection<string> FilePathsList
         {

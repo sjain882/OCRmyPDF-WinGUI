@@ -149,6 +149,7 @@ namespace OcrMyPdf.Gui.View
                 // Contains all of the colours and brushes for a theme
                 ResourceDictionary DarkThemeColourDict = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/DarkGreyTheme-Modified.xaml", UriKind.Relative) };
+                //{ Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/AllRed.xaml", UriKind.Relative) };
 
                 // Contains most of the control-specific brushes which reference
                 // the above theme. I aim for this to contain ALL brushes, not most
@@ -159,15 +160,35 @@ namespace OcrMyPdf.Gui.View
                 ResourceDictionary DarkThemeControlStyles = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDarkTheme/Controls.xaml", UriKind.Relative) };
 
+                // Custom additions
+                ResourceDictionary DarkCustomAdditions = new ResourceDictionary()
+                { Source = new Uri("GUI/Theme/Custom/DarkThemeAdditions.xaml", UriKind.Relative) };
+
                 App.Current.Resources.Clear();
+                this.Resources.Clear();
+
+                App.Current.Resources.MergedDictionaries.Add(DarkCustomAdditions);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeColourDict);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
+                App.Current.Resources.MergedDictionaries.Add(DarkCustomAdditions);
 
                 // Unfortunately, we can't move Theme functionality to a separate file because of this single line:
                 this.Style = (Style)FindResource("CustomWindowStyle");
 
-                RefreshControls();
+                //MessageBox.Show(Application.Current.Resources["AColour.Foreground.Disabled"].ToString());
+
+                //this.ProcessingPolicyLbl.SetResourceReference(Control.ForegroundProperty, new SolidColorBrush(Colors.Red));
+
+                //StringBuilder sb = new StringBuilder();
+                //foreach (ResourceDictionary r in App.Current.Resources.MergedDictionaries)
+                //{
+                //    sb.AppendLine(sb.ToString());
+                //}
+
+                //MessageBox.Show(sb.ToString());
+
+                //RefreshControls();
 
                 currentAppThemeIsDark = true;
 
@@ -178,9 +199,15 @@ namespace OcrMyPdf.Gui.View
                 ResourceDictionary DefaultStyle = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDefault/aero2.normalcolor.xaml", UriKind.Relative) };
 
+                // Custom additions
+                ResourceDictionary LightCustomAdditions = new ResourceDictionary()
+                { Source = new Uri("GUI/Theme/Custom/LightThemeAdditions.xaml", UriKind.Relative) };
+
                 this.Style = null;
                 App.Current.Resources.Clear();
+                this.Resources.Clear();
                 App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
+                App.Current.Resources.MergedDictionaries.Add(LightCustomAdditions);
                 RefreshControls();
 
                 currentAppThemeIsDark = false;
