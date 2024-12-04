@@ -25,14 +25,13 @@ namespace OcrMyPdf.Gui.View
         MainWindowViewModel winHandler;
         private DispatcherTimer dispatcherTimer;
 
-        // InitializeComponent() must be called last!
         public MainWindow()
         {
             winHandler = new MainWindowViewModel();
             DataContext = winHandler;
-
             this.ChangeTheme();
 
+            // InitializeComponent() must be called after the above!
             InitializeComponent();
 
             // Subscribe to OS theme change event
@@ -43,6 +42,7 @@ namespace OcrMyPdf.Gui.View
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 4);
         }
+
 
         private void SelectFilesBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -66,10 +66,12 @@ namespace OcrMyPdf.Gui.View
             }
         }
 
+
         private void ClearFilesBtn_Click(object sender, RoutedEventArgs e)
         {
             winHandler.filePathsList.Clear();
         }
+
 
         private void StartBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -79,6 +81,7 @@ namespace OcrMyPdf.Gui.View
                 winHandler.RunOCR();
             }
         }
+
 
         // Drag & drop onto files box
         private void FileList_Drop(object sender, DragEventArgs e)
@@ -97,6 +100,7 @@ namespace OcrMyPdf.Gui.View
                 }
             }
         }
+
 
         // As the dragged files enter the ListBox area, make sure they're PDF files
         // If not, prevent drag & drop
@@ -131,6 +135,7 @@ namespace OcrMyPdf.Gui.View
             }
         }
 
+
         // 5 second auto-dismiss for non-PDF file drag & drop warning label
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
@@ -141,6 +146,7 @@ namespace OcrMyPdf.Gui.View
             dispatcherTimer.IsEnabled = false;
         }
 
+        // Check Windows 10+ app mode (Light/Dark) and change theme accordingly
         public void ChangeTheme()
         {
             // Dark theme
@@ -160,35 +166,15 @@ namespace OcrMyPdf.Gui.View
                 ResourceDictionary DarkThemeControlStyles = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDarkTheme/Controls.xaml", UriKind.Relative) };
 
-                // Custom additions
-                ResourceDictionary DarkCustomAdditions = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/Custom/DarkThemeAdditions.xaml", UriKind.Relative) };
-
                 App.Current.Resources.Clear();
                 this.Resources.Clear();
 
-                App.Current.Resources.MergedDictionaries.Add(DarkCustomAdditions);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeColourDict);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
-                App.Current.Resources.MergedDictionaries.Add(DarkCustomAdditions);
 
                 // Unfortunately, we can't move Theme functionality to a separate file because of this single line:
                 this.Style = (Style)FindResource("CustomWindowStyle");
-
-                //MessageBox.Show(Application.Current.Resources["AColour.Foreground.Disabled"].ToString());
-
-                //this.ProcessingPolicyLbl.SetResourceReference(Control.ForegroundProperty, new SolidColorBrush(Colors.Red));
-
-                //StringBuilder sb = new StringBuilder();
-                //foreach (ResourceDictionary r in App.Current.Resources.MergedDictionaries)
-                //{
-                //    sb.AppendLine(sb.ToString());
-                //}
-
-                //MessageBox.Show(sb.ToString());
-
-                //RefreshControls();
 
                 currentAppThemeIsDark = true;
 
@@ -199,21 +185,17 @@ namespace OcrMyPdf.Gui.View
                 ResourceDictionary DefaultStyle = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDefault/aero2.normalcolor.xaml", UriKind.Relative) };
 
-                // Custom additions
-                ResourceDictionary LightCustomAdditions = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/Custom/LightThemeAdditions.xaml", UriKind.Relative) };
-
                 this.Style = null;
                 App.Current.Resources.Clear();
                 this.Resources.Clear();
                 App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
-                App.Current.Resources.MergedDictionaries.Add(LightCustomAdditions);
                 RefreshControls();
 
                 currentAppThemeIsDark = false;
             }
         }
 
+        
         private void RefreshControls()
         {
             if (currentAppThemeIsDark)
@@ -226,6 +208,7 @@ namespace OcrMyPdf.Gui.View
             }
         }
 
+        // Fired when the user changes app mode between Light/Dark in Windows 10+ settings
         public void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
         {
             ChangeTheme();

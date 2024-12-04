@@ -40,8 +40,7 @@ namespace OcrMyPdf.GUI.ViewModel
 
         }
 
-        // ---------- DATA BINDINGS ----------
-
+        // -------------------- DATA BINDINGS START --------------------
 
         public ObservableCollection<string> FilePathsList
         {
@@ -143,6 +142,8 @@ namespace OcrMyPdf.GUI.ViewModel
                 OnPropertyChanged();
             }
         }
+
+        // -------------------- DATA BINDINGS END --------------------
 
 
         public void RunOCR()
