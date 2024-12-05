@@ -28,7 +28,7 @@
             <RowDefinition Height="30" />
 
             <!--  File list  -->
-            <RowDefinition Height="250" />
+            <RowDefinition Height="250*" MinHeight="250" />
 
             <!--  "Options:" label  -->
             <RowDefinition Height="30" />
