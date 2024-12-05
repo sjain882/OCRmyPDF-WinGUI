@@ -8,6 +8,7 @@
     Title="OCRmyPDF - Add text layers to image-only PDFs"
     Width="500"
     Height="550"
+    SizeToContent="Height"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
