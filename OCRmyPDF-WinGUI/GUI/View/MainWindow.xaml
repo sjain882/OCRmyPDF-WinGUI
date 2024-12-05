@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="OCRmyPDF - Add text layers to image-only PDFs"
     Width="500"
-    Height="525"
+    Height="550"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
@@ -259,7 +259,6 @@
         <!--  Status labels  -->
         <StackPanel
             Grid.Row="6"
-            Grid.Column="2"
             HorizontalAlignment="Left"
             Orientation="Horizontal">
 
