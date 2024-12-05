@@ -25,15 +25,12 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public ObservableCollection<string> filePathsList;
 
-        public string consoleOutput;
-
         public string currentPDFstatus;
 
 
         // Constructor
         public MainWindowViewModel()
         {
-            consoleOutput = "";
             currentPDFstatus = "";
             ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
@@ -123,16 +120,6 @@ namespace OcrMyPdf.GUI.ViewModel
             }
         }
 
-        public string ConsoleOutput
-        {
-            get { return this.consoleOutput; }
-            set
-            {
-                this.consoleOutput = value;
-                OnPropertyChanged();
-            }
-        }
-
         public string CurrentPDFLbl
         {
             get { return this.currentPDFstatus; }
@@ -213,9 +200,6 @@ namespace OcrMyPdf.GUI.ViewModel
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.CreateNoWindow = true;
 
-                    process.OutputDataReceived += Process_OutputDataReceived;
-                    process.ErrorDataReceived += Process_ErrorDataReceived;
-
                     process.Start();
 
                     process.BeginOutputReadLine();
@@ -237,19 +221,5 @@ namespace OcrMyPdf.GUI.ViewModel
             CurrentPDFLbl = $"Finished processing {totalPDFs} PDFs";
 
         }
-
-
-        private void Process_ErrorDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
-        {
-            /* e.Data will contain string with error message */
-            this.ConsoleOutput += e.Data + Environment.NewLine;
-        }
-
-        private void Process_OutputDataReceived(object sender, System.Diagnostics.DataReceivedEventArgs e)
-        {
-            /* e.Data will contain string with output */
-            this.ConsoleOutput += e.Data + Environment.NewLine;
-        }
-
     }
 }

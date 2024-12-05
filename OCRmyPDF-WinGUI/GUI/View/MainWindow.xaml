@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="OCRmyPDF - Add text layers to image-only PDFs"
     Width="500"
-    Height="600"
+    Height="525"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
@@ -27,7 +27,7 @@
             <RowDefinition Height="30" />
 
             <!--  File list  -->
-            <RowDefinition />
+            <RowDefinition Height="250" />
 
             <!--  "Options:" label  -->
             <RowDefinition Height="30" />
@@ -41,11 +41,8 @@
             <!--  Start button  -->
             <RowDefinition Height="45" />
 
-            <!--  Console output labels  -->
+            <!--  Status label  -->
             <RowDefinition Height="30" />
-
-            <!--  Console output  -->
-            <RowDefinition />
         </Grid.RowDefinitions>
 
 
@@ -259,7 +256,7 @@
 
 
 
-        <!--  Console output labels  -->
+        <!--  Status labels  -->
         <StackPanel
             Grid.Row="6"
             Grid.Column="2"
@@ -267,7 +264,7 @@
             Orientation="Horizontal">
 
 
-            <!--  "Status:" label (console output)  -->
+            <!--  "Status:" label  -->
             <Label
                 Margin="0,0,-5,0"
                 HorizontalAlignment="Left"
@@ -276,7 +273,7 @@
                 FontSize="13" />
 
 
-            <!--  Current PDF status label (console output)  -->
+            <!--  Current PDF status label  -->
             <Label
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
@@ -285,18 +282,6 @@
                 FontWeight="Bold" />
 
         </StackPanel>
-
-
-        <!--  Console output  -->
-
-        <TextBox Grid.Row="7" Panel.ZIndex="-1" />
-        <ScrollViewer Grid.Row="7">
-            <TextBlock
-                x:Name="ConsoleOutputBox"
-                Grid.Row="7"
-                Text="{Binding ConsoleOutput}"
-                TextWrapping="Wrap" />
-        </ScrollViewer>
     </Grid>
 
 
