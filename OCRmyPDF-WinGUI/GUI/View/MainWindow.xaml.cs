@@ -22,13 +22,13 @@ namespace OcrMyPdf.Gui.View
     public partial class MainWindow : Window
     {
         bool currentAppThemeIsDark;
-        MainWindowViewModel winHandler;
+        MainWindowViewModel ViewModel;
         private DispatcherTimer dispatcherTimer;
 
         public MainWindow()
         {
-            winHandler = new MainWindowViewModel();
-            DataContext = winHandler;
+            ViewModel = new MainWindowViewModel();
+            DataContext = ViewModel;
             this.ChangeTheme();
 
             // InitializeComponent() must be called after the above!
@@ -61,7 +61,7 @@ namespace OcrMyPdf.Gui.View
 
                 foreach (string path in fileDialog.FileNames)
                 {
-                    winHandler.filePathsList.Add(path);
+                    ViewModel.filePathsList.Add(path);
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace OcrMyPdf.Gui.View
 
         private void ClearFilesBtn_Click(object sender, RoutedEventArgs e)
         {
-            winHandler.filePathsList.Clear();
+            ViewModel.filePathsList.Clear();
         }
 
 
@@ -93,9 +93,9 @@ namespace OcrMyPdf.Gui.View
                 foreach (string file in files)
                 {
                     // Prevent duplicates from being dropped
-                    if (!winHandler.filePathsList.Contains(file))
+                    if (!ViewModel.filePathsList.Contains(file))
                     {
-                        winHandler.filePathsList.Add(file);
+                        ViewModel.filePathsList.Add(file);
                     }
                 }
             }
