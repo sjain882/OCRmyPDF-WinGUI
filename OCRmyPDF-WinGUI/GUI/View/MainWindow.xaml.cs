@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using OcrMyPdf.GUI.ViewModel;
+using OcrMyPdf.Logic.Utilities;
 using OcrMyPdf.Logic;
 using System.Text;
 using System.Windows;

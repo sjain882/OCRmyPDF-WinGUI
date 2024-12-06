@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace OcrMyPdf.Logic
+namespace OcrMyPdf.Logic.Utilities
 {
-    public static class Utilities
+    public static class StringUtilities
     {
         public static StringBuilder AppendWithSeparator(this StringBuilder sb,
                                                         char separator,
