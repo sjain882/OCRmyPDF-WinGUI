@@ -78,7 +78,7 @@ namespace OcrMyPdf.Gui.View
             if (fileList.Items.Count > 0)
             {
                 //OCRRunner.RunOCR(winHandler.filePathsList.ToArray(), winHandler.ocrOptions);
-                winHandler.RunOCR();
+                // winHandler.RunOCR();
             }
         }
 
