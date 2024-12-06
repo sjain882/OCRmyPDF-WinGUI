@@ -16,12 +16,20 @@ namespace OcrMyPdf.Options
 
         public string description { get; set; }
 
+        public string nameAndDesc
+        {
+            get
+            {
+                return this.displayName + " - " + this.description;
+            }
+        }
+
         public MultiOptionTemplate(string identifier, string argument, string displayName, string description)
         {
             this.identifier = identifier;
             this.argument = argument;
             this.displayName = displayName;
-            this.description = displayName + ":" + Environment.NewLine + description;
+            this.description = description;
         }
 
         public MultiOptionTemplate(MultiOptionTemplate multiOptionTemplate)
