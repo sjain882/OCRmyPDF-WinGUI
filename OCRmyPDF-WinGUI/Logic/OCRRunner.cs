@@ -1,19 +1,51 @@
-﻿using System;
+﻿using OcrMyPdf.Options;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using OcrMyPdf.Options;
 
 namespace OcrMyPdf.Logic
 {
-    public static class OCRRunner
+    class OCRRunner
     {
-
         public static char argsSprtr = ' ';
 
-        public static void RunOCR(string[] filePaths, OCROptionSet optionSet)
+        public static int OCRSinglePDF(string inputFilePath, OCROptionSet optionSet)
+        {
+
+            StringBuilder cmdBuilder = new StringBuilder();
+
+            // OCRmyPDF Arguments
+            cmdBuilder.AppendWithSeparator(argsSprtr, GetOCRArguments(optionSet));
+
+            // Input PDF path
+            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + inputFilePath + "\"");
+
+            // Output PDF path
+            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + Utilities.AddSuffix(inputFilePath, optionSet.outputSuffix) + "\"");
+
+            // Prepare the process
+            Process process = new Process()
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = @"ocrmypdf.exe",
+                    Arguments = cmdBuilder.ToString(),
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                }
+            };
+
+            process.Start();
+
+            process.WaitForExit();
+
+            return process.ExitCode;
+        }
+
+        public static string GetOCRArguments(OCROptionSet optionSet)
         {
 
             StringBuilder argsBuilder = new StringBuilder();
@@ -28,30 +60,7 @@ namespace OcrMyPdf.Logic
 
             if (optionSet.deskew) argsBuilder.AppendWithSeparator(argsSprtr, SimpleOptionParams.deskew);
 
-            string args = argsBuilder.ToString();
-
-            // Process each file
-            foreach (string path in filePaths)
-            {
-
-                StringBuilder cmdBuilder = new StringBuilder();
-
-                cmdBuilder.AppendWithSeparator(argsSprtr, "/K ocrmypdf");
-
-                cmdBuilder.AppendWithSeparator(argsSprtr, args);
-
-                cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + path + "\"");
-
-                cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + Utilities.AddSuffix(path, optionSet.outputSuffix) + "\"");
-
-                // MessageBox.Show(cmdBuilder.ToString());
-
-                System.Diagnostics.Process process = System.Diagnostics.Process.Start(@"cmd.exe", cmdBuilder.ToString());
-
-                process.WaitForExit();
-                int result = process.ExitCode;
-
-            }
+            return argsBuilder.ToString();
         }
     }
 }
