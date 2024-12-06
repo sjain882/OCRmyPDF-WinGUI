@@ -17,7 +17,7 @@ using System.Windows.Media;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
-    internal class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase
     {
 
         // Init
