@@ -21,17 +21,19 @@ namespace OcrMyPdf.GUI.ViewModel
     {
 
         // Init
-        public OCROptionSet ocrOptions;
-
         public ObservableCollection<string> filePathsList;
-
-        public string currentPDFstatus;
+        public OCROptionSet ocrOptions;
+        private const string PROGRESS = "Progress";
+        private const int PROGRESS_DELAY = 200;
+        private string progressText;
+        private bool isRunning;
 
 
         // Constructor
         public MainWindowViewModel()
         {
-            currentPDFstatus = "";
+            isRunning = false;
+            progressText = String.Empty;
             ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
 
@@ -39,11 +41,16 @@ namespace OcrMyPdf.GUI.ViewModel
 
         // -------------------- DATA BINDINGS START --------------------
 
+        // ---------------------- FILE PATHS LIST ----------------------
+
         public ObservableCollection<string> FilePathsList
         {
             get { return filePathsList; }
             set { filePathsList = value; }
         }
+
+
+        // -------------------------- OPTIONS --------------------------
 
         public ObservableCollection<MultiOptionTemplate> ProcessingPolicy
         {
@@ -120,14 +127,27 @@ namespace OcrMyPdf.GUI.ViewModel
             }
         }
 
-        public string CurrentPDFLbl
+
+        // ------------------- PROGRESS/STATUS LABEL -------------------
+
+        // Progress label text
+        public string ProgressText
         {
-            get { return this.currentPDFstatus; }
+            get { return this.progressText; }
             set
             {
-                this.currentPDFstatus = value;
+                this.progressText = value;
                 OnPropertyChanged();
             }
         }
+
+        // Is the task currently running?
+        public bool IsRunning
+        {
+            get { return isRunning; }
+            set { isRunning = value; OnPropertyChanged(); }
+        }
+
+
     }
 }

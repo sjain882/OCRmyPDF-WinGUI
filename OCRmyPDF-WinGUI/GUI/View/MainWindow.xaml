@@ -277,7 +277,7 @@
             <Label
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="{Binding CurrentPDFLbl}"
+                Content="{Binding ProgressText}"
                 FontSize="13"
                 FontWeight="Bold" />
 
