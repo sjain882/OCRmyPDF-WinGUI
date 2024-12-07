@@ -52,6 +52,8 @@ namespace OcrMyPdf.GUI.ViewModel
 
         // -------------------------- OPTIONS --------------------------
 
+        // ----- Processing Policy
+
         public ObservableCollection<MultiOptionTemplate> ProcessingPolicy
         {
             get { return Logic.Options.ProcessingPolicy.OptionList; }
@@ -60,12 +62,10 @@ namespace OcrMyPdf.GUI.ViewModel
         public MultiOptionTemplate ProcessingPolicy_Selected
         {
             get { return ocrOptions.processingPolicy; }
-            set
-            { 
-                ocrOptions.processingPolicy = value;
-                OnPropertyChanged();
-            }
+            set { ocrOptions.processingPolicy = value; OnPropertyChanged(); }
         }
+
+        // ----- PDF Type
 
         public ObservableCollection<MultiOptionTemplate> PDFType
         {
@@ -75,12 +75,10 @@ namespace OcrMyPdf.GUI.ViewModel
         public MultiOptionTemplate PDFType_Selected
         {
             get { return ocrOptions.pdfType; }
-            set
-            {
-                ocrOptions.pdfType = value;
-                OnPropertyChanged();
-            }
+            set { ocrOptions.pdfType = value; OnPropertyChanged(); }
         }
+
+        // ----- Optimisation Level
 
         public ObservableCollection<MultiOptionTemplate> OptimisationLevel
         {
@@ -90,41 +88,31 @@ namespace OcrMyPdf.GUI.ViewModel
         public MultiOptionTemplate OptimisationLevel_Selected
         {
             get { return ocrOptions.optimisationLevel; }
-            set
-            {
-                ocrOptions.optimisationLevel = value;
-                OnPropertyChanged();
-            }
+            set { ocrOptions.optimisationLevel = value; OnPropertyChanged(); }
         }
+
+        // ----- Output File Suffix
 
         public string Suffix
         {
             get { return ocrOptions.outputSuffix; }
-            set
-            {
-                ocrOptions.outputSuffix = value;
-                OnPropertyChanged();
-            }
+            set { ocrOptions.outputSuffix = value; OnPropertyChanged(); }
         }
+
+        // ----- Deskew pages
 
         public bool Deskew
         {
             get { return ocrOptions.deskew; }
-            set
-            {
-                ocrOptions.deskew = value;
-                OnPropertyChanged();
-            }
+            set { ocrOptions.deskew = value; OnPropertyChanged(); }
         }
+
+        // ----- Rotate pages
 
         public bool Rotate
         {
             get { return ocrOptions.rotate; }
-            set
-            {
-                ocrOptions.rotate = value;
-                OnPropertyChanged();
-            }
+            set { ocrOptions.rotate = value; OnPropertyChanged(); }
         }
 
 
