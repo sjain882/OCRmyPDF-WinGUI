@@ -122,11 +122,7 @@ namespace OcrMyPdf.GUI.ViewModel
         public string ProgressText
         {
             get { return this.progressText; }
-            set
-            {
-                this.progressText = value;
-                OnPropertyChanged();
-            }
+            set { this.progressText = value; OnPropertyChanged(); }
         }
 
         // Is the task currently running?
@@ -135,7 +131,5 @@ namespace OcrMyPdf.GUI.ViewModel
             get { return isRunning; }
             set { isRunning = value; OnPropertyChanged(); }
         }
-
-
     }
 }
