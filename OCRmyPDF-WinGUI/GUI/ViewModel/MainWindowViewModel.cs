@@ -118,18 +118,23 @@ namespace OcrMyPdf.GUI.ViewModel
 
         // ------------------- PROGRESS/STATUS LABEL -------------------
 
-        // Progress label text
+        // ----- Progress label text
+
         public string ProgressText
         {
             get { return this.progressText; }
             set { this.progressText = value; OnPropertyChanged(); }
         }
 
-        // Is the task currently running?
+        // ----- Is a PDF currently being processed?
+
         public bool IsRunning
         {
             get { return isRunning; }
             set { isRunning = value; OnPropertyChanged(); }
         }
+
+
+
     }
 }
