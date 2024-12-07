@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcrMyPdf.ExitCodes
+namespace OcrMyPdf.Logic.ExitCodes
 {
     public class ExitCodeTemplate
     {

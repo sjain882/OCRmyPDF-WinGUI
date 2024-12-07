@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using OcrMyPdf.GUI.MVVM;
 using OcrMyPdf.Logic;
-using OcrMyPdf.Options;
+using OcrMyPdf.Logic.Options;
 using System.Diagnostics;
 using System.Windows;
 using System.Configuration;
@@ -47,7 +47,7 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public ObservableCollection<MultiOptionTemplate> ProcessingPolicy
         {
-            get { return Options.ProcessingPolicy.OptionList; }
+            get { return Logic.Options.ProcessingPolicy.OptionList; }
         }
 
         public MultiOptionTemplate ProcessingPolicy_Selected
@@ -62,7 +62,7 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public ObservableCollection<MultiOptionTemplate> PDFType
         {
-            get { return Options.PDFType.OptionList; }
+            get { return Logic.Options.PDFType.OptionList; }
         }
 
         public MultiOptionTemplate PDFType_Selected
@@ -77,7 +77,7 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public ObservableCollection<MultiOptionTemplate> OptimisationLevel
         {
-            get { return Options.OptimisationLevel.OptionList; }
+            get { return Logic.Options.OptimisationLevel.OptionList; }
         }
 
         public MultiOptionTemplate OptimisationLevel_Selected

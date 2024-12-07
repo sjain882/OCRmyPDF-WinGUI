@@ -1,4 +1,4 @@
-﻿using OcrMyPdf.Options;
+﻿using OcrMyPdf.Logic.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 // Source: https://ocrmypdf.readthedocs.io/en/latest/advanced.html
 
-namespace OcrMyPdf.ExitCodes
+namespace OcrMyPdf.Logic.ExitCodes
 {
     public class ExitCodes
     {

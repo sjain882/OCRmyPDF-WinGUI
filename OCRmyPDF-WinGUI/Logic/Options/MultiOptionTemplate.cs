@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcrMyPdf.Options
+namespace OcrMyPdf.Logic.Options
 {
     public class MultiOptionTemplate
     {

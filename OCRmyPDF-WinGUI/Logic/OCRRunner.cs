@@ -1,4 +1,4 @@
-﻿using OcrMyPdf.Options;
+﻿using OcrMyPdf.Logic.Options;
 using OcrMyPdf.Logic.Utilities;
 using System;
 using System.Collections.Generic;
