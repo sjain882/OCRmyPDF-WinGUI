@@ -9,7 +9,7 @@ namespace OcrMyPdf.Logic
 {
     public class OCROptionSet
     {
-        public MultiOptionTemplate processingPolicy { get; set; } = ProcessingPolicy.OptionList.Single(o => o.identifier == "Default");
+        public MultiOptionTemplate processingPolicy { get; set; } = ProcessingPolicy.OptionList.Single(o => o.identifier == "RedoOCR");
 
         public MultiOptionTemplate pdfType { get; set; } = PDFType.OptionList.Single(o => o.identifier == "PDF");
 
