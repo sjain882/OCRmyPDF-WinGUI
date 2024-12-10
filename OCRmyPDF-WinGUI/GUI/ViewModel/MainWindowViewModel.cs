@@ -25,7 +25,7 @@ namespace OcrMyPdf.GUI.ViewModel
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
         private const string PROGRESS = "Progress";
-        private const int PROGRESS_DELAY = 200;
+        private const int PROGRESS_DOT_DELAY = 200;
         private string progressText;
         private bool isRunning;
 
@@ -159,7 +159,7 @@ namespace OcrMyPdf.GUI.ViewModel
                 // Run the long task (convert PDF)
                 string longTaskText = await Task.Run(() => LongTask(cts));
 
-                // await Task.Delay(PROGRESS_DELAY); // Additional delay to prevent alternating finished text by looping task
+                await Task.Delay(PROGRESS_DOT_DELAY); // Additional delay to prevent alternating finished text by looping task
 
                 // Update the progress text label
                 ProgressText = longTaskText;
@@ -180,7 +180,7 @@ namespace OcrMyPdf.GUI.ViewModel
                 while (!token.IsCancellationRequested)
                 {
                     // Delay between each progress dot appearing on the GUI
-                    await Task.Delay(PROGRESS_DELAY);
+                    await Task.Delay(PROGRESS_DOT_DELAY);
 
                     // Create the new progress dot
                     var dotsCount = ProgressText.Count<char>(ch => ch == '.');
@@ -198,13 +198,17 @@ namespace OcrMyPdf.GUI.ViewModel
             var result = Task.Run(async () =>
             {
                 // Replace this with OCR.Run
-                await Task.Delay(5000);
+                // await Task.Delay(5000);
+                foreach (string path in filePathsList)
+                {
+                    OCRRunner.OCRSinglePDF(path, this.ocrOptions);
+                }
 
                 // Cancel the cancellation token once the task finished.
                 cts.Cancel();
 
                 // Return the relevant status string
-                return "Long task finished.";
+                return "All PDFs processed.";
             });
 
             // Return result of task being run
