@@ -208,11 +208,20 @@ namespace OcrMyPdf.GUI.ViewModel
             // Start the task asynchronously
             var result = Task.Run(async () =>
             {
-                // Replace this with OCR.Run
-                // await Task.Delay(5000);
-                foreach (string path in filePathsList)
+
+                if (filePathsList.Count > 0)
                 {
-                    OCRRunner.OCRSinglePDF(path, this.ocrOptions);
+                    // Replace this with OCR.Run
+                    // await Task.Delay(5000);
+                    foreach (string path in filePathsList)
+                    {
+                        OCRRunner.OCRSinglePDF(path, this.ocrOptions);
+                    }
+                }
+                else
+                {
+                    cts.Cancel();
+                    return "No PDFs selected!";
                 }
 
                 // Cancel the cancellation token once the task finished.
