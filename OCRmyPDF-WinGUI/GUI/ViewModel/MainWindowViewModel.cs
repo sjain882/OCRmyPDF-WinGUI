@@ -21,11 +21,14 @@ namespace OcrMyPdf.GUI.ViewModel
     public class MainWindowViewModel : ViewModelBase
     {
 
-        // Init
+        private const string PROGRESS = "Processing";
+        private const int PROGRESS_DOT_DELAY = 200;
+        
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
-        private const string PROGRESS = "Progress";
-        private const int PROGRESS_DOT_DELAY = 200;
+        public Dictionary<string, int> pdfErrors;
+
+        private int currentPDF;
         private string progressText;
         private bool isRunning;
 
@@ -33,10 +36,13 @@ namespace OcrMyPdf.GUI.ViewModel
         // Constructor
         public MainWindowViewModel()
         {
-            isRunning = false;
-            progressText = String.Empty;
-            ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
+            ocrOptions = new OCROptionSet();
+            pdfErrors = new Dictionary<string, int>();
+
+            currentPDF = 0;
+            progressText = String.Empty;
+            isRunning = false;
 
             // Create Label Update progress command object, passing a reference to this ViewModel to it 
             StartOCRCommand = new StartOCRCommand(this);
@@ -142,6 +148,9 @@ namespace OcrMyPdf.GUI.ViewModel
         public StartOCRCommand StartOCRCommand { get; set; }
 
 
+        // --------------------- DATA BINDINGS END ---------------------
+
+
         public async Task RunOCRWithProgressUpdates()
         {
             // Create a new cancellation token source here, originating from this method
@@ -169,6 +178,7 @@ namespace OcrMyPdf.GUI.ViewModel
             }
         }
 
+
         // Update progress text label
         private void UpdateProgressTextTask(CancellationToken token)
         {
@@ -190,6 +200,7 @@ namespace OcrMyPdf.GUI.ViewModel
                 }
             });
         }
+
 
         // The long task to execute (OCR PDF)
         private string LongTask(CancellationTokenSource cts)
