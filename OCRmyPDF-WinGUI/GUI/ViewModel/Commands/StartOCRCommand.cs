@@ -26,9 +26,10 @@ namespace OcrMyPdf.GUI.ViewModel.Commands
             return true;
         }
 
+        // Called when Start button pressed
         public void Execute(object parameter)
         {
-            // ViewModel.RunProgressTextUpdate();
+            ViewModel.RunOCRWithProgressUpdates();
             // MessageBox.Show("hi");
         }
     }

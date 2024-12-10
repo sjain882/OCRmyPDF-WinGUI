@@ -140,5 +140,76 @@ namespace OcrMyPdf.GUI.ViewModel
 
         // ----- Start! button command binding
         public StartOCRCommand StartOCRCommand { get; set; }
+
+
+        public async Task RunOCRWithProgressUpdates()
+        {
+            // Create a new cancellation token source here, originating from this method
+            var cts = new CancellationTokenSource();
+
+            // If a task isn't already running
+            if (!IsRunning)
+            {
+                // A task is now running
+                IsRunning = true;
+
+                // Start the progress update
+                UpdateProgressTextTask(cts.Token);
+
+                // Run the long task (convert PDF)
+                string longTaskText = await Task.Run(() => LongTask(cts));
+
+                // await Task.Delay(PROGRESS_DELAY); // Additional delay to prevent alternating finished text by looping task
+
+                // Update the progress text label
+                ProgressText = longTaskText;
+
+                // The task has ended
+                IsRunning = false;
+            }
+        }
+
+        // Update progress text label
+        private void UpdateProgressTextTask(CancellationToken token)
+        {
+            Task.Run(async () =>
+            {
+                // Set the prefix
+                ProgressText = PROGRESS;
+
+                while (!token.IsCancellationRequested)
+                {
+                    // Delay between each progress dot appearing on the GUI
+                    await Task.Delay(PROGRESS_DELAY);
+
+                    // Create the new progress dot
+                    var dotsCount = ProgressText.Count<char>(ch => ch == '.');
+
+                    // Set the progress dot
+                    ProgressText = dotsCount < 6 ? ProgressText + "." : ProgressText.Replace(".", "");
+                }
+            });
+        }
+
+        // The long task to execute (OCR PDF)
+        private string LongTask(CancellationTokenSource cts)
+        {
+            // Start the task asynchronously
+            var result = Task.Run(async () =>
+            {
+                // Replace this with OCR.Run
+                await Task.Delay(5000);
+
+                // Cancel the cancellation token once the task finished.
+                cts.Cancel();
+
+                // Return the relevant status string
+                return "Long task finished.";
+            });
+
+            // Return result of task being run
+            return result.Result;
+        }
+
     }
 }
