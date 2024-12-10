@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace OcrMyPdf.GUI.ViewModel.Commands
 {
-    public class UpdateProgressCommand : ICommand
+    public class StartOCR : ICommand
     {
 
         // Reference to main ViewModel
@@ -15,7 +15,7 @@ namespace OcrMyPdf.GUI.ViewModel.Commands
 
         public event EventHandler CanExecuteChanged;
 
-        public UpdateProgressCommand(MainWindowViewModel viewModel)
+        public StartOCR(MainWindowViewModel viewModel)
         {
             ViewModel = viewModel ?? throw new ArgumentNullException(nameof(viewModel));
         }

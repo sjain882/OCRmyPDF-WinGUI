@@ -14,6 +14,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Configuration;
 using System.Windows.Media;
+using OcrMyPdf.GUI.ViewModel.Commands;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -36,6 +37,9 @@ namespace OcrMyPdf.GUI.ViewModel
             progressText = String.Empty;
             ocrOptions = new OCROptionSet();
             filePathsList = new ObservableCollection<string>();
+
+            // Create Label Update progress command object, passing a reference to this ViewModel to it 
+            UpdateProgressCommand = new StartOCR(this);
 
         }
 
@@ -134,7 +138,7 @@ namespace OcrMyPdf.GUI.ViewModel
             set { isRunning = value; OnPropertyChanged(); }
         }
 
-
-
+        // ----- Start! button command binding
+        public StartOCR UpdateProgressCommand { get; set; }
     }
 }
