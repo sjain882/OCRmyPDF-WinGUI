@@ -39,7 +39,7 @@ namespace OcrMyPdf.GUI.ViewModel
             filePathsList = new ObservableCollection<string>();
 
             // Create Label Update progress command object, passing a reference to this ViewModel to it 
-            UpdateProgressCommand = new StartOCR(this);
+            StartOCRCommand = new StartOCRCommand(this);
 
         }
 
@@ -139,6 +139,6 @@ namespace OcrMyPdf.GUI.ViewModel
         }
 
         // ----- Start! button command binding
-        public StartOCR UpdateProgressCommand { get; set; }
+        public StartOCRCommand StartOCRCommand { get; set; }
     }
 }
