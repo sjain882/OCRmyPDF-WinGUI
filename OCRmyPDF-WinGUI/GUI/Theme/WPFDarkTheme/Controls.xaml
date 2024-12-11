@@ -6474,7 +6474,7 @@
                                     </Button>
                                 </StackPanel>
                                 <DockPanel Margin="0,0,5,0" HorizontalAlignment="Stretch">
-                                    <Image Margin="6,6,-1,6" Source="{StaticResource pdf_svgrepo_comDrawingImage}" />
+                                    <Image Margin="6,6,-2,6" Source="{StaticResource pdf_svgrepo_comDrawingImage}" />
                                     <Image
                                         Height="24"
                                         Margin="4,4,0,0"
