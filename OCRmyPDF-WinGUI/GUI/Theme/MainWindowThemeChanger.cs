@@ -12,14 +12,16 @@ using System.Windows;
 
 namespace OcrMyPdf.GUI.Theme
 {
-    public class ThemeChanger
+    public class MainWindowThemeChanger
     {
-        // Reference to main ViewModel
+        // Reference to MainWindow
         private MainWindow MainWindow;
         bool currentAppThemeIsDark;
         public event EventHandler CanExecuteChanged;
 
-        public ThemeChanger(MainWindow mainWindow)
+
+        // Constructor
+        public MainWindowThemeChanger(MainWindow mainWindow)
         {
             // Grab reference to MainWindowViewModel
             MainWindow = mainWindow ?? throw new ArgumentNullException(nameof(mainWindow));
@@ -38,7 +40,6 @@ namespace OcrMyPdf.GUI.Theme
                 // Contains all of the colours and brushes for a theme
                 ResourceDictionary DarkThemeColourDict = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/DarkGreyTheme-Modified.xaml", UriKind.Relative) };
-                //{ Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/AllRed.xaml", UriKind.Relative) };
 
                 // Contains most of the control-specific brushes which reference
                 // the above theme. I aim for this to contain ALL brushes, not most
@@ -56,7 +57,6 @@ namespace OcrMyPdf.GUI.Theme
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
 
-                // Unfortunately, we can't move Theme functionality to a separate file because of this single line:
                 MainWindow.Style = (Style)MainWindow.FindResource("CustomWindowStyle");
 
                 currentAppThemeIsDark = true;
@@ -79,6 +79,7 @@ namespace OcrMyPdf.GUI.Theme
         }
 
 
+        // Seemingly not necessary on high performance systems
         private void RefreshControls()
         {
             if (currentAppThemeIsDark)

@@ -31,7 +31,7 @@ namespace OcrMyPdf.Gui.View
         {
             ViewModel = new MainWindowViewModel();
             DataContext = ViewModel;
-            ThemeChanger themeChanger = new ThemeChanger(this);
+            MainWindowThemeChanger themeChanger = new MainWindowThemeChanger(this);
             themeChanger.ChangeTheme();
 
             // InitializeComponent() must be called after the above!
