@@ -189,8 +189,8 @@ namespace OcrMyPdf.GUI.ViewModel
                             // Main body
                             "Error in PDF:\r\n"
                             + error.Key
-                            + "\r\n"
-                            + ExitCodes.ExitCodeList.Single(o => o.code == error.Value),
+                            + "\r\n\r\n"
+                            + ExitCodes.ExitCodeList.Single(o => o.code == error.Value).nameAndDesc,
 
                             // Title
                             "Error",
