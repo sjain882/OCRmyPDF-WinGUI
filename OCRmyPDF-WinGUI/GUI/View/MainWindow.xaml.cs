@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Collections.ObjectModel;
+using OcrMyPdf.GUI.Theme;
 
 namespace OcrMyPdf.Gui.View
 {
@@ -30,13 +31,11 @@ namespace OcrMyPdf.Gui.View
         {
             ViewModel = new MainWindowViewModel();
             DataContext = ViewModel;
-            this.ChangeTheme();
+            ThemeChanger themeChanger = new ThemeChanger(this);
+            themeChanger.ChangeTheme();
 
             // InitializeComponent() must be called after the above!
             InitializeComponent();
-
-            // Subscribe to OS theme change event
-            SystemEvents.UserPreferenceChanged += (s, e) => { this.SystemEvents_UserPreferenceChanged(s, e); };
 
             // Create a timer with interval of 4 seconds
             dispatcherTimer = new DispatcherTimer();
@@ -47,6 +46,7 @@ namespace OcrMyPdf.Gui.View
 
         private void SelectFilesBtn_Click(object sender, RoutedEventArgs e)
         {
+
             OpenFileDialog fileDialog = new OpenFileDialog();
             fileDialog.Title = "Select PDF Files";
             fileDialog.DefaultExt = "pdf";
@@ -59,7 +59,6 @@ namespace OcrMyPdf.Gui.View
 
             if (fileDialogSuccess == true)
             {
-
                 foreach (string path in fileDialog.FileNames)
                 {
                     ViewModel.filePathsList.Add(path);
@@ -135,74 +134,6 @@ namespace OcrMyPdf.Gui.View
 
             // Stop timer
             dispatcherTimer.IsEnabled = false;
-        }
-
-        // Check Windows 10+ app mode (Light/Dark) and change theme accordingly
-        public void ChangeTheme()
-        {
-            // Dark theme
-            if (OSThemeDetector.DetectOSTheme())
-            {
-                // Contains all of the colours and brushes for a theme
-                ResourceDictionary DarkThemeColourDict = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/DarkGreyTheme-Modified.xaml", UriKind.Relative) };
-                //{ Source = new Uri("GUI/Theme/WPFDarkTheme/ColourDictionaries/AllRed.xaml", UriKind.Relative) };
-
-                // Contains most of the control-specific brushes which reference
-                // the above theme. I aim for this to contain ALL brushes, not most
-                ResourceDictionary DarkThemeControlColours = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/WPFDarkTheme/ControlColours.xaml", UriKind.Relative) };
-
-                // Contains all of the control styles(Button, ListBox, etc)
-                ResourceDictionary DarkThemeControlStyles = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/WPFDarkTheme/Controls.xaml", UriKind.Relative) };
-
-                App.Current.Resources.Clear();
-                this.Resources.Clear();
-
-                App.Current.Resources.MergedDictionaries.Add(DarkThemeColourDict);
-                App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
-                App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
-
-                // Unfortunately, we can't move Theme functionality to a separate file because of this single line:
-                this.Style = (Style)FindResource("CustomWindowStyle");
-
-                currentAppThemeIsDark = true;
-
-            }
-            // Light theme
-            else
-            {
-                ResourceDictionary DefaultStyle = new ResourceDictionary()
-                { Source = new Uri("GUI/Theme/WPFDefault/aero2.normalcolor.xaml", UriKind.Relative) };
-
-                this.Style = null;
-                App.Current.Resources.Clear();
-                this.Resources.Clear();
-                App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
-                RefreshControls();
-
-                currentAppThemeIsDark = false;
-            }
-        }
-
-        
-        private void RefreshControls()
-        {
-            if (currentAppThemeIsDark)
-            {
-                // This seems to be faster than reloading the whole file, and it also seems to work
-                Collection<ResourceDictionary> merged = Application.Current.Resources.MergedDictionaries;
-                ResourceDictionary dictionary = merged[2];
-                merged.RemoveAt(2);
-                merged.Insert(2, dictionary);
-            }
-        }
-
-        // Fired when the user changes app mode between Light/Dark in Windows 10+ settings
-        public void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
-        {
-            ChangeTheme();
         }
     }
 }
