@@ -23,7 +23,6 @@ namespace OcrMyPdf.Gui.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        bool currentAppThemeIsDark;
         MainWindowViewModel ViewModel;
         private DispatcherTimer dispatcherTimer;
 
