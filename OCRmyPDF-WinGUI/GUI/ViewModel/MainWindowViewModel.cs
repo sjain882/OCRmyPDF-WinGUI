@@ -15,6 +15,7 @@ using System.Windows;
 using System.Configuration;
 using System.Windows.Media;
 using OcrMyPdf.GUI.ViewModel.Commands;
+using OcrMyPdf.Logic.ExitCodes;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -215,7 +216,13 @@ namespace OcrMyPdf.GUI.ViewModel
                     // await Task.Delay(5000);
                     foreach (string path in filePathsList)
                     {
-                        OCRRunner.OCRSinglePDF(path, this.ocrOptions);
+                        int exitCode = OCRRunner.OCRSinglePDF(path, this.ocrOptions);
+
+                        // If there was an error, record it
+                        if (exitCode != ExitCodes.OK.code)
+                        {
+                            this.pdfErrors.Add(path, exitCode);
+                        }
                     }
                 }
                 else
