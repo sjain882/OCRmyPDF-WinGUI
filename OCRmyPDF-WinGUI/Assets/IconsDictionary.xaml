@@ -1,0 +1,23 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Geometry x:Key="pdf_svgrepo_comGeometry1">F1 M512,512z M0,0z M128,0C110.4,0,96,14.4,96,32L96,480C96,497.6,110.4,512,128,512L448,512C465.6,512,480,497.6,480,480L480,128 352,0 128,0z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry2">F1 M512,512z M0,0z M384,128L480,128 352,0 352,96C352,113.6,366.4,128,384,128z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry3">F1 M512,512z M0,0z M480,224L480,224 384,128 480,128z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry4">F1 M512,512z M0,0z M416,416C416,424.8,408.8,432,400,432L48,432C39.2,432,32,424.8,32,416L32,256C32,247.2,39.2,240,48,240L400,240C408.8,240,416,247.2,416,256L416,416z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry5">F1 M512,512z M0,0z M101.744,303.152C101.744,298.928,105.072,294.32,110.432,294.32L139.984,294.32C156.624,294.32 171.6,305.456 171.6,326.8 171.6,347.024 156.624,358.288 139.984,358.288L118.624,358.288 118.624,375.184C118.624,380.816 115.04,384 110.432,384 106.208,384 101.744,380.816 101.744,375.184L101.744,303.152z M118.624,310.432L118.624,342.304 139.984,342.304C148.56,342.304 155.344,334.736 155.344,326.8 155.344,317.856 148.56,310.432 139.984,310.432L118.624,310.432z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry6">F1 M512,512z M0,0z M196.656,384C192.432,384,187.824,381.696,187.824,376.08L187.824,303.408C187.824,298.816,192.432,295.472,196.656,295.472L225.952,295.472C284.416,295.472,283.136,384,227.104,384L196.656,384z M204.72,311.088L204.72,368.4 225.952,368.4C260.496,368.4,262.032,311.088,225.952,311.088L204.72,311.088z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry7">F1 M512,512z M0,0z M303.872,312.112L303.872,332.448 336.496,332.448C341.104,332.448 345.712,337.056 345.712,341.52 345.712,345.744 341.104,349.2 336.496,349.2L303.872,349.2 303.872,376.064C303.872,380.544 300.688,383.984 296.208,383.984 290.576,383.984 287.136,380.544 287.136,376.064L287.136,303.392C287.136,298.8,290.592,295.456,296.208,295.456L341.12,295.456C346.752,295.456 350.08,298.8 350.08,303.392 350.08,307.488 346.752,312.096 341.12,312.096L303.872,312.096 303.872,312.112z</Geometry>
+  <Geometry x:Key="pdf_svgrepo_comGeometry8">F1 M512,512z M0,0z M400,432L96,432 96,448 400,448C408.8,448,416,440.8,416,432L416,416C416,424.8,408.8,432,400,432z</Geometry>
+  <DrawingGroup x:Key="pdf_svgrepo_comDrawingGroup" ClipGeometry="M0,0 V512 H512 V0 H0 Z">
+    <GeometryDrawing Brush="#FFE2E5E7" Geometry="{StaticResource pdf_svgrepo_comGeometry1}" />
+    <GeometryDrawing Brush="#FFB0B7BD" Geometry="{StaticResource pdf_svgrepo_comGeometry2}" />
+    <GeometryDrawing Brush="#FFCAD1D8" Geometry="{StaticResource pdf_svgrepo_comGeometry3}" />
+    <GeometryDrawing Brush="#FFF15642" Geometry="{StaticResource pdf_svgrepo_comGeometry4}" />
+    <DrawingGroup Opacity="1">
+      <GeometryDrawing Brush="#FFFFFFFF" Geometry="{StaticResource pdf_svgrepo_comGeometry5}" />
+      <GeometryDrawing Brush="#FFFFFFFF" Geometry="{StaticResource pdf_svgrepo_comGeometry6}" />
+      <GeometryDrawing Brush="#FFFFFFFF" Geometry="{StaticResource pdf_svgrepo_comGeometry7}" />
+    </DrawingGroup>
+    <GeometryDrawing Brush="#FFCAD1D8" Geometry="{StaticResource pdf_svgrepo_comGeometry8}" />
+  </DrawingGroup>
+  <DrawingImage x:Key="pdf_svgrepo_comDrawingImage" Drawing="{StaticResource pdf_svgrepo_comDrawingGroup}" />
+</ResourceDictionary>
