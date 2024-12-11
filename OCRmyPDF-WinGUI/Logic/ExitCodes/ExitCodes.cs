@@ -1,11 +1,11 @@
-﻿using OcrMyPdf.Logic.Options,
-using System,
-using System.Collections.Generic,
-using System.Collections.ObjectModel,
-using System.Linq,
-using System.Net.NetworkInformation,
-using System.Text,
-using System.Threading.Tasks,
+﻿using OcrMyPdf.Logic.Options;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net.NetworkInformation;
+using System.Text;
+using System.Threading.Tasks;
 
 // Source: https://ocrmypdf.readthedocs.io/en/latest/advanced.html
 
