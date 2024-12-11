@@ -9,6 +9,8 @@ namespace OcrMyPdf.Logic.ExitCodes
 {
     public class ExitCodeTemplate
     {
+        public string identifier {  get; set; }
+
         public int code {  get; set; }
 
         public string displayName { get; set; }
@@ -23,8 +25,9 @@ namespace OcrMyPdf.Logic.ExitCodes
             }
         }
 
-        public ExitCodeTemplate(int code, string displayName, string description)
+        public ExitCodeTemplate(string identifier, int code, string displayName, string description)
         {
+            this.identifier = identifier;
             this.code = code;
             this.displayName = displayName;
             this.description = description;
@@ -32,6 +35,7 @@ namespace OcrMyPdf.Logic.ExitCodes
 
         public ExitCodeTemplate(ExitCodeTemplate errorCodeTemplate)
         {
+            this.identifier = errorCodeTemplate.identifier;
             this.code = errorCodeTemplate.code;
             this.displayName = errorCodeTemplate.displayName;
             this.description = errorCodeTemplate.description;
