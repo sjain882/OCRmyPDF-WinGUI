@@ -16,6 +16,7 @@ using System.Configuration;
 using System.Windows.Media;
 using OcrMyPdf.GUI.ViewModel.Commands;
 using OcrMyPdf.Logic.ExitCodes;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -42,7 +43,7 @@ namespace OcrMyPdf.GUI.ViewModel
             pdfErrors = new Dictionary<string, int>();
 
             currentPDF = 0;
-            progressText = String.Empty;
+            progressText = "";
             isRunning = false;
 
             // Create Label Update progress command object, passing a reference to this ViewModel to it 
@@ -176,6 +177,32 @@ namespace OcrMyPdf.GUI.ViewModel
 
                 // The task has ended
                 IsRunning = false;
+
+                // If there were errors, display them
+                if (this.pdfErrors.Count > 0)
+                {
+                    foreach (KeyValuePair<string, int> error in this.pdfErrors)
+                    {
+                        // Show an error message box
+                        MessageBox.Show
+                        (
+                            // Main body
+                            "Error in PDF:\r\n"
+                            + error.Key
+                            + "\r\n"
+                            + ExitCodes.ExitCodeList.Single(o => o.code == error.Value),
+
+                            // Title
+                            "Error",
+
+                            // Button
+                            MessageBoxButton.OK,
+
+                            // Icon
+                            MessageBoxImage.Error
+                        );
+                    }
+                }
             }
         }
 
@@ -219,7 +246,7 @@ namespace OcrMyPdf.GUI.ViewModel
                         int exitCode = OCRRunner.OCRSinglePDF(path, this.ocrOptions);
 
                         // If there was an error, record it
-                        if (exitCode != ExitCodes.OK.code)
+                        if (exitCode != ExitCodes.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
                             this.pdfErrors.Add(path, exitCode);
                         }
