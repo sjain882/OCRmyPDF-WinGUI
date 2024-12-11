@@ -30,6 +30,8 @@ namespace OcrMyPdf.Gui.View
         {
             ViewModel = new MainWindowViewModel();
             DataContext = ViewModel;
+
+            // Setup theme detection
             MainWindowThemeChanger themeChanger = new MainWindowThemeChanger(this);
             themeChanger.ChangeTheme();
 
@@ -69,6 +71,7 @@ namespace OcrMyPdf.Gui.View
         private void ClearFilesBtn_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.filePathsList.Clear();
+            ViewModel.pdfErrors.Clear();
         }
 
 
