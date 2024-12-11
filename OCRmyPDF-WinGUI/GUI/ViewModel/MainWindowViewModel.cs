@@ -224,7 +224,7 @@ namespace OcrMyPdf.GUI.ViewModel
                     var dotsCount = ProgressText.Count<char>(ch => ch == '.');
 
                     // Set the progress dot
-                    ProgressText = dotsCount < 6 ? ProgressText + "." : ProgressText.Replace(".", "");
+                    ProgressText = dotsCount < 5 ? ProgressText + "." : ProgressText.Replace(".", "");
                 }
             });
         }
