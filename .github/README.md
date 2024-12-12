@@ -4,11 +4,9 @@
 
 <img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
 
-
 <br>
+
 ‎
-
-
 
 [![ISSUES](https://img.shields.io/github/issues/sjain882/OCRmyPDF-WinGUI?color=FF6D00&style=flat)](https://github.com/sjain882/OCRmyPDF-WinGUI/issues)
 [![VERSION](https://img.shields.io/github/v/release/sjain882/OCRmyPDF-WinGUI?color=FF6D00&style=flat&label=version)](https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest)
