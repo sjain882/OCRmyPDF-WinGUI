@@ -12,11 +12,13 @@ namespace OcrMyPdf.Logic
     public class OCRRunner
     {
         public static readonly char argsSprtr = ' ';
+        private OCROptionSet optionSet;
         public string ocrArguments;
 
         public OCRRunner(OCROptionSet optionsSet)
         {
             ocrArguments = GetOCRArguments(optionsSet);
+            this.optionSet = optionsSet;
         }
 
         public int OCRSinglePDF(string inputFilePath)
@@ -31,7 +33,7 @@ namespace OcrMyPdf.Logic
             cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + inputFilePath + "\"");
 
             // Output PDF path
-            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + StringUtilities.AddSuffix(inputFilePath, optionSet.outputSuffix) + "\"");
+            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + StringUtilities.AddSuffix(inputFilePath, this.optionSet.outputSuffix) + "\"");
 
             // Prepare the process
             Process process = new Process()
