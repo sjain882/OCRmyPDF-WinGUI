@@ -12,19 +12,19 @@ using System.Windows;
 
 namespace OcrMyPdf.GUI.Theme
 {
-    public class MainWindowThemeChanger
+    public class ThemeChanger
     {
-        // Reference to MainWindow
-        private MainWindow MainWindow;
+        // Reference to Window
+        private Window Window;
         bool currentAppThemeIsDark;
         public event EventHandler CanExecuteChanged;
 
 
         // Constructor
-        public MainWindowThemeChanger(MainWindow mainWindow)
+        public ThemeChanger(Window window)
         {
-            // Grab reference to MainWindowViewModel
-            MainWindow = mainWindow ?? throw new ArgumentNullException(nameof(mainWindow));
+            // Grab reference to Window
+            Window = window ?? throw new ArgumentNullException(nameof(window));
 
             // Subscribe to OS theme change event
             SystemEvents.UserPreferenceChanged += (s, e) => { this.SystemEvents_UserPreferenceChanged(s, e); };
@@ -51,13 +51,13 @@ namespace OcrMyPdf.GUI.Theme
                 { Source = new Uri("GUI/Theme/WPFDarkTheme/Controls.xaml", UriKind.Relative) };
 
                 App.Current.Resources.Clear();
-                MainWindow.Resources.Clear();
+                Window.Resources.Clear();
 
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeColourDict);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlColours);
                 App.Current.Resources.MergedDictionaries.Add(DarkThemeControlStyles);
 
-                MainWindow.Style = (Style)MainWindow.FindResource("CustomWindowStyle");
+                Window.Style = (Style)Window.FindResource("CustomWindowStyle");
 
                 currentAppThemeIsDark = true;
 
@@ -68,9 +68,9 @@ namespace OcrMyPdf.GUI.Theme
                 ResourceDictionary DefaultStyle = new ResourceDictionary()
                 { Source = new Uri("GUI/Theme/WPFDefault/aero2.normalcolor.xaml", UriKind.Relative) };
 
-                MainWindow.Style = null;
+                Window.Style = null;
                 App.Current.Resources.Clear();
-                MainWindow.Resources.Clear();
+                Window.Resources.Clear();
                 App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
                 RefreshControls();
 
