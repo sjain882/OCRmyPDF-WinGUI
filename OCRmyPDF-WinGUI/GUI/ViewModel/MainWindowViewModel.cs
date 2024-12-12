@@ -237,13 +237,15 @@ namespace OcrMyPdf.GUI.ViewModel
             var result = Task.Run(async () =>
             {
 
+                OCRRunner ocrRunner = new OCRRunner(this.ocrOptions);
+
                 if (filePathsList.Count > 0)
                 {
                     // Replace this with OCR.Run
                     // await Task.Delay(5000);
                     foreach (string path in filePathsList)
                     {
-                        int exitCode = OCRRunner.OCRSinglePDF(path, this.ocrOptions);
+                        int exitCode = ocrRunner.OCRSinglePDF(path);
 
                         // If there was an error, record it
                         if (exitCode != ExitCodes.ExitCodeList.Single(o => o.identifier == "OK").code)

@@ -9,17 +9,23 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic
 {
-    class OCRRunner
+    public class OCRRunner
     {
-        public static char argsSprtr = ' ';
+        public static readonly char argsSprtr = ' ';
+        public string ocrArguments;
 
-        public static int OCRSinglePDF(string inputFilePath, OCROptionSet optionSet)
+        public OCRRunner(OCROptionSet optionsSet)
+        {
+            ocrArguments = GetOCRArguments(optionsSet);
+        }
+
+        public int OCRSinglePDF(string inputFilePath)
         {
 
             StringBuilder cmdBuilder = new StringBuilder();
 
             // OCRmyPDF Arguments
-            cmdBuilder.AppendWithSeparator(argsSprtr, GetOCRArguments(optionSet));
+            cmdBuilder.AppendWithSeparator(argsSprtr, this.ocrArguments);
 
             // Input PDF path
             cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + inputFilePath + "\"");
@@ -46,7 +52,7 @@ namespace OcrMyPdf.Logic
             return process.ExitCode;
         }
 
-        public static string GetOCRArguments(OCROptionSet optionSet)
+        public string GetOCRArguments(OCROptionSet optionSet)
         {
 
             StringBuilder argsBuilder = new StringBuilder();
