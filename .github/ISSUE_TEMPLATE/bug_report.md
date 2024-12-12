@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: If you have encountered an issue with the tool.
+about: If you encountered a problem
 title: ''
 labels: ''
 assignees: ''
