@@ -1,5 +1,3 @@
-<div align="center">
-
 # OCRmyPDF - Simple Windows Frontend
 
 <img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
@@ -17,7 +15,6 @@
 Responsive .NET 8 GUI for OCRmyPDF, adhering to WPF MVVM principles.
 
 Designed for novice users.
-</div>
 
 ‎
 ## 🖥 Supported operating systems
