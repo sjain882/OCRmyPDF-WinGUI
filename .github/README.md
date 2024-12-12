@@ -1,5 +1,4 @@
 <div align="center">
-
 # OCRmyPDF - Simple Windows Frontend
 
 <img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
