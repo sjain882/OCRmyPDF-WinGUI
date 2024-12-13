@@ -87,7 +87,7 @@ You can check this by right clicking on the `OCRmyPDF-WinGUI` .exe / Application
 
 - **[SVGRepo](https://www.svgrepo.com/)** for providing the application icon
 
-- **[AngryCarrot789](https://github.com/AngryCarrot789)** for creating **[WPFDarkTheme](WPFDarkTheme)** - simple & easy to use dark theme that respects default WPF controls
+- **[AngryCarrot789](https://github.com/AngryCarrot789)** for creating **[WPFDarkTheme](https://github.com/AngryCarrot789/WPFDarkTheme)** - simple & easy to use dark theme that respects default WPF controls
 
 - **[DerekGooding](https://github.com/DerekGooding)** for **[updating](https://github.com/AngryCarrot789/WPFDarkTheme/pull/32)** **[WPFDarkTheme](https://github.com/DerekGooding/WPFDarkTheme)** to .NET 8
 
