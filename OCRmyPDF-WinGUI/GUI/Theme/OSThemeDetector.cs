@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 
-namespace OcrMyPdf.Logic.Utilities
+namespace OcrMyPdf.GUI.Theme
 {
     public static class OSThemeDetector
     {
