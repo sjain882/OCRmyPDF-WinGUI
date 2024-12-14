@@ -54,9 +54,9 @@ Designed for novice users.
 
 7. Install Tesseract: `choco install --pre tesseract`.
 
-8. Install PNGQuant (optional): `choco install pngquant`.
+8. Install PNGQuant (optional but recommended): `choco install pngquant`.
 
-9. Install jbig2 (optional). First, download it from [SourceForge](https://sourceforge.net/projects/jbig2enc/files/latest/download).
+9. Install jbig2 (optional but recommended). First, download it from [SourceForge](https://sourceforge.net/projects/jbig2enc/files/latest/download).
 
 10. Extract the contents of the folder inside the .zip archive to `C:\Program Files\jbig2enc`.
 
