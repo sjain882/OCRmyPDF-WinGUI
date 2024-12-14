@@ -13,6 +13,12 @@ assignees: 'sjain882'
 
 ‎
 
+## Why should it be added/changed?
+*Explain why the current situation is poor & justify your proposed feature.*
+*e.g. a short user story.*
+
+‎
+
 ## Your proposed solution
 *The proposed feature / improvement and its intended use.*
 *For GUI improvements, specify the layout (e.g. "a drop-down with x and y...").*
