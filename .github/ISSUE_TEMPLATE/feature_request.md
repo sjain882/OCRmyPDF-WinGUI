@@ -1,5 +1,5 @@
 ---
-name: Request feature / enhance functionality
+name: New feature / enhance functionality
 about: Suggest an idea
 title: ''
 labels: 'enhancement'
