@@ -3,7 +3,7 @@ name: Bug report
 about: If you encountered a problem
 title: ''
 labels: 'bug'
-assignees: ''
+assignees: 'sjain882'
 
 ---
 
