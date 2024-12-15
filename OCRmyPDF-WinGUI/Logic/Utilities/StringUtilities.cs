@@ -22,11 +22,11 @@ namespace OcrMyPdf.Logic.Utilities
             return sb;
         }
 
-        public static string AddSuffix(string filename, string suffix)
+        public static string AddSuffix(string filePath, string suffix)
         {
-            string fDir = Path.GetDirectoryName(filename);
-            string fName = Path.GetFileNameWithoutExtension(filename);
-            string fExt = Path.GetExtension(filename);
+            string fDir = Path.GetDirectoryName(filePath);
+            string fName = Path.GetFileNameWithoutExtension(filePath);
+            string fExt = Path.GetExtension(filePath);
             return Path.Combine(fDir, String.Concat(fName, suffix, fExt));
         }
     }
