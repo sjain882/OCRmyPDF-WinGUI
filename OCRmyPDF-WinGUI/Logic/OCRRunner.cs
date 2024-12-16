@@ -33,7 +33,7 @@ namespace OcrMyPdf.Logic
             cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + inputFilePath + "\"");
 
             // Output PDF path
-            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + StringUtilities.AddSuffix(inputFilePath, this.optionSet.outputSuffix) + "\"");
+            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + StringUtilities.AddPathSuffix(inputFilePath, this.optionSet.outputSuffix) + "\"");
 
             // Prepare the process
             Process process = new Process()

@@ -22,12 +22,32 @@ namespace OcrMyPdf.Logic.Utilities
             return sb;
         }
 
-        public static string AddSuffix(string filePath, string suffix)
+        public static string AddPathSuffix(string filePath, string suffix)
         {
             string fDir = Path.GetDirectoryName(filePath);
             string fName = Path.GetFileNameWithoutExtension(filePath);
             string fExt = Path.GetExtension(filePath);
             return Path.Combine(fDir, String.Concat(fName, suffix, fExt));
+        }
+
+        public static string GetRandomSuffix(string filepath)
+        {
+            // string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+            char[] stringChars = new char[4];
+            Random random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return "_" + new string(stringChars);
+        }
+
+        public static string AddRandomPathSuffix(string filePath)
+        {
+            return AddPathSuffix(filePath, GetRandomSuffix(filePath));
         }
     }
 }
