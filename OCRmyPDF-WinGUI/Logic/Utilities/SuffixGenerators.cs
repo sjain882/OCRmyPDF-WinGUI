@@ -4,11 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcrMyPdf.Logic.Utilities.SuffixGenerators
+namespace OcrMyPdf.Logic.Utilities
 {
-    public class RandomSuffix : ISuffixGenerator
+    // Interface
+    public interface ISuffixGenerator
     {
-        public string AddSuffix(string filePath)
+        public string GenerateSuffix();
+    }
+
+
+    // Generate random suffix
+    public class RandomSuffixGenerator : ISuffixGenerator
+    {
+        public string GenerateSuffix()
         {
             // string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
@@ -20,7 +28,16 @@ namespace OcrMyPdf.Logic.Utilities.SuffixGenerators
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
 
-            return StringUtilities.AddPathSuffix(filePath, "_" + new string(stringChars));
+            return "_" + new string(stringChars);
+        }
+    }
+
+    // Generate timestamp suffix
+    public class TimestampSuffixGenerator : ISuffixGenerator
+    {
+        public string GenerateSuffix()
+        {
+            return "_" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
         }
     }
 }
