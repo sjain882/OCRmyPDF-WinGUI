@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using OcrMyPdf.Logic.Utilities.SuffixGenerators;
 
 namespace OcrMyPdf.Logic
 {
@@ -33,7 +35,7 @@ namespace OcrMyPdf.Logic
             cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + inputFilePath + "\"");
 
             // Output PDF path
-            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + StringUtilities.AddPathSuffix(inputFilePath, this.optionSet.outputSuffix) + "\"");
+            cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + DetermineOutputPath(inputFilePath) + "\"");
 
             // Prepare the process
             Process process = new Process()
@@ -52,6 +54,29 @@ namespace OcrMyPdf.Logic
             process.WaitForExit();
 
             return process.ExitCode;
+        }
+
+        public string DetermineOutputPath(string inputFilePath)
+        {
+            // Append user-chosen suffix
+            string outputFilePath = StringUtilities.AddPathSuffix(inputFilePath, this.optionSet.outputSuffix);
+
+            // Check if filename already exists
+            if (File.Exists(outputFilePath))
+            {
+                // Generate a new one if so
+                string outputFilePath2 = new RandomSuffix().AddSuffix(outputFilePath);
+
+                // Check if that has collided (very rare)
+                while (File.Exists(outputFilePath2))
+                {
+                    // If so, generate a different one
+                    outputFilePath2 = new RandomSuffix().AddSuffix(outputFilePath);
+                }
+
+                outputFilePath = outputFilePath2;
+            }
+            return outputFilePath;
         }
 
         public string GetOCRArguments(OCROptionSet optionSet)
