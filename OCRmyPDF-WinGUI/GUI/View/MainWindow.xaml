@@ -115,23 +115,26 @@
 
 
         <!--  Input File list  -->
-        <ListBox
-            x:Name="fileList"
-            Grid.Row="1"
-            AllowDrop="true"
-            DragEnter="FileList_DragOver"
-            DragOver="FileList_DragOver"
-            Drop="FileList_Drop"
-            ItemsSource="{Binding FilePathsList}" />
+        <Grid Grid.Row="1">
+            <ListBox
+                x:Name="fileList"
+                AllowDrop="true"
+                DragEnter="FileList_DragOver"
+                DragOver="FileList_DragOver"
+                Drop="FileList_Drop"
+                ItemsSource="{Binding FilePathsList}" />
+        </Grid>
 
 
         <!--  "Options:" label  -->
-        <Label
-            Grid.Row="2"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Content="Options:"
-            FontSize="13" />
+        <Grid Grid.Row="2">
+            <Label
+                Grid.Row="2"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Options:"
+                FontSize="13" />
+        </Grid>
 
 
         <!--  First row of options  -->
@@ -246,45 +249,42 @@
 
 
         <!--  Start button  -->
-        <Button
-            Name="StartBtn"
-            Grid.Row="5"
-            Padding="20,4"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Command="{Binding StartOCRCommand}"
-            Content="Start!"
-            FontSize="14" />
-        <!--  Click="StartBtn_Click"  -->
-
+        <Grid Grid.Row="5">
+            <Button
+                Name="StartBtn"
+                Padding="20,4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding StartOCRCommand}"
+                Content="Start!"
+                FontSize="14" />
+        </Grid>
 
 
         <!--  Status labels  -->
-        <StackPanel
-            Grid.Row="6"
-            HorizontalAlignment="Left"
-            Orientation="Horizontal">
+        <Grid Grid.Row="6">
+
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+
+                <!--  "Status:" label  -->
+                <Label
+                    Margin="0,0,-5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Status:"
+                    FontSize="13" />
 
 
-            <!--  "Status:" label  -->
-            <Label
-                Margin="0,0,-5,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Status:"
-                FontSize="13" />
+                <!--  Current PDF status label  -->
+                <Label
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="{Binding ProgressText}"
+                    FontSize="13"
+                    FontWeight="Bold" />
 
+            </StackPanel>
+        </Grid>
 
-            <!--  Current PDF status label  -->
-            <Label
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="{Binding ProgressText}"
-                FontSize="13"
-                FontWeight="Bold" />
-
-        </StackPanel>
     </Grid>
-
-
 </Window>
