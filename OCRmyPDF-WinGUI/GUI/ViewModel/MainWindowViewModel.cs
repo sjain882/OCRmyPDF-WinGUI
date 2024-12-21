@@ -36,8 +36,12 @@ namespace OcrMyPdf.GUI.ViewModel
         private string currentPDF;
         private string progressText;
         private bool isRunning;
-        private int xHeight;
-        private int yHeight;
+        private int win_xHeight;
+        private int win_yHeight;
+        private int win_left;
+        private int win_top;
+        private int win_right;
+        private int win_bottom;
 
 
         // Constructor
@@ -178,16 +182,52 @@ namespace OcrMyPdf.GUI.ViewModel
 
         public int XWidth
         {
-            get { return this.xHeight; }
-            set { this.xHeight = value; OnPropertyChanged(); }
+            get { return this.win_xHeight; }
+            set { this.win_xHeight = value; OnPropertyChanged(); }
         }
 
         // ----- Y / Height
 
         public int YHeight
         {
-            get { return this.yHeight; }
-            set { this.yHeight = value; OnPropertyChanged(); }
+            get { return this.win_yHeight; }
+            set { this.win_yHeight = value; OnPropertyChanged(); }
+        }
+        
+
+        // ----- Left
+
+        public int Left
+        {
+            get { return this.win_left; }
+            set { this.win_left = value; OnPropertyChanged(); }
+        }
+        
+
+        // ----- Top
+
+        public int Top
+        {
+            get { return this.win_top; }
+            set { this.win_top = value; OnPropertyChanged(); }
+        }
+        
+
+        // ----- Right
+
+        public int Right
+        {
+            get { return this.win_right; }
+            set { this.win_right = value; OnPropertyChanged(); }
+        }
+        
+
+        // ----- Bottom
+
+        public int Bottom
+        {
+            get { return this.win_bottom; }
+            set { this.win_bottom = value; OnPropertyChanged(); }
         }
 
 
