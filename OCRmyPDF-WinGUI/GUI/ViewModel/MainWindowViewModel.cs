@@ -241,10 +241,8 @@ namespace OcrMyPdf.GUI.ViewModel
                 // If there were errors, display them
                 if (this.ocrErrors.Count > 0)
                 {
-                    //MessageBox.Show("There were errors!");
-                    errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left + this.XWidth, Top = this.Top };
+                    errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left - this.XWidth - 10, Top = this.Top };
                     errorListWindow.Show();
-
                 }
             }
         }

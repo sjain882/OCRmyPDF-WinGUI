@@ -10,7 +10,6 @@
     Width="500"
     Height="660"
     SizeToContent="Height"
-    WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
 
