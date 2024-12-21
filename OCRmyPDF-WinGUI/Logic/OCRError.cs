@@ -12,5 +12,11 @@ namespace OcrMyPdf.Logic
         public string filePath { get; set; }
 
         public ExitCodeTemplate exitCode { get; set; }
+
+        public OCRError(string filePath, ExitCodeTemplate exitCode)
+        {
+            this.filePath = filePath;
+            this.exitCode = exitCode;
+        }
     }
 }
