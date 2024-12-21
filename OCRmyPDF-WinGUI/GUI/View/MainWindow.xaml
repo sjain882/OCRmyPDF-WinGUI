@@ -7,8 +7,8 @@
     xmlns:local="clr-namespace:OcrMyPdf"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="OCRmyPDF - Add text layers to image-only PDFs"
-    Width="500"
-    Height="550"
+    Width="{Binding XWidth, Mode=TwoWay}"
+    Height="{Binding YHeight, Mode=TwoWay}"
     SizeToContent="Height"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -19,6 +19,21 @@
     <!--<Window.Resources>
         <ResourceDictionary x:Name="ForDesignerOnly" Source="../Theme/Custom/LightThemeAdditions.xaml" />
     </Window.Resources>-->
+
+    <!--  ********** WINDOW DIMENSIONS START **********  -->
+
+    <!--  For designer  -->
+    <!--<Window.Width>500</Window.Width>
+    <Window.Height>550</Window.Height>-->
+
+    <!--
+        For runtime (paste in Window tag at top)
+        
+        Width="{Binding XWidth, Mode=TwoWay}"
+        Height="{Binding YHeight, Mode=TwoWay}"
+    -->
+
+    <!--  *********** WINDOW DIMENSIONS END ***********  -->
 
     <!--  Main grid  -->
     <Grid Margin="5">

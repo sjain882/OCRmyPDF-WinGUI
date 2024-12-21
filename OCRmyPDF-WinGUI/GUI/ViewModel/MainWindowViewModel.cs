@@ -36,11 +36,17 @@ namespace OcrMyPdf.GUI.ViewModel
         private string currentPDF;
         private string progressText;
         private bool isRunning;
+        private int xHeight;
+        private int yHeight;
 
 
         // Constructor
         public MainWindowViewModel()
         {
+            // Set the window dimensions
+            this.XWidth = 500;
+            this.YHeight = 550;
+
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
             ocrErrors = new ObservableCollection<OCRError>();
@@ -163,6 +169,26 @@ namespace OcrMyPdf.GUI.ViewModel
 
         // ----- Remove file from file list command binding
         public RemoveFileCommand RemoveFileCommand { get; set; }
+
+
+
+        // --------------------- WINDOW DIMENSIONS ---------------------
+
+        // ----- X / Width
+
+        public int XWidth
+        {
+            get { return this.xHeight; }
+            set { this.xHeight = value; OnPropertyChanged(); }
+        }
+
+        // ----- Y / Height
+
+        public int YHeight
+        {
+            get { return this.yHeight; }
+            set { this.yHeight = value; OnPropertyChanged(); }
+        }
 
 
         // --------------------- DATA BINDINGS END ---------------------
