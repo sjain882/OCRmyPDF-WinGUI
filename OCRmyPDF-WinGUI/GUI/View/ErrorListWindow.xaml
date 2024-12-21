@@ -1,0 +1,251 @@
+﻿<Window
+    x:Class="OcrMyPdf.Gui.View.ErrorListWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:commands="clr-namespace:OcrMyPdf.GUI.ViewModel.Commands"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:OcrMyPdf.Gui.View"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="OCRmyPDF - Errors encountered!"
+    Width="500"
+    Height="660"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <!--  Background="#292929" for DarkGreyTheme  -->
+
+    <!--  This Window Resource is automatically removed at runtime.  -->
+    <!--  It is present so that the Designer remains usable.  -->
+    <!--<Window.Resources>
+        <ResourceDictionary x:Name="ForDesignerOnly" Source="../Theme/Custom/LightThemeAdditions.xaml" />
+    </Window.Resources>-->
+
+    <!--  Main grid  -->
+    <Grid Margin="5">
+
+        <!--  Rows  -->
+        <Grid.RowDefinitions>
+            <!--  Error list label  -->
+            <RowDefinition Height="30" />
+
+            <!--  Error list  -->
+            <RowDefinition Height="250*" MinHeight="250" />
+
+            <!--  "Details:" label  -->
+            <RowDefinition Height="30" />
+
+            <!--  First row of details (path)  -->
+            <RowDefinition Height="60" />
+
+            <!--  Second row of details (error name)  -->
+            <RowDefinition Height="40" />
+
+            <!--  Third row of details (error description)  -->
+            <!--  "Error description:" label  -->
+            <RowDefinition Height="30" />
+            <!--  Error description TextBlock  -->
+            <RowDefinition Height="80" />
+
+            <!--  Close button  -->
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+
+        <!--  "Selected files:" label  -->
+        <Grid Grid.Row="0">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Select a row to view details:"
+                FontSize="13" />
+        </Grid>
+
+
+        <!--  Error list  -->
+        <Grid Grid.Row="1">
+            <ListBox
+                x:Name="errorList"
+                Grid.Row="1"
+                ItemsSource="{Binding ErrorList}" />
+        </Grid>
+
+
+        <!--  "Details:" label  -->
+        <Grid Grid.Row="2">
+            <Label
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Content="Details:"
+                FontSize="13" />
+        </Grid>
+
+
+        <!--  First row of details (path)  -->
+        <Grid Grid.Row="3" Margin="5,0,5,0">
+
+            <StackPanel>
+
+                <!--  File path textbox  -->
+                <Label
+                    x:Name="FilePathLbl"
+                    Padding="0,4"
+                    HorizontalAlignment="Left"
+                    Content="File path:"
+                    IsEnabled="false" />
+
+                <!--  Path & Buttons  -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+
+                    <!--  File Path TextBox  -->
+                    <TextBox
+                        x:Name="FilePathTxt"
+                        Height="30"
+                        MinWidth="390"
+                        Margin="0,0,0,0"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding ErrorFilePath}" />
+
+                    <!--  Open file button  -->
+                    <Button
+                        x:Name="OpenFileBtn"
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Command="{Binding OpenFileCommand}"
+                        Content="👁"
+                        ToolTip="Open PDF" />
+
+                    <!--  Reveal in File Explorer button  -->
+                    <Button
+                        x:Name="OpenFolderBtn"
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Command="{Binding OpenFolderCommand}"
+                        Content="📁"
+                        ToolTip="Reveal PDF in File Explorer" />
+
+                    <!--  Copy path button  -->
+                    <Button
+                        x:Name="CopyPathBtn"
+                        Width="30"
+                        Height="30"
+                        Margin="0,0,0,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Command="{Binding CopyPathCommand}"
+                        Content="📄"
+                        ToolTip="Copy path" />
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+
+        <!--  Second row of details (error name)  -->
+        <Grid Grid.Row="4">
+
+            <StackPanel Orientation="Horizontal">
+
+                <!--  "Error name:" label  -->
+                <Label
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Error name:"
+                    IsEnabled="false" />
+
+                <!--  Actual error name label  -->
+                <Label
+                    x:Name="ErrorName"
+                    MinWidth="355"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Center"
+                    Content="{Binding ErrorName}"
+                    FontWeight="Bold" />
+
+                <!--  Google Search button  -->
+                <Button
+                    x:Name="SearchErrorBtn"
+                    Width="30"
+                    Height="30"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Command="{Binding SearchErrorCommand}"
+                    Content="🔍"
+                    ToolTip="Reveal PDF in File Explorer" />
+
+                <!--  Copy error button  -->
+                <Button
+                    x:Name="CopyErrorBtn"
+                    Width="30"
+                    Height="30"
+                    Margin="0,0,0,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Command="{Binding CopyErrorCommand}"
+                    Content="📄"
+                    ToolTip="Copy path" />
+
+            </StackPanel>
+        </Grid>
+
+
+        <!--  Third row of details (error description)  -->
+
+        <!--  "Error description:" label  -->
+        <Grid Grid.Row="5">
+            <Label
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Content="Error description:"
+                IsEnabled="false" />
+        </Grid>
+
+
+        <!--  Actual error description text  -->
+        <Grid Grid.Row="6">
+            <TextBlock
+                x:Name="ErrorDescription"
+                Margin="5,0,5,0"
+                Text="{Binding ErrorDescription}"
+                TextWrapping="WrapWithOverflow">
+                <!--
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Cras et pulvinar arcu, luctus semper ex.
+                    Donec rhoncus bibendum nulla, non ultricies tortor rhoncus dapibus.
+                    Vivamus eu dolor neque.
+                    Donec ultricies sapien eget risus vulputate, nec dapibus dolor tincidunt.
+                    Cras velit mi, convallis vitae libero non, commodo venenatis diam.
+                -->
+            </TextBlock>
+        </Grid>
+
+
+        <!--  Close button  -->
+        <Grid Grid.Row="7">
+            <Button
+                Name="CloseBtn"
+                Padding="20,4"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding CloseWindowCommand}"
+                Content="Close"
+                FontSize="14" />
+        </Grid>
+
+    </Grid>
+</Window>

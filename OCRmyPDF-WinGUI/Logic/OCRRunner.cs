@@ -29,7 +29,7 @@ namespace OcrMyPdf.Logic
 
             // OCRmyPDF Arguments
             cmdBuilder.AppendWithSeparator(argsSprtr, this.ocrArguments);
-
+            
             // Input PDF path
             cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + inputFilePath + "\"");
 
