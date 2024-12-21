@@ -40,8 +40,6 @@ namespace OcrMyPdf.GUI.ViewModel
         private int win_yHeight;
         private int win_left;
         private int win_top;
-        private int win_right;
-        private int win_bottom;
 
 
         // Constructor
@@ -211,25 +209,6 @@ namespace OcrMyPdf.GUI.ViewModel
             get { return this.win_top; }
             set { this.win_top = value; OnPropertyChanged(); }
         }
-        
-
-        // ----- Right
-
-        public int Right
-        {
-            get { return this.win_right; }
-            set { this.win_right = value; OnPropertyChanged(); }
-        }
-        
-
-        // ----- Bottom
-
-        public int Bottom
-        {
-            get { return this.win_bottom; }
-            set { this.win_bottom = value; OnPropertyChanged(); }
-        }
-
 
         // --------------------- DATA BINDINGS END ---------------------
 
@@ -263,7 +242,7 @@ namespace OcrMyPdf.GUI.ViewModel
                 if (this.ocrErrors.Count > 0)
                 {
                     //MessageBox.Show("There were errors!");
-                    errorListWindow = new ErrorListWindow(ocrErrors);
+                    errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left + this.XWidth, Top = this.Top };
                     errorListWindow.Show();
 
                 }

@@ -9,7 +9,9 @@
     Title="OCRmyPDF - Add text layers to image-only PDFs"
     Width="{Binding XWidth, Mode=TwoWay}"
     Height="{Binding YHeight, Mode=TwoWay}"
+    Left="{Binding Left, Mode=TwoWay}"
     SizeToContent="Height"
+    Top="{Binding Top, Mode=TwoWay}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
