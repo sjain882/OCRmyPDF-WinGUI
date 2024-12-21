@@ -71,7 +71,7 @@ namespace OcrMyPdf.Gui.View
         private void ClearFilesBtn_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.filePathsList.Clear();
-            ViewModel.ocrErrors.Clear();
+            ViewModel.pdfErrors.Clear();
         }
 
 

@@ -29,7 +29,7 @@ namespace OcrMyPdf.GUI.ViewModel
         
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
-        public ObservableCollection<OCRError> ocrErrors;
+        public ObservableCollection<OCRError> pdfErrors;
 
         public ErrorListWindow errorListWindow;
 
@@ -43,7 +43,7 @@ namespace OcrMyPdf.GUI.ViewModel
         {
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
-            ocrErrors = new ObservableCollection<OCRError>();
+            pdfErrors = new ObservableCollection<OCRError>();
 
             progressText = "";
             isRunning = false;
@@ -194,10 +194,10 @@ namespace OcrMyPdf.GUI.ViewModel
                 IsRunning = false;
 
                 // If there were errors, display them
-                if (this.ocrErrors.Count > 0)
+                if (this.pdfErrors.Count > 0)
                 {
                     //MessageBox.Show("There were errors!");
-                    errorListWindow = new ErrorListWindow(ocrErrors);
+                    errorListWindow = new ErrorListWindow(pdfErrors);
                     errorListWindow.Show();
 
                 }
@@ -248,7 +248,7 @@ namespace OcrMyPdf.GUI.ViewModel
                         // If there was an error, record it
                         if (exitCode != ExitCodes.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
-                            this.ocrErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
+                            this.pdfErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
                         }
                     }
                 }
