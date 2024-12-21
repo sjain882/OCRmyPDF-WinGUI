@@ -45,7 +45,10 @@ namespace OcrMyPdf.GUI.ViewModel
             progressText = "";
             isRunning = false;
 
-            // Create Label Update progress command object, passing a reference to this ViewModel to it 
+            // Create "remove file from file list" command object, passing a reference to this ViewModel to it 
+            RemoveFileCommand = new RemoveFileCommand(this);
+
+            // Create "Label Update progress command" object, passing a reference to this ViewModel to it 
             StartOCRCommand = new StartOCRCommand(this);
 
         }
@@ -153,6 +156,10 @@ namespace OcrMyPdf.GUI.ViewModel
 
         // ----- Start! button command binding
         public StartOCRCommand StartOCRCommand { get; set; }
+
+
+        // ----- Remove file from file list command binding
+        public RemoveFileCommand RemoveFileCommand { get; set; }
 
 
         // --------------------- DATA BINDINGS END ---------------------

@@ -123,7 +123,13 @@
                 DragOver="FileList_DragOver"
                 Drop="FileList_Drop"
                 ItemsSource="{Binding FilePathsList}"
-                SelectedItem="{Binding FilePathsList_Selected}" />
+                SelectedItem="{Binding FilePathsList_Selected}">
+
+                <ListBox.InputBindings>
+                    <KeyBinding Key="Delete" Command="{Binding RemoveFileCommand}" />
+                </ListBox.InputBindings>
+
+            </ListBox>
         </Grid>
 
 
