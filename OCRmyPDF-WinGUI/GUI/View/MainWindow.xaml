@@ -122,7 +122,8 @@
                 DragEnter="FileList_DragOver"
                 DragOver="FileList_DragOver"
                 Drop="FileList_Drop"
-                ItemsSource="{Binding FilePathsList}" />
+                ItemsSource="{Binding FilePathsList}"
+                SelectedItem="{Binding FilePathsList_Selected}" />
         </Grid>
 
 

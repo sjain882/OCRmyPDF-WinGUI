@@ -30,7 +30,7 @@ namespace OcrMyPdf.GUI.ViewModel
         public OCROptionSet ocrOptions;
         public Dictionary<string, int> pdfErrors;
 
-        private int currentPDF;
+        private string currentPDF;
         private string progressText;
         private bool isRunning;
 
@@ -42,7 +42,6 @@ namespace OcrMyPdf.GUI.ViewModel
             ocrOptions = new OCROptionSet();
             pdfErrors = new Dictionary<string, int>();
 
-            currentPDF = 0;
             progressText = "";
             isRunning = false;
 
@@ -59,6 +58,12 @@ namespace OcrMyPdf.GUI.ViewModel
         {
             get { return filePathsList; }
             set { filePathsList = value; }
+        }
+
+        public string FilePathsList_Selected
+        {
+            get { return currentPDF; }
+            set { currentPDF = value; OnPropertyChanged(); }
         }
 
 
