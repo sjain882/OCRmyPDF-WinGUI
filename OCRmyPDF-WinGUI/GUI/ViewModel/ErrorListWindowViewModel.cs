@@ -11,11 +11,11 @@ namespace OcrMyPdf.GUI.ViewModel
     public class ErrorListWindowViewModel
     {
 
-        public ObservableCollection<OCRError> pdfErrors;
+        public ObservableCollection<OCRError> ocrErrors;
 
-        public ErrorListWindowViewModel(ObservableCollection<OCRError> pdfErrors)
+        public ErrorListWindowViewModel(ObservableCollection<OCRError> ocrErrors)
         {
-            this.pdfErrors = pdfErrors;
+            this.ocrErrors = ocrErrors;
         }
 
     }
