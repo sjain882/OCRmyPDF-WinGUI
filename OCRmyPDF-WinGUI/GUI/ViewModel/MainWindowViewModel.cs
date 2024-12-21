@@ -28,7 +28,7 @@ namespace OcrMyPdf.GUI.ViewModel
         
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
-        public Dictionary<string, int> pdfErrors;
+        public ObservableCollection<OCRError> pdfErrors;
 
         private string currentPDF;
         private string progressText;
@@ -40,7 +40,7 @@ namespace OcrMyPdf.GUI.ViewModel
         {
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
-            pdfErrors = new Dictionary<string, int>();
+            pdfErrors = new ObservableCollection<OCRError>();
 
             progressText = "";
             isRunning = false;
@@ -193,27 +193,7 @@ namespace OcrMyPdf.GUI.ViewModel
                 // If there were errors, display them
                 if (this.pdfErrors.Count > 0)
                 {
-                    foreach (KeyValuePair<string, int> error in this.pdfErrors)
-                    {
-                        // Show an error message box
-                        MessageBox.Show
-                        (
-                            // Main body
-                            "Error in PDF:\r\n"
-                            + error.Key
-                            + "\r\n\r\n"
-                            + ExitCodes.ExitCodeList.Single(o => o.code == error.Value).nameAndDesc,
-
-                            // Title
-                            "Error",
-
-                            // Button
-                            MessageBoxButton.OK,
-
-                            // Icon
-                            MessageBoxImage.Error
-                        );
-                    }
+                    MessageBox.Show("There were errors!");
                 }
             }
         }
@@ -262,7 +242,7 @@ namespace OcrMyPdf.GUI.ViewModel
                         // If there was an error, record it
                         if (exitCode != ExitCodes.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
-                            this.pdfErrors.Add(path, exitCode);
+                            this.pdfErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
                         }
                     }
                 }
