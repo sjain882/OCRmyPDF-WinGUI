@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OcrMyPdf.GUI.Theme;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,9 @@ namespace OcrMyPdf.Gui.View
     {
         public ErrorListWindow()
         {
+            ThemeChanger errorWinThemeChanger = new ThemeChanger(this);
+            errorWinThemeChanger.ChangeTheme();
+
             InitializeComponent();
         }
     }
