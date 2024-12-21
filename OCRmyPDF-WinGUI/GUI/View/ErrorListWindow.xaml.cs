@@ -1,6 +1,9 @@
 ﻿using OcrMyPdf.GUI.Theme;
+using OcrMyPdf.GUI.ViewModel;
+using OcrMyPdf.Logic;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +23,14 @@ namespace OcrMyPdf.Gui.View
     /// </summary>
     public partial class ErrorListWindow : Window
     {
-        public ErrorListWindow()
+
+        public ErrorListWindowViewModel ViewModel;
+
+        public ErrorListWindow(ObservableCollection<OCRError> ocrErrors)
         {
+            ViewModel = new ErrorListWindowViewModel(ocrErrors);
+            DataContext = ViewModel;
+
             ThemeChanger errorWinThemeChanger = new ThemeChanger(this);
             errorWinThemeChanger.ChangeTheme();
 

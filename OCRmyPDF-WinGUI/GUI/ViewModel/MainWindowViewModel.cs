@@ -17,6 +17,7 @@ using System.Windows.Media;
 using OcrMyPdf.GUI.ViewModel.Commands;
 using OcrMyPdf.Logic.ExitCodes;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using OcrMyPdf.Gui.View;
 
 namespace OcrMyPdf.GUI.ViewModel
 {
@@ -29,6 +30,8 @@ namespace OcrMyPdf.GUI.ViewModel
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
         public ObservableCollection<OCRError> pdfErrors;
+
+        public ErrorListWindow errorListWindow;
 
         private string currentPDF;
         private string progressText;
@@ -193,7 +196,10 @@ namespace OcrMyPdf.GUI.ViewModel
                 // If there were errors, display them
                 if (this.pdfErrors.Count > 0)
                 {
-                    MessageBox.Show("There were errors!");
+                    //MessageBox.Show("There were errors!");
+                    errorListWindow = new ErrorListWindow(pdfErrors);
+                    errorListWindow.Show();
+
                 }
             }
         }
