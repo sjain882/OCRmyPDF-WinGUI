@@ -108,6 +108,7 @@
                         Height="30"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
+                        Click="OpenFile"
                         Command="{Binding OpenFileCommand}"
                         Content="👁"
                         DockPanel.Dock="Right"

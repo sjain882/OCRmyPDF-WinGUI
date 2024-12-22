@@ -45,7 +45,12 @@ namespace OcrMyPdf.Gui.View
 
         private void ExploreFile(object sender, RoutedEventArgs e)
         {
-            ExplorerUtilities.ExploreFile(FilePathTxtBox.Text);
+            FileInteractions.ExploreFile(FilePathTxtBox.Text);
+        }
+
+        private void OpenFile(object sender, RoutedEventArgs e)
+        {
+            FileInteractions.OpenFileInDefaultViewer(FilePathTxtBox.Text);
         }
 
     }
