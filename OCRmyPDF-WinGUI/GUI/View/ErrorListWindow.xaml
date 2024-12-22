@@ -58,7 +58,7 @@
                 Grid.Column="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="Select a row to view details:"
+                Content="Select an affected file to view details:"
                 FontSize="13" />
         </Grid>
 
