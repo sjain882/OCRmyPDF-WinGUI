@@ -38,6 +38,11 @@ namespace OcrMyPdf.Gui.View
             InitializeComponent();
         }
 
+        private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)
+        {
+            this.Close();
+        }
+
         private void CopyPathToClipboard(object sender, RoutedEventArgs e)
         {
             TextInteractions.CopyTextToClipboard(FilePathTxtBox.Text);
