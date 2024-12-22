@@ -15,6 +15,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OcrMyPdf.Logic.Utilities;
 
 namespace OcrMyPdf.Gui.View
 {
@@ -42,7 +43,10 @@ namespace OcrMyPdf.Gui.View
             Clipboard.SetText(FilePathTxtBox.Text);
         }
 
-
+        private void ExploreFile(object sender, RoutedEventArgs e)
+        {
+            ExplorerUtilities.ExploreFile(FilePathTxtBox.Text);
+        }
 
     }
 }
