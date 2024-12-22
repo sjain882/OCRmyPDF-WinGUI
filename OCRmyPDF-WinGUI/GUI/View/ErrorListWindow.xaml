@@ -40,6 +40,7 @@
             <RowDefinition Height="40" />
 
             <!--  Third row of details (error description)  -->
+
             <!--  "Error description:" label  -->
             <RowDefinition Height="30" />
             <!--  Error description TextBlock  -->
@@ -71,7 +72,6 @@
                 IsSynchronizedWithCurrentItem="True"
                 ItemsSource="{Binding ErrorList}"
                 SelectedItem="{Binding ErrorList_Selected}" />
-            <!--  SelectedItem="{Binding SelectedValue, Mode=TwoWay}" />  -->
         </Grid>
 
 
@@ -88,7 +88,7 @@
         <!--  First row of details (path)  -->
         <Grid Grid.Row="3" Margin="5,0,0,0">
 
-            <StackPanel>
+            <StackPanel Grid.Row="3">
 
                 <!--  File path textbox  -->
                 <Label
@@ -99,29 +99,18 @@
                     IsEnabled="false" />
 
                 <!--  Path & Buttons  -->
-                <StackPanel Grid.Column="0" Orientation="Horizontal">
-
-                    <!--  File Path TextBox  -->
-                    <TextBox
-                        x:Name="FilePathTxt"
-                        Height="30"
-                        MinWidth="390"
-                        Margin="0,0,0,0"
-                        HorizontalContentAlignment="Left"
-                        VerticalContentAlignment="Center"
-                        IsReadOnly="True"
-                        Text="{Binding ErrorList_Selected.FilePath, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                <DockPanel Grid.Column="0">
 
                     <!--  Open file button  -->
                     <Button
                         x:Name="OpenFileBtn"
                         Width="30"
                         Height="30"
-                        Margin="0,0,0,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Command="{Binding OpenFileCommand}"
                         Content="👁"
+                        DockPanel.Dock="Right"
                         ToolTip="Open PDF" />
 
                     <!--  Reveal in File Explorer button  -->
@@ -129,11 +118,11 @@
                         x:Name="OpenFolderBtn"
                         Width="30"
                         Height="30"
-                        Margin="0,0,0,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Command="{Binding OpenFolderCommand}"
                         Content="📁"
+                        DockPanel.Dock="Right"
                         ToolTip="Reveal PDF in File Explorer" />
 
                     <!--  Copy path button  -->
@@ -141,14 +130,25 @@
                         x:Name="CopyPathBtn"
                         Width="30"
                         Height="30"
-                        Margin="0,0,0,0"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Command="{Binding CopyPathCommand}"
                         Content="📄"
+                        DockPanel.Dock="Right"
                         ToolTip="Copy path" />
 
-                </StackPanel>
+                    <!--  File Path TextBox  -->
+                    <TextBox
+                        x:Name="FilePathTxt"
+                        Height="30"
+                        MinWidth="390"
+                        HorizontalContentAlignment="Left"
+                        VerticalContentAlignment="Center"
+                        DockPanel.Dock="Left"
+                        IsReadOnly="True"
+                        Text="{Binding ErrorList_Selected.FilePath, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+
+                </DockPanel>
             </StackPanel>
         </Grid>
 
@@ -156,7 +156,7 @@
         <!--  Second row of details (error name)  -->
         <Grid Grid.Row="4">
 
-            <StackPanel Orientation="Horizontal">
+            <DockPanel>
 
                 <!--  "Error name:" label  -->
                 <Label
@@ -188,6 +188,7 @@
                     VerticalAlignment="Center"
                     Command="{Binding SearchErrorCommand}"
                     Content="🔍"
+                    DockPanel.Dock="Right"
                     ToolTip="Reveal PDF in File Explorer" />
 
                 <!--  Copy error button  -->
@@ -200,9 +201,10 @@
                     VerticalAlignment="Center"
                     Command="{Binding CopyErrorCommand}"
                     Content="📄"
+                    DockPanel.Dock="Right"
                     ToolTip="Copy path" />
 
-            </StackPanel>
+            </DockPanel>
         </Grid>
 
 
