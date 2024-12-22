@@ -61,7 +61,7 @@ namespace OcrMyPdf.Logic.ExitCodes
                 "AlreadyDoneOCR",
                 6,
                 "Already Done OCR",
-                "The file already appears to contain text so it may not need OCR. Try changing \"Processing Policy\" to \"Redo\" or \"Force\""),
+                "The file already appears to contain text so it may not need OCR.\r\nTry changing \"Processing Policy\" to \"Redo\" or \"Force\""),
 
 
             new ExitCodeTemplate(
