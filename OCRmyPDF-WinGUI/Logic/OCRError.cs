@@ -9,14 +9,17 @@ namespace OcrMyPdf.Logic
 {
     public class OCRError
     {
-        public string filePath { get; set; }
+        public string FilePath { get; set; }
 
-        public ExitCodeTemplate exitCodeObject { get; set; }
+        public string Name { get; set; }
+
+        public string Description { get; set; }
 
         public OCRError(string filePath, ExitCodeTemplate exitCode)
         {
-            this.filePath = filePath;
-            this.exitCodeObject = exitCode;
+            this.FilePath    = filePath;
+            this.Name        = ExitCodeCollection.ExitCodeList.Single(o => o.code == exitCode.code).nameAndCode;
+            this.Description = ExitCodeCollection.ExitCodeList.Single(o => o.code == exitCode.code).description;
         }
     }
 }

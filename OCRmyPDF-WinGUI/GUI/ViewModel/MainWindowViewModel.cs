@@ -291,7 +291,7 @@ namespace OcrMyPdf.GUI.ViewModel
                         int exitCode = ocrRunner.OCRSinglePDF(path);
 
                         // If there was an error, record it
-                        if (exitCode != ExitCodes.ExitCodeList.Single(o => o.identifier == "OK").code)
+                        if (exitCode != ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
                             this.ocrErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
                         }

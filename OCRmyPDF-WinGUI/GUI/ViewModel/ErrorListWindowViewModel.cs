@@ -40,49 +40,6 @@ namespace OcrMyPdf.GUI.ViewModel
             set { selectedError = value; OnPropertyChanged(); }
         }
 
-        //public OCRError ErrorList_SelectedValue
-        //{
-        //    get { return selectedError; }
-        //    set { selectedError = value; OnPropertyChanged(); }
-        //}
-
-
-        // ------------------------ ERROR DETAILS ----------------------
-
-        public string ErrorFilePath
-        {
-            get
-            {
-                if (selectedError == null)
-                    return "";
-
-                return selectedError.filePath;
-            }
-        }
-
-        public string ErrorName
-        {
-            get
-            {
-                if (selectedError == null)
-                    return "";
-
-                return ExitCodes.ExitCodeList.Single(o => o.code == selectedError.exitCodeObject.code).displayName;
-            }
-        }
-
-        public string ErrorDescription
-        {
-            get
-            {
-                if (selectedError == null)
-                    return "";
-
-                return ExitCodes.ExitCodeList.Single(o => o.code == selectedError.exitCodeObject.code).description;
-            
-            }
-        }
-
         // --------------------- DATA BINDINGS END ---------------------
     }
 }

@@ -35,10 +35,10 @@ namespace OcrMyPdf.Logic.ExitCodes
 
         public ExitCodeTemplate(int code)
         {
-            this.identifier = ExitCodes.ExitCodeList.Single(o => o.code == code).identifier;
+            this.identifier = ExitCodeCollection.ExitCodeList.Single(o => o.code == code).identifier;
             this.code = code;
-            this.displayName = ExitCodes.ExitCodeList.Single(o => o.code == code).displayName;
-            this.description = ExitCodes.ExitCodeList.Single(o => o.code == code).description;
+            this.displayName = ExitCodeCollection.ExitCodeList.Single(o => o.code == code).displayName;
+            this.description = ExitCodeCollection.ExitCodeList.Single(o => o.code == code).description;
         }
 
         public ExitCodeTemplate(string identifier, int code, string displayName, string description)

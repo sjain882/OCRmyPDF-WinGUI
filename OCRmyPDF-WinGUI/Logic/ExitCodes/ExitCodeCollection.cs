@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace OcrMyPdf.Logic.ExitCodes
 {
-    public class ExitCodes
+    public class ExitCodeCollection
     {
         public static readonly List<ExitCodeTemplate> ExitCodeList = new List<ExitCodeTemplate>
         {
