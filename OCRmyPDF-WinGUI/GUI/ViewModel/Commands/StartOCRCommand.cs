@@ -37,15 +37,13 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
             //Gui.View.ErrorListWindow errorListWindow = new Gui.View.ErrorListWindow(ocrErrors);
             //errorListWindow.Show();
 
+            ViewModel.ocrErrors.Clear();
+
+
             if (ViewModel.errorListWindow != null)
             {
                 ViewModel.errorListWindow.Close();
             }
-
-            App.Current.Dispatcher.Invoke((Action)delegate
-            {
-                ViewModel.ocrErrors.Clear();
-            });
 
             ViewModel.RunOCRWithProgressUpdates();
 

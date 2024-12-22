@@ -303,7 +303,11 @@ namespace OcrMyPdf.Gui.ViewModel
                         // If there was an error, record it
                         if (exitCode != ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
-                            this.ocrErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
+
+                            App.Current.Dispatcher.Invoke((Action)delegate
+                            {
+                                this.ocrErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
+                            });
                         }
                     }
                 }
