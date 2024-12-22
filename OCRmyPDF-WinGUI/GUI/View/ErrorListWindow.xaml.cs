@@ -40,7 +40,7 @@ namespace OcrMyPdf.Gui.View
 
         private void CopyPathToClipboard(object sender, RoutedEventArgs e)
         {
-            Clipboard.SetText(FilePathTxtBox.Text);
+            TextInteractions.CopyTextToClipboard(FilePathTxtBox.Text);
         }
 
         private void ExploreFile(object sender, RoutedEventArgs e)
@@ -51,6 +51,11 @@ namespace OcrMyPdf.Gui.View
         private void OpenFile(object sender, RoutedEventArgs e)
         {
             FileInteractions.OpenFileInDefaultViewer(FilePathTxtBox.Text);
+        }
+
+        private void CopyErrorToClipboard(object sender, RoutedEventArgs e)
+        {
+            TextInteractions.CopyTextToClipboard(ErrorName.Content.ToString());
         }
 
     }

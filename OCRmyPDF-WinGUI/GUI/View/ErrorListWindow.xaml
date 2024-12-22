@@ -200,6 +200,7 @@
                     Margin="0,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
+                    Click="CopyErrorToClipboard"
                     Command="{Binding CopyErrorCommand}"
                     Content="📄"
                     DockPanel.Dock="Right"
