@@ -30,14 +30,20 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
         // Called when Start button pressed
         public void Execute(object parameter)
         {
-            ObservableCollection<OcrMyPdf.Logic.OCRError> ocrErrors = new ObservableCollection<OcrMyPdf.Logic.OCRError>();
-            ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(5)));
-            ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText - Copy.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(1)));
-            Gui.View.ErrorListWindow errorListWindow = new Gui.View.ErrorListWindow(ocrErrors);
-            errorListWindow.Show();
+            //ObservableCollection<OcrMyPdf.Logic.OCRError> ocrErrors = new ObservableCollection<OcrMyPdf.Logic.OCRError>();
+            //ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(5)));
+            //ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText - Copy.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(1)));
+            //Gui.View.ErrorListWindow errorListWindow = new Gui.View.ErrorListWindow(ocrErrors);
+            //errorListWindow.Show();
 
-            //ViewModel.ocrErrors.Clear();
-            //ViewModel.RunOCRWithProgressUpdates();
+            if (ViewModel.errorListWindow != null)
+            {
+                ViewModel.errorListWindow.Close();
+            }
+
+            ViewModel.ocrErrors.Clear();
+
+            ViewModel.RunOCRWithProgressUpdates();
 
 
             // MessageBox.Show("hi");

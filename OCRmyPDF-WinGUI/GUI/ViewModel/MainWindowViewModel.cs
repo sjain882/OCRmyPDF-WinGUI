@@ -18,6 +18,7 @@ using OcrMyPdf.Gui.ViewModel.Commands;
 using OcrMyPdf.Logic.ExitCodes;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using OcrMyPdf.Gui.View;
+using Microsoft.VisualBasic;
 
 namespace OcrMyPdf.Gui.ViewModel
 {
@@ -244,7 +245,16 @@ namespace OcrMyPdf.Gui.ViewModel
                     errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left - this.XWidth - 10, Top = this.Top };
                     //errorListWindow.errorList.SelectedValue = ocrErrors.FirstOrDefault();
                     //errorListWindow.errorList.SelectedIndex = 0;
+
                     errorListWindow.Show();
+
+                    MessageBox.Show("Unfortunately, some errors occurred during the conversion process.\r\n\r\n"
+                                    + "First, select a file from the list to view its error.\r\n\r\n"
+                                    + "Then, optionally remove all the successfully converted files from the queue (recommended).\r\n\r\n"
+                                    + "Finally, click start.\r\n\r\n",
+                                    "OCRmyPDF",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
                 }
             }
         }
