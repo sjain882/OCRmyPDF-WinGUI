@@ -109,7 +109,6 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Click="OpenFile"
-                        Command="{Binding OpenFileCommand}"
                         Content="👁"
                         DockPanel.Dock="Right"
                         ToolTip="Open PDF" />
@@ -188,7 +187,6 @@
                     Margin="0,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Command="{Binding SearchErrorCommand}"
                     Content="🔍"
                     DockPanel.Dock="Right"
                     ToolTip="Reveal PDF in File Explorer" />
@@ -202,7 +200,6 @@
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
                     Click="CopyErrorToClipboard"
-                    Command="{Binding CopyErrorCommand}"
                     Content="📄"
                     DockPanel.Dock="Right"
                     ToolTip="Copy path" />
