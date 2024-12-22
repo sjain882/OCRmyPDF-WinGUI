@@ -184,6 +184,7 @@
                     x:Name="SearchErrorBtn"
                     Width="30"
                     Height="30"
+                    Click="SearchError"
                     Margin="0,0,0,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"

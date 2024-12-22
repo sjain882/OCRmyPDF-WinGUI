@@ -28,28 +28,8 @@ namespace OcrMyPdf.Logic.Utilities
 
         public static bool OpenFileInDefaultViewer(string filePath)
         {
-            var process = new Process();
-
-            process.StartInfo = new ProcessStartInfo(@filePath)
-            {
-                UseShellExecute = true
-            };
-
-            try
-            {
-                process.Start();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Failed to open PDF. There is no default PDF viewer on this system.",
-                                "OCRmyPDF",
-                                MessageBoxButton.OK,
-                                MessageBoxImage.Error);
-
-                return false;
-            }
-
-            return true;
+            return ShellInteractions.OpenInDefaultViewer(filePath, 
+                                                        "Failed to open PDF. There is no default PDF viewer on this system.");
         }
     }
 }

@@ -58,5 +58,10 @@ namespace OcrMyPdf.Gui.View
             TextInteractions.CopyTextToClipboard(ErrorName.Content.ToString());
         }
 
+        private void SearchError(object sender, RoutedEventArgs e)
+        {
+            TextInteractions.SearchOCRError(ErrorName.Content.ToString());
+        }
+
     }
 }
