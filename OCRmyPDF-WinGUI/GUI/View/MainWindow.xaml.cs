@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32;
-using OcrMyPdf.GUI.ViewModel;
+using OcrMyPdf.Gui.ViewModel;
 using OcrMyPdf.Logic.Utilities;
 using OcrMyPdf.Logic;
 using System.Text;
@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Collections.ObjectModel;
-using OcrMyPdf.GUI.Theme;
+using OcrMyPdf.Gui.Theme;
 
 namespace OcrMyPdf.Gui.View
 {

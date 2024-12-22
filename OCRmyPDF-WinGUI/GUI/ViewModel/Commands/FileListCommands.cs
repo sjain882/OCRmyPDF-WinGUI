@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace OcrMyPdf.GUI.ViewModel.Commands
+namespace OcrMyPdf.Gui.ViewModel.Commands
 {
     public class RemoveFileCommand : ICommand
     {

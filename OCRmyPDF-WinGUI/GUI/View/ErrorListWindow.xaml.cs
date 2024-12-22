@@ -1,5 +1,5 @@
-﻿using OcrMyPdf.GUI.Theme;
-using OcrMyPdf.GUI.ViewModel;
+﻿using OcrMyPdf.Gui.Theme;
+using OcrMyPdf.Gui.ViewModel;
 using OcrMyPdf.Logic;
 using System;
 using System.Collections.Generic;

@@ -7,19 +7,19 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
-using OcrMyPdf.GUI.MVVM;
+using OcrMyPdf.Gui.MVVM;
 using OcrMyPdf.Logic;
 using OcrMyPdf.Logic.Options;
 using System.Diagnostics;
 using System.Windows;
 using System.Configuration;
 using System.Windows.Media;
-using OcrMyPdf.GUI.ViewModel.Commands;
+using OcrMyPdf.Gui.ViewModel.Commands;
 using OcrMyPdf.Logic.ExitCodes;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using OcrMyPdf.Gui.View;
 
-namespace OcrMyPdf.GUI.ViewModel
+namespace OcrMyPdf.Gui.ViewModel
 {
     public class MainWindowViewModel : ViewModelBase
     {

@@ -1,4 +1,4 @@
-﻿using OcrMyPdf.GUI.MVVM;
+﻿using OcrMyPdf.Gui.MVVM;
 using OcrMyPdf.Logic;
 using OcrMyPdf.Logic.ExitCodes;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OcrMyPdf.GUI.ViewModel
+namespace OcrMyPdf.Gui.ViewModel
 {
     public class ErrorListWindowViewModel : ViewModelBase
     {
