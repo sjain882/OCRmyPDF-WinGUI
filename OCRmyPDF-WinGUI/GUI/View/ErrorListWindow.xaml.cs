@@ -36,5 +36,13 @@ namespace OcrMyPdf.Gui.View
 
             InitializeComponent();
         }
+
+        private void CopyPathToClipboard(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(FilePathTxtBox.Text);
+        }
+
+
+
     }
 }

@@ -132,14 +132,14 @@
                         Height="30"
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
-                        Command="{Binding CopyPathCommand}"
+                        Click="CopyPathToClipboard"
                         Content="📄"
                         DockPanel.Dock="Right"
                         ToolTip="Copy path" />
 
                     <!--  File Path TextBox  -->
                     <TextBox
-                        x:Name="FilePathTxt"
+                        x:Name="FilePathTxtBox"
                         Height="30"
                         MinWidth="390"
                         HorizontalContentAlignment="Left"
