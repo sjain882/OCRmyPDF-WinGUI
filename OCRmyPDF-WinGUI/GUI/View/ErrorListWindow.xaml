@@ -86,7 +86,7 @@
 
 
         <!--  First row of details (path)  -->
-        <Grid Grid.Row="3" Margin="5,0,5,0">
+        <Grid Grid.Row="3" Margin="5,0,0,0">
 
             <StackPanel>
 
