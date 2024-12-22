@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using OcrMyPdf.Gui.Theme;
+using System.IO;
 
 namespace OcrMyPdf.Gui.View
 {
@@ -84,8 +85,25 @@ namespace OcrMyPdf.Gui.View
 
                 foreach (string file in files)
                 {
-                    // Prevent duplicates from being dropped
-                    if (!ViewModel.filePathsList.Contains(file))
+                    // If its a folder
+                    if (Directory.Exists(file))
+                    {
+                        // Iterate its files
+                        foreach (string fileInFolder in Directory.GetFiles(file))
+                        {
+                            // Don't add the folder itself
+                            if (System.IO.Path.GetExtension(fileInFolder).ToUpperInvariant() == ".PDF")
+                            {
+                                // Prevent duplicates from being dropped
+                                if (!ViewModel.filePathsList.Contains(fileInFolder))
+                                {
+                                    ViewModel.filePathsList.Add(fileInFolder);
+                                }
+                            }
+                        }
+                    }
+                    // If its a PDF file... normal check: prevent duplicates from being dropped
+                    else if (!ViewModel.filePathsList.Contains(file))
                     {
                         ViewModel.filePathsList.Add(file);
                     }
@@ -104,10 +122,29 @@ namespace OcrMyPdf.Gui.View
             {
                 string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
-                foreach (string file in files)
+                foreach (string fileOrFolder in files)
                 {
-                    if (System.IO.Path.GetExtension(file).ToUpperInvariant() != ".PDF")
+                    // If its a folder(s)... 
+                    if (Directory.Exists(fileOrFolder))
                     {
+                        // ... check if all the files inside... 
+                        foreach (string file in Directory.GetFiles(fileOrFolder))
+                        {
+                            // ... are PDFs
+                            if (System.IO.Path.GetExtension(file).ToUpperInvariant() != ".PDF")
+                            {
+                                // if not, prevent drag & drop
+                                dropEnabled = false;
+                                PDFOnlyWarningLbl.Visibility = System.Windows.Visibility.Visible;
+                                dispatcherTimer.Start();
+                                break;
+                            }
+                        }
+                    }
+                    // If its a file(s), check if they're PDFs
+                    else if (System.IO.Path.GetExtension(fileOrFolder).ToUpperInvariant() != ".PDF")
+                    {
+                        // if not, prevent drag & drop
                         dropEnabled = false;
                         PDFOnlyWarningLbl.Visibility = System.Windows.Visibility.Visible;
                         dispatcherTimer.Start();
