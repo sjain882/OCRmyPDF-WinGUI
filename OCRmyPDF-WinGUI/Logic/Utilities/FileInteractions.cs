@@ -49,7 +49,6 @@ namespace OcrMyPdf.Logic.Utilities
                 return false;
             }
 
-            // If we got to this point, it must be successful
             return true;
         }
     }
