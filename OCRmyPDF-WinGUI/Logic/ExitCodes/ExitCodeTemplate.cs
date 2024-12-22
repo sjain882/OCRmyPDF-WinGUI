@@ -25,6 +25,14 @@ namespace OcrMyPdf.Logic.ExitCodes
             }
         }
 
+        public string nameAndCode
+        {
+            get
+            {
+                return this.displayName + " (" + this.code + ")";
+            }
+        }
+
         public ExitCodeTemplate(int code)
         {
             this.identifier = ExitCodes.ExitCodeList.Single(o => o.code == code).identifier;
