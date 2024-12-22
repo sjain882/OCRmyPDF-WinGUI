@@ -67,7 +67,11 @@
             <ListBox
                 x:Name="errorList"
                 Grid.Row="1"
-                ItemsSource="{Binding ErrorList}" />
+                DisplayMemberPath="filePath"
+                ItemsSource="{Binding ErrorList}"
+                IsSynchronizedWithCurrentItem="True"
+                SelectedItem="{Binding ErrorList_Selected}" />
+            <!--  SelectedItem="{Binding SelectedValue, Mode=TwoWay}" />  -->
         </Grid>
 
 
@@ -105,7 +109,8 @@
                         Margin="0,0,0,0"
                         HorizontalContentAlignment="Left"
                         VerticalContentAlignment="Center"
-                        Text="{Binding ErrorFilePath}" />
+                        IsReadOnly="True"
+                        Text="{Binding ErrorFilePath, Mode=OneWay}" />
 
                     <!--  Open file button  -->
                     <Button
@@ -170,7 +175,7 @@
                     VerticalAlignment="Center"
                     HorizontalContentAlignment="Left"
                     VerticalContentAlignment="Center"
-                    Content="{Binding ErrorName}"
+                    Content="{Binding ErrorName, Mode=OneWay}"
                     FontWeight="Bold" />
 
                 <!--  Google Search button  -->
@@ -220,7 +225,7 @@
             <TextBlock
                 x:Name="ErrorDescription"
                 Margin="5,0,5,0"
-                Text="{Binding ErrorDescription}"
+                Text="{Binding ErrorDescription, Mode=OneWay}"
                 TextWrapping="WrapWithOverflow">
                 <!--
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

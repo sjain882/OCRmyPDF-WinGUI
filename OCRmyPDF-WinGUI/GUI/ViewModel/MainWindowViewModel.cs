@@ -242,6 +242,8 @@ namespace OcrMyPdf.GUI.ViewModel
                 if (this.ocrErrors.Count > 0)
                 {
                     errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left - this.XWidth - 10, Top = this.Top };
+                    //errorListWindow.errorList.SelectedValue = ocrErrors.FirstOrDefault();
+                    //errorListWindow.errorList.SelectedIndex = 0;
                     errorListWindow.Show();
                 }
             }
