@@ -124,22 +124,10 @@ namespace OcrMyPdf.Gui.View
 
                 foreach (string fileOrFolder in files)
                 {
-                    // If its a folder(s)... 
+                    // If its a folder(s)... continue anyway, because we automatically filter out non-PDFs in FileList_Drop
                     if (Directory.Exists(fileOrFolder))
                     {
-                        // ... check if all the files inside... 
-                        foreach (string file in Directory.GetFiles(fileOrFolder))
-                        {
-                            // ... are PDFs
-                            if (System.IO.Path.GetExtension(file).ToUpperInvariant() != ".PDF")
-                            {
-                                // if not, prevent drag & drop
-                                dropEnabled = false;
-                                PDFOnlyWarningLbl.Visibility = System.Windows.Visibility.Visible;
-                                dispatcherTimer.Start();
-                                break;
-                            }
-                        }
+                        continue;
                     }
                     // If its a file(s), check if they're PDFs
                     else if (System.IO.Path.GetExtension(fileOrFolder).ToUpperInvariant() != ".PDF")
