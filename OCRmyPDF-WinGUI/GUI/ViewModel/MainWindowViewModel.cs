@@ -49,7 +49,7 @@ namespace OcrMyPdf.Gui.ViewModel
         {
             // Set the window dimensions
             this.XWidth = 500;
-            this.YHeight = 550;
+            this.YHeight = 640;
 
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
@@ -150,6 +150,17 @@ namespace OcrMyPdf.Gui.ViewModel
         }
 
 
+        // ---------------------- ADVANCED OPTIONS ----------------------
+
+        // ----- Auto clear successful conversions
+
+        public bool ClearSuccesses
+        {
+            get { return ocrOptions.clearSuccesses; }
+            set { ocrOptions.clearSuccesses = value; OnPropertyChanged(); }
+        }
+
+
         // ------------------- PROGRESS/STATUS LABEL -------------------
 
         // ----- Progress label text
@@ -247,6 +258,15 @@ namespace OcrMyPdf.Gui.ViewModel
                     errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left - this.XWidth - 10, Top = this.Top };
                     //errorListWindow.errorList.SelectedValue = ocrErrors.FirstOrDefault();
                     //errorListWindow.errorList.SelectedIndex = 0;
+
+                    // If the user opted to automatically clear successful conversions, do so
+                    if (ocrOptions.clearSuccesses)
+                    {
+                        foreach (string success in ocrSuccesses)
+                        {
+                            filePathsList.Remove(success);
+                        }
+                    }
 
                     errorListWindow.Show();
 

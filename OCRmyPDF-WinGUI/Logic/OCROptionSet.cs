@@ -21,5 +21,7 @@ namespace OcrMyPdf.Logic
 
         public bool deskew { get; set; } = false;
 
+        public bool clearSuccesses { get; set; } = false;
+
     }
 }
