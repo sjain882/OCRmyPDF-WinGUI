@@ -31,6 +31,7 @@ namespace OcrMyPdf.Gui.ViewModel
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
         public ObservableCollection<OCRError> ocrErrors;
+        public ObservableCollection<string> ocrSuccesses;
 
         public ErrorListWindow errorListWindow;
 
@@ -53,6 +54,7 @@ namespace OcrMyPdf.Gui.ViewModel
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
             ocrErrors = new ObservableCollection<OCRError>();
+            ocrSuccesses = new ObservableCollection<string>();
 
             progressText = "";
             isRunning = false;
@@ -303,10 +305,17 @@ namespace OcrMyPdf.Gui.ViewModel
                         // If there was an error, record it
                         if (exitCode != ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
-
                             App.Current.Dispatcher.Invoke((Action)delegate
                             {
                                 this.ocrErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
+                            });
+                        }
+                        // Otherwise, store it in the list of successfully converted files
+                        else if (exitCode == ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
+                        {
+                            App.Current.Dispatcher.Invoke((Action)delegate
+                            {
+                                this.ocrSuccesses.Add(path);
                             });
                         }
                     }
