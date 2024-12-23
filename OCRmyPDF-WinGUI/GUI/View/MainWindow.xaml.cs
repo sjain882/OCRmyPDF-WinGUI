@@ -162,5 +162,12 @@ namespace OcrMyPdf.Gui.View
             // Stop timer
             dispatcherTimer.IsEnabled = false;
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
     }
 }
