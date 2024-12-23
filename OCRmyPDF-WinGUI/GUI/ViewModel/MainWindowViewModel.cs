@@ -272,8 +272,8 @@ namespace OcrMyPdf.Gui.ViewModel
 
                     MessageBox.Show("Unfortunately, some errors occurred during the conversion process.\r\n\r\n"
                                     + "First, select a file from the list to view its error.\r\n\r\n"
-                                    + "Then, optionally remove all the successfully converted files from the queue (recommended).\r\n\r\n"
-                                    + "Finally, click start.\r\n\r\n",
+                                    + "Then, make the appropriate changes to your configuration.\r\n\r\n"
+                                    + "Finally, click Start to re-attempt conversion.",
                                     "OCRmyPDF",
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Error);
