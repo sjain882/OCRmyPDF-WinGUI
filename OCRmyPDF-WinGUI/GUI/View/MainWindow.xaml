@@ -81,13 +81,13 @@
             </Grid.ColumnDefinitions>
 
 
-            <!--  "Select or drop files/folders:" label  -->
+            <!--  "Selected files:" label  -->
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Content="Select or drop files/folders:"
+                Content="Select or drop files:"
                 FontSize="13" />
 
 
