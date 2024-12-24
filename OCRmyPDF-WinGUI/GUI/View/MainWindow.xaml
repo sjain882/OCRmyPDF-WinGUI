@@ -57,11 +57,12 @@
             <!--  Second row of options  -->
             <RowDefinition Height="60" />
 
-            <!--  "Advanced:" label  -->
-            <RowDefinition Height="30" />
-
-            <!--  Third row of options  -->
-            <RowDefinition Height="60" />
+            <!--  Advanced options expander  -->
+            <RowDefinition Height="{Binding AdvancedOptionsHeight}" />
+            <!--  Non-Expanded:  -->
+            <!--<RowDefinition Height="30" />-->
+            <!--  Expanded:  -->
+            <!--<RowDefinition Height="90" />-->
 
             <!--  Start button  -->
             <RowDefinition Height="45" />
@@ -278,38 +279,38 @@
         </Grid>
 
 
-        <!--  "Advanced:" label  -->
-        <Grid Grid.Row="5" ToolTip="Ignore these options if you don't understand them.">
-            <Label
-                Grid.Row="2"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Content="Advanced:"
-                FontSize="13" />
-        </Grid>
+        <!--  Advanced options expander  -->
+        <Grid Grid.Row="5">
 
+            <Expander
+                x:Name="AdvancedOptionsExpander"
+                Margin="0,5,0,0"
+                Header="Advanced:"
+                IsExpanded="{Binding AdvancedOptionsExpanded}"
+                ToolTip="Ignore these options if you don't understand them.">
 
-        <!--  Third row of options  -->
-        <Grid Grid.Row="6" ToolTip="Ignore this option if you don't understand it.">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    ToolTip="Ignore this option if you don't understand it.">
 
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <!--  Auto clear succesfully converted PDFs from file list  -->
+                    <CheckBox Margin="3,3,3,3" IsChecked="{Binding ClearSuccesses}">
+                        Automatically clear successful conversions from the file list
+                    </CheckBox>
 
-                <!--  Auto clear succesfully converted PDFs from file list  -->
-                <CheckBox Margin="3,3,3,3" IsChecked="{Binding ClearSuccesses}">
-                    Automatically clear successful conversions from the file list
-                </CheckBox>
+                    <!--  Output converted PDFs to separate directory  -->
+                    <CheckBox Margin="3,3,3,3" IsChecked="{Binding SeparateDir}">
+                        Output converted PDFs to a separate directory
+                    </CheckBox>
 
-                <!--  Output converted PDFs to separate directory  -->
-                <CheckBox Margin="3,3,3,3" IsChecked="{Binding SeparateDir}">
-                    Output converted PDFs to a separate directory
-                </CheckBox>
-
-            </StackPanel>
+                </StackPanel>
+            </Expander>
         </Grid>
 
 
         <!--  Start button  -->
-        <Grid Grid.Row="7">
+        <Grid Grid.Row="6">
             <Button
                 Name="StartBtn"
                 Padding="20,4"
@@ -322,7 +323,7 @@
 
 
         <!--  Status labels  -->
-        <Grid Grid.Row="8">
+        <Grid Grid.Row="7">
 
             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
 

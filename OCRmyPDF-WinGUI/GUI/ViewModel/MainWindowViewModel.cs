@@ -38,6 +38,8 @@ namespace OcrMyPdf.Gui.ViewModel
         private string currentPDF;
         private string progressText;
         private bool isRunning;
+        private int advancedOptionsHeight;
+        private bool advancedOptionsExpanded;
         private int win_xHeight;
         private int win_yHeight;
         private int win_left;
@@ -50,6 +52,10 @@ namespace OcrMyPdf.Gui.ViewModel
             // Set the window dimensions
             this.XWidth = 500;
             this.YHeight = 640;
+
+            // Advanced options are non-expanded by default
+            this.AdvancedOptionsExpanded = false;
+            this.AdvancedOptionsHeight = 30;
 
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
@@ -194,6 +200,46 @@ namespace OcrMyPdf.Gui.ViewModel
         // ----- Remove file from file list command binding
         public RemoveFileCommand RemoveFileCommand { get; set; }
 
+
+        // --------------------- WINDOW DIMENSIONS ---------------------
+
+        // ----- Advanced Options Expander Height -----
+
+        public int AdvancedOptionsHeight
+        {
+            get { return advancedOptionsHeight; }
+            set
+            {
+                advancedOptionsHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        // ----- Is Advanced Options Expanded? -----
+
+        public bool AdvancedOptionsExpanded
+        {
+            get { return advancedOptionsExpanded; }
+            set
+            {
+                advancedOptionsExpanded = value;
+
+
+                if (advancedOptionsExpanded)
+                {
+                    AdvancedOptionsHeight = 90;
+                    YHeight = YHeight + 60;
+                }
+                else
+                {
+                    AdvancedOptionsHeight = 30;
+                    YHeight = YHeight - 60;
+                }
+
+                OnPropertyChanged();
+            }
+        }
 
 
         // --------------------- WINDOW DIMENSIONS ---------------------
