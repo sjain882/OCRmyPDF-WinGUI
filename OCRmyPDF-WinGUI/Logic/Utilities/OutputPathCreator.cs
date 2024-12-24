@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Windows;
 
 namespace OcrMyPdf.Logic.Utilities
 {
@@ -11,12 +12,14 @@ namespace OcrMyPdf.Logic.Utilities
     {
         private ISuffixGenerator _suffixGenerator;
         private string _outputSuffix;
+        private bool _separateDir;
 
         // in the constructor of of the two ISuffixGenerator classes will be passed in
-        public OutputPathCreator(ISuffixGenerator suffixGenerator, string outputSuffix)
+        public OutputPathCreator(ISuffixGenerator suffixGenerator, string outputSuffix, bool separateDir)
         {
             _suffixGenerator = suffixGenerator;
             _outputSuffix = outputSuffix;
+            _separateDir = separateDir;
         }
 
         public static string AddPathSuffix(string filePath, string suffix)
@@ -31,6 +34,26 @@ namespace OcrMyPdf.Logic.Utilities
         {
             // Append user-chosen suffix
             string outputFilePath = AddPathSuffix(inputFilePath, _outputSuffix);
+
+            if (_separateDir)
+            {
+                // Create a new directory for the output file
+                string outputDir = Path.Combine(Path.GetDirectoryName(inputFilePath), "OCRmyPDF_" + StringUtilities.GetCurrentDateTime());
+
+                try
+                {
+                    Directory.CreateDirectory(outputDir);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Error creating output directory:\r\n\r\n" + e.Message,
+                                    "OCRmyPDF",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Error);
+                }
+
+                outputFilePath = Path.Combine(outputDir, Path.GetFileName(outputFilePath));
+            }
 
             // Check if filename already exists
             if (File.Exists(outputFilePath))

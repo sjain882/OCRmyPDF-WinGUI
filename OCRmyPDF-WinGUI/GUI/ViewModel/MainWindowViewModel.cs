@@ -160,6 +160,14 @@ namespace OcrMyPdf.Gui.ViewModel
             set { ocrOptions.clearSuccesses = value; OnPropertyChanged(); }
         }
 
+        // ----- Output converted PDFs to separate directory
+
+        public bool SeparateDir
+        {
+            get { return ocrOptions.separateDir; }
+            set { ocrOptions.separateDir = value; OnPropertyChanged(); }
+        }
+
 
         // ------------------- PROGRESS/STATUS LABEL -------------------
 

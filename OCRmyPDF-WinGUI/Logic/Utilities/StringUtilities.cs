@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Net.NetworkInformation;
 
 namespace OcrMyPdf.Logic.Utilities
 {
@@ -20,6 +21,11 @@ namespace OcrMyPdf.Logic.Utilities
 
             sb.Append(valueToAppend);
             return sb;
+        }
+
+        public static string GetCurrentDateTime()
+        {
+            return DateTime.Now.ToString("yyyyMMdd-HHmmss");
         }
     }
 }

@@ -38,7 +38,7 @@ namespace OcrMyPdf.Logic
             // TimestampSuffixGenerator suffixGen = new TimestampSuffixGenerator();
             RandomSuffixGenerator suffixGen = new RandomSuffixGenerator();
 
-            OutputPathCreator pathCreator = new OutputPathCreator(suffixGen, this.optionSet.outputSuffix);
+            OutputPathCreator pathCreator = new OutputPathCreator(suffixGen, this.optionSet.outputSuffix, this.optionSet.separateDir);
 
             cmdBuilder.AppendWithSeparator(argsSprtr, "\"" + pathCreator.DetermineOutputPath(inputFilePath) + "\"");
 

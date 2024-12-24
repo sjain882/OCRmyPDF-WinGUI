@@ -23,5 +23,7 @@ namespace OcrMyPdf.Logic
 
         public bool clearSuccesses { get; set; } = false;
 
+        public bool separateDir { get; set; } = false;
+
     }
 }

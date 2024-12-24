@@ -292,14 +292,16 @@
         <!--  Third row of options  -->
         <Grid Grid.Row="6" ToolTip="Ignore this option if you don't understand it.">
 
-            <StackPanel
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <!--  Auto clear succesfully converted PDFs from file list  -->
                 <CheckBox Margin="3,3,3,3" IsChecked="{Binding ClearSuccesses}">
                     Automatically clear successful conversions from the file list
+                </CheckBox>
+
+                <!--  Output converted PDFs to separate directory  -->
+                <CheckBox Margin="3,3,3,3" IsChecked="{Binding SeparateDir}">
+                    Output converted PDFs to a separate directory
                 </CheckBox>
 
             </StackPanel>
