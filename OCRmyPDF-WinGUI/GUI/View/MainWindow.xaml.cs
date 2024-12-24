@@ -64,6 +64,7 @@ namespace OcrMyPdf.Gui.View
                 foreach (string path in fileDialog.FileNames)
                 {
                     ViewModel.filePathsList.Add(path);
+                    CommandManager.InvalidateRequerySuggested();
                 }
             }
         }
@@ -73,6 +74,7 @@ namespace OcrMyPdf.Gui.View
         {
             ViewModel.filePathsList.Clear();
             ViewModel.ocrErrors.Clear();
+            CommandManager.InvalidateRequerySuggested();
         }
 
 
@@ -98,6 +100,7 @@ namespace OcrMyPdf.Gui.View
                                 if (!ViewModel.filePathsList.Contains(fileInFolder))
                                 {
                                     ViewModel.filePathsList.Add(fileInFolder);
+                                    CommandManager.InvalidateRequerySuggested();
                                 }
                             }
                         }
@@ -106,6 +109,7 @@ namespace OcrMyPdf.Gui.View
                     else if (!ViewModel.filePathsList.Contains(file))
                     {
                         ViewModel.filePathsList.Add(file);
+                        CommandManager.InvalidateRequerySuggested();
                     }
                 }
             }
