@@ -19,6 +19,7 @@ using OcrMyPdf.Logic.ExitCodes;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using OcrMyPdf.Gui.View;
 using Microsoft.VisualBasic;
+using System.Windows.Input;
 
 namespace OcrMyPdf.Gui.ViewModel
 {

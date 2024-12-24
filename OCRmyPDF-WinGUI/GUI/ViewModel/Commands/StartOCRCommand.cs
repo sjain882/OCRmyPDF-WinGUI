@@ -16,7 +16,6 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
         // Reference to main ViewModel
         private MainWindowViewModel ViewModel;
 
-        public event EventHandler CanExecuteChanged;
 
         public StartOCRCommand(MainWindowViewModel viewModel)
         {
@@ -25,7 +24,16 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            return true;
+            return (ViewModel.filePathsList.Count > 0);
+        }
+
+        ///<summary>
+        ///Occurs when changes occur that affect whether or not the command should execute.
+        ///</summary>
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
 
         // Called when Start button pressed
@@ -39,16 +47,12 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
 
             ViewModel.ocrErrors.Clear();
 
-
             if (ViewModel.errorListWindow != null)
             {
                 ViewModel.errorListWindow.Close();
             }
 
             ViewModel.RunOCRWithProgressUpdates();
-
-
-            // MessageBox.Show("hi");
         }
     }
 }
