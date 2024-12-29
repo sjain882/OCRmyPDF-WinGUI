@@ -33,6 +33,7 @@ namespace OcrMyPdf.Gui.ViewModel
         public OCROptionSet ocrOptions;
         public ObservableCollection<OCRError> ocrErrors;
         public ObservableCollection<string> ocrSuccesses;
+        CancellationTokenSource cts;
 
         public ErrorListWindow errorListWindow;
 
@@ -297,7 +298,7 @@ namespace OcrMyPdf.Gui.ViewModel
         public async Task RunOCRWithProgressUpdates()
         {
             // Create a new cancellation token source here, originating from this method
-            var cts = new CancellationTokenSource();
+            cts = new CancellationTokenSource();
 
             // If a task isn't already running
             if (!IsRunning)
@@ -370,7 +371,18 @@ namespace OcrMyPdf.Gui.ViewModel
                     // Set the progress dot
                     ProgressText = dotsCount < 5 ? ProgressText + "." : ProgressText.Replace(".", "");
                 }
+
+                if (token.IsCancellationRequested)
+                {
+                    ProgressText = "Conversion cancelled.";
+                }
+
             });
+        }
+
+        public void CancelOCR()
+        {
+            cts.Cancel();
         }
 
 
@@ -406,6 +418,11 @@ namespace OcrMyPdf.Gui.ViewModel
                             {
                                 this.ocrSuccesses.Add(path);
                             });
+                        }
+
+                        if (cts.Token.IsCancellationRequested)
+                        {
+                            return "Conversion cancelled.";
                         }
                     }
                 }

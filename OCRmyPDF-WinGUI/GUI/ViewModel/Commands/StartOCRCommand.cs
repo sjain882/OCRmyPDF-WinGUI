@@ -45,6 +45,13 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
             //Gui.View.ErrorListWindow errorListWindow = new Gui.View.ErrorListWindow(ocrErrors);
             //errorListWindow.Show();
 
+            if (ViewModel.IsRunning)
+            {
+                ViewModel.CancelOCR();
+                ViewModel.StartStopBtnText = "Start!";
+                return;
+            }
+
             ViewModel.ocrErrors.Clear();
 
             if (ViewModel.errorListWindow != null)
