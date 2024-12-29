@@ -38,6 +38,7 @@ namespace OcrMyPdf.Gui.ViewModel
 
         private string currentPDF;
         private string progressText;
+        private string startStopBtnText;
         private bool isRunning;
         private int advancedOptionsHeight;
         private bool advancedOptionsExpanded;
@@ -64,6 +65,7 @@ namespace OcrMyPdf.Gui.ViewModel
             ocrSuccesses = new ObservableCollection<string>();
 
             progressText = "";
+            startStopBtnText = "Start!";
             isRunning = false;
 
             // Create "remove file from file list" command object, passing a reference to this ViewModel to it 
@@ -173,6 +175,16 @@ namespace OcrMyPdf.Gui.ViewModel
         {
             get { return ocrOptions.separateDir; }
             set { ocrOptions.separateDir = value; OnPropertyChanged(); }
+        }
+
+
+        // -------------------------- BUTTONS --------------------------
+
+        // ----- Start/Stop button text
+        public string StartStopBtnText
+        {
+            get { return this.startStopBtnText; }
+            set { this.startStopBtnText = value; OnPropertyChanged(); }
         }
 
 
