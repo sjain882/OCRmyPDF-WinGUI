@@ -52,6 +52,8 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
                 ViewModel.errorListWindow.Close();
             }
 
+            ViewModel.StartStopBtnText = "Cancel";
+
             ViewModel.RunOCRWithProgressUpdates();
         }
     }

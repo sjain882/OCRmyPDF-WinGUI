@@ -319,6 +319,8 @@ namespace OcrMyPdf.Gui.ViewModel
                 // The task has ended
                 IsRunning = false;
 
+                this.StartStopBtnText = "Start!";
+
                 // If there were errors, display them
                 if (this.ocrErrors.Count > 0)
                 {
