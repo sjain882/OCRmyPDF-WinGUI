@@ -19,7 +19,16 @@ Responsive .NET 8 GUI for OCRmyPDF, adhering to WPF MVVM principles.
 Designed for novice users.
 </div>
 
+
 ‎
+‎
+<details>
+    <summary>🖼 Additional previews (click to expand)</summary>
+    ‎
+    ‎
+    <img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
+</details>
+
 ## 🖥 Supported operating systems
 
 - Supported on **Windows 10 1607+**
@@ -27,6 +36,7 @@ Designed for novice users.
 - May work on previous OS versions, but this is **[unsupported](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md)**.
 - OCRmyPDF is only available on **64-bit** operating systems.
 
+‎
 ‎
 ## ❗ Pre-installation
 
@@ -68,6 +78,7 @@ Designed for novice users.
 </details>
 
 ‎
+‎
 ## 🔐 Digital Signing of Release Binaries
 
 All `*.exe` binary files of this project compiled by me are digitally self-signed. The attached certificate should carry this serial number:
@@ -78,6 +89,7 @@ If the serial number on your copy does not match this, or the digital certificat
 
 You can check this by right clicking on the `OCRmyPDF-WinGUI` .exe / Application file > Properties > Digital Signatures > Select the one named "sjain882" > Details > View Certificate > Details > Serial Number.
 
+‎
 ‎
 ## 💖 Thanks to
 
@@ -91,11 +103,15 @@ You can check this by right clicking on the `OCRmyPDF-WinGUI` .exe / Application
 
 - **[DerekGooding](https://github.com/DerekGooding)** for **[updating](https://github.com/AngryCarrot789/WPFDarkTheme/pull/32)** **[WPFDarkTheme](https://github.com/DerekGooding/WPFDarkTheme)** to .NET 8
 
+- **[Kampa Plays](https://www.youtube.com/@KampaPlays)** for a great set of **[C# WPF tutorials](https://www.youtube.com/playlist?list=PLih2KERbY1HHOOJ2C6FOrVXIwg4AZ-hk1)**
+
+‎
 ‎
 ## 🔑 License
 
 This software is licensed under the GNU General Public License v3 (GPL-3) licence. Please see https://www.gnu.org/licenses/gpl-3.0.en.html for more information.
 
+‎
 ‎
 ## ℹ Disclaimer
 
