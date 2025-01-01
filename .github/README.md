@@ -23,7 +23,7 @@ Designed for novice users.
 ‎
 ‎
 <details>
-    <summary>🖼 Additional previews (click to expand)</summary>
+    <summary>🖼 Additional previews</summary>
     ‎
     ‎
     <img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
@@ -46,7 +46,7 @@ Designed for novice users.
 > I encountered multiple hindrances, however. Here are the exact steps I followed: 
 
 <details> 
-<summary>📜 Instructions (click to expand)</summary> 
+<summary>📜 Instructions</summary> 
 
 1. Start an Administrator Command Prompt / PowerShell window.
 
