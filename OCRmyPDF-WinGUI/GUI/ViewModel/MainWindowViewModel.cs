@@ -463,7 +463,8 @@ namespace OcrMyPdf.Gui.ViewModel
                             // Hide the progress bar when cancelled.
                             ProgressBarVisibility = Visibility.Collapsed;
 
-                            return "Conversion cancelled at PDF " + currentPDF + " of " + totalPDFs + ".";
+                            int nextPDF = currentPDF + 1;
+                            return "Queue stopped at PDF " + nextPDF + " of " + totalPDFs + ".";
                         }
                     }
                 }
