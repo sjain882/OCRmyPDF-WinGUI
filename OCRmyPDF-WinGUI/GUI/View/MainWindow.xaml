@@ -352,7 +352,6 @@
                 MinWidth="125"
                 Margin="2,2,5,1"
                 HorizontalAlignment="Right"
-                Background="#06b025"
                 Maximum="100"
                 Minimum="0"
                 Visibility="{Binding ProgressBarVisibility}"
