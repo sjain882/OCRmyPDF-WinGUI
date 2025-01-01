@@ -383,7 +383,7 @@ namespace OcrMyPdf.Gui.ViewModel
                 // Set the prefix
                 // ProgressLabelText = PROGRESS_PREFIX;
 
-                while (!token.IsCancellationRequested)
+                while (!token.IsCancellationRequested || IsRunning)
                 {
                     // Delay between each progress dot appearing on the GUI
                     await Task.Delay(PROGRESS_DOT_DELAY);
@@ -439,7 +439,11 @@ namespace OcrMyPdf.Gui.ViewModel
                         // Update the progress bar
                         ProgressBarPercentage = (int)Math.Round(((double)currentPDF / (double)totalPDFs) * 100);
 
+                        IsRunning = true;
+
                         int exitCode = ocrRunner.OCRSinglePDF(path);
+
+                        IsRunning = false;
 
                         // If there was an error, record it
                         if (exitCode != ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
