@@ -373,10 +373,10 @@ namespace OcrMyPdf.Gui.ViewModel
                     ProgressLabelText = dotsCount < 5 ? ProgressLabelText + "." : ProgressLabelText.Replace(".", "");
                 }
 
-                if (token.IsCancellationRequested)
-                {
-                    ProgressLabelText = "Conversion cancelled.";
-                }
+                // if (token.IsCancellationRequested)
+                // {
+                //     ProgressLabelText = "Conversion cancelled.";
+                // }
 
             });
         }
