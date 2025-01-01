@@ -341,7 +341,7 @@
                 <Label
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="{Binding ProgressText}"
+                    Content="{Binding ProgressLabelText}"
                     FontSize="13"
                     FontWeight="Bold" />
 

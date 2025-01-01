@@ -26,7 +26,7 @@ namespace OcrMyPdf.Gui.ViewModel
     public class MainWindowViewModel : ViewModelBase
     {
 
-        private const string PROGRESS = "Processing";
+        private const string PROGRESS_PREFIX = "Processing PDF ";
         private const int PROGRESS_DOT_DELAY = 200;
         
         public ObservableCollection<string> filePathsList;
@@ -37,8 +37,9 @@ namespace OcrMyPdf.Gui.ViewModel
 
         public ErrorListWindow errorListWindow;
 
-        private string currentPDF;
         private string progressText;
+        private string currentPDF;
+        private string progressLabelText;
         private string startStopBtnText;
         private bool isRunning;
         private int advancedOptionsHeight;
@@ -65,7 +66,7 @@ namespace OcrMyPdf.Gui.ViewModel
             ocrErrors = new ObservableCollection<OCRError>();
             ocrSuccesses = new ObservableCollection<string>();
 
-            progressText = "";
+            progressLabelText = "";
             startStopBtnText = "Start!";
             isRunning = false;
 
@@ -193,10 +194,10 @@ namespace OcrMyPdf.Gui.ViewModel
 
         // ----- Progress label text
 
-        public string ProgressText
+        public string ProgressLabelText
         {
-            get { return this.progressText; }
-            set { this.progressText = value; OnPropertyChanged(); }
+            get { return this.progressLabelText; }
+            set { this.progressLabelText = value; OnPropertyChanged(); }
         }
 
         // ----- Is a PDF currently being processed?
@@ -315,7 +316,7 @@ namespace OcrMyPdf.Gui.ViewModel
                 await Task.Delay(PROGRESS_DOT_DELAY); // Additional delay to prevent alternating finished text by looping task
 
                 // Update the progress text label
-                ProgressText = longTaskText;
+                ProgressLabelText = longTaskText;
 
                 // The task has ended
                 IsRunning = false;
@@ -358,7 +359,7 @@ namespace OcrMyPdf.Gui.ViewModel
             Task.Run(async () =>
             {
                 // Set the prefix
-                ProgressText = PROGRESS;
+                // ProgressLabelText = PROGRESS_PREFIX;
 
                 while (!token.IsCancellationRequested)
                 {
@@ -366,15 +367,15 @@ namespace OcrMyPdf.Gui.ViewModel
                     await Task.Delay(PROGRESS_DOT_DELAY);
 
                     // Create the new progress dot
-                    var dotsCount = ProgressText.Count<char>(ch => ch == '.');
+                    var dotsCount = ProgressLabelText.Count<char>(ch => ch == '.');
 
                     // Set the progress dot
-                    ProgressText = dotsCount < 5 ? ProgressText + "." : ProgressText.Replace(".", "");
+                    ProgressLabelText = dotsCount < 5 ? ProgressLabelText + "." : ProgressLabelText.Replace(".", "");
                 }
 
                 if (token.IsCancellationRequested)
                 {
-                    ProgressText = "Conversion cancelled.";
+                    ProgressLabelText = "Conversion cancelled.";
                 }
 
             });
@@ -397,10 +398,19 @@ namespace OcrMyPdf.Gui.ViewModel
 
                 if (filePathsList.Count > 0)
                 {
+                    int currentPDF = 0;
+                    int totalPDFs = filePathsList.Count;
+
                     // Replace this with OCR.Run
                     // await Task.Delay(5000);
                     foreach (string path in filePathsList)
                     {
+                        currentPDF += 1;
+
+                        // Update the progress text
+                        // ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs + " (" + Math.Round((double)currentPDF / totalPDFs * 100, 2) + "%)";
+                        ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs;
+
                         int exitCode = ocrRunner.OCRSinglePDF(path);
 
                         // If there was an error, record it
@@ -422,7 +432,7 @@ namespace OcrMyPdf.Gui.ViewModel
 
                         if (cts.Token.IsCancellationRequested)
                         {
-                            return "Conversion cancelled.";
+                            return "Conversion cancelled at PDF " + currentPDF + " of " + totalPDFs + ".";
                         }
                     }
                 }
