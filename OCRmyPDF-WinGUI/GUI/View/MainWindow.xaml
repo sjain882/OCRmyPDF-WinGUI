@@ -67,7 +67,7 @@
             <!--  Start/Stop button  -->
             <RowDefinition Height="45" />
 
-            <!--  Status label  -->
+            <!--  Status label & progress bar  -->
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
@@ -323,7 +323,7 @@
         </Grid>
 
 
-        <!--  Status labels  -->
+        <!--  Status label & progress bar  -->
         <Grid Grid.Row="7">
 
             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
@@ -346,6 +346,15 @@
                     FontWeight="Bold" />
 
             </StackPanel>
+
+            <!--  Progress Bar  -->
+            <ProgressBar
+                Height="21"
+                MinWidth="125"
+                Margin="2,2,5,1"
+                HorizontalAlignment="Right"
+                Visibility="Collapsed" />
+
         </Grid>
 
     </Grid>
