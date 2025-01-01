@@ -423,6 +423,9 @@ namespace OcrMyPdf.Gui.ViewModel
                     int currentPDF = 0;
                     int totalPDFs = filePathsList.Count;
 
+                    // Show the progress bar
+                    ProgressBarVisibility = Visibility.Visible;
+
                     // Replace this with OCR.Run
                     // await Task.Delay(5000);
                     foreach (string path in filePathsList)
@@ -432,6 +435,9 @@ namespace OcrMyPdf.Gui.ViewModel
                         // Update the progress text
                         // ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs + " (" + Math.Round((double)currentPDF / totalPDFs * 100, 2) + "%)";
                         ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs;
+
+                        // Update the progress bar
+                        ProgressBarPercentage = (int)Math.Round(((double)currentPDF / (double)totalPDFs) * 100);
 
                         int exitCode = ocrRunner.OCRSinglePDF(path);
 
@@ -454,6 +460,9 @@ namespace OcrMyPdf.Gui.ViewModel
 
                         if (cts.Token.IsCancellationRequested)
                         {
+                            // Hide the progress bar when cancelled.
+                            ProgressBarVisibility = Visibility.Collapsed;
+
                             return "Conversion cancelled at PDF " + currentPDF + " of " + totalPDFs + ".";
                         }
                     }
@@ -461,11 +470,15 @@ namespace OcrMyPdf.Gui.ViewModel
                 else
                 {
                     cts.Cancel();
+                    ProgressBarVisibility = Visibility.Collapsed;
                     return "No PDFs selected!";
                 }
 
-                // Cancel the cancellation token once the task finished.
+                // Cancel the cancellation token when finished.
                 cts.Cancel();
+
+                // Hide the progress bar when finished.
+                ProgressBarVisibility = Visibility.Collapsed;
 
                 // Return the relevant status string
                 return "All PDFs processed.";
