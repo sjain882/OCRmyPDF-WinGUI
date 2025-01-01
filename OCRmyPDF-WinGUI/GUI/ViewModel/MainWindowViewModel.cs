@@ -37,6 +37,8 @@ namespace OcrMyPdf.Gui.ViewModel
 
         public ErrorListWindow errorListWindow;
 
+        private int progressBarPercentage;
+        private Visibility progressBarVisibility;
         private string progressText;
         private string currentPDF;
         private string progressLabelText;
@@ -60,6 +62,10 @@ namespace OcrMyPdf.Gui.ViewModel
             // Advanced options are non-expanded by default
             this.AdvancedOptionsExpanded = false;
             this.AdvancedOptionsHeight = 30;
+
+            // ProgressBar is hidden by default
+            this.ProgressBarPercentage = 0;
+            this.ProgressBarVisibility = Visibility.Collapsed;
 
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
@@ -198,6 +204,22 @@ namespace OcrMyPdf.Gui.ViewModel
         {
             get { return this.progressLabelText; }
             set { this.progressLabelText = value; OnPropertyChanged(); }
+        }
+
+        // ----- Progress bar percentage
+
+        public int ProgressBarPercentage
+        {
+            get { return this.progressBarPercentage; }
+            set { this.progressBarPercentage = value;  OnPropertyChanged(); }
+        }
+
+        // ----- Progress bar visibility
+
+        public Visibility ProgressBarVisibility
+        {
+            get { return this.progressBarVisibility; }
+            set { this.progressBarVisibility = value; OnPropertyChanged(); }
         }
 
         // ----- Is a PDF currently being processed?

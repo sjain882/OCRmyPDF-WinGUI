@@ -336,7 +336,6 @@
                     Content="Status:"
                     FontSize="13" />
 
-
                 <!--  Current PDF status label  -->
                 <Label
                     HorizontalAlignment="Left"
@@ -353,7 +352,11 @@
                 MinWidth="125"
                 Margin="2,2,5,1"
                 HorizontalAlignment="Right"
-                Visibility="Collapsed" />
+                Background="#06b025"
+                Maximum="100"
+                Minimum="0"
+                Visibility="{Binding ProgressBarVisibility}"
+                Value="{Binding ProgressBarPercentage}" />
 
         </Grid>
 
