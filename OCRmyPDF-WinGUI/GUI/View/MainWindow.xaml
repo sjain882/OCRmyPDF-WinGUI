@@ -350,6 +350,7 @@
             <ProgressBar
                 Height="21"
                 MinWidth="125"
+                MaxWidth="125"
                 Margin="2,2,5,1"
                 HorizontalAlignment="Right"
                 Maximum="100"
