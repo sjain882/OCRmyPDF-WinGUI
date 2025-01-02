@@ -23,10 +23,13 @@ Designed for novice users.
 ‎
 ‎
 <details>
-    <summary>🖼 Additional previews</summary>
-    ‎
-    ‎
-    <img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
+<summary>🖼 Additional previews</summary>
+‎
+‎
+
+Static previews are available in each subfolder **[here](https://github.com/sjain882/OCRmyPDF-WinGUI/tree/main/.github/Previews)**
+
+<img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Previews/ErrorListWindow/Preview.gif?raw=true" width="55%" height="55%"/>
 </details>
 
 ## 🖥 Supported operating systems
