@@ -31,12 +31,15 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
         // Called when Start button pressed
         public void Execute(object parameter)
         {
-            //ObservableCollection<OcrMyPdf.Logic.OCRError> ocrErrors = new ObservableCollection<OcrMyPdf.Logic.OCRError>();
-            //ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(5)));
-            //ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText - Copy.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(1)));
-            //Gui.View.ErrorListWindow errorListWindow = new Gui.View.ErrorListWindow(ocrErrors);
-            //errorListWindow.Show();
+            // Debug code to test error list window
+            // 
+            // ObservableCollection<OcrMyPdf.Logic.OCRError> ocrErrors = new ObservableCollection<OcrMyPdf.Logic.OCRError>();
+            // ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(5)));
+            // ocrErrors.Add(new Logic.OCRError("D:\\PDFTest\\AlreadyHasText - Copy.pdf", new OcrMyPdf.Logic.ExitCodes.ExitCodeTemplate(1)));
+            // Gui.View.ErrorListWindow errorListWindow = new Gui.View.ErrorListWindow(ocrErrors);
+            // errorListWindow.Show();
 
+            // Pressing button while conversion running = Cancel
             if (ViewModel.IsRunning)
             {
                 ViewModel.CancelOCR();
@@ -44,13 +47,16 @@ namespace OcrMyPdf.Gui.ViewModel.Commands
                 return;
             }
 
+            // Before re-starting conversion, clear list of errors
             ViewModel.ocrErrors.Clear();
 
+            // Before re-starting conversion, close error list window if open
             if (ViewModel.errorListWindow != null)
             {
                 ViewModel.errorListWindow.Close();
             }
 
+            // Now that we're starting, this button becomes a cancel button
             ViewModel.StartStopBtnText = "Cancel";
 
             ViewModel.RunOCRWithProgressUpdates();
