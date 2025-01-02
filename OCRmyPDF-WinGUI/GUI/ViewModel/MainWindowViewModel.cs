@@ -1,25 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using OcrMyPdf.Gui.MVVM;
-using OcrMyPdf.Logic;
-using OcrMyPdf.Logic.Options;
-using System.Diagnostics;
-using System.Windows;
-using System.Configuration;
-using System.Windows.Media;
-using OcrMyPdf.Gui.ViewModel.Commands;
-using OcrMyPdf.Logic.ExitCodes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using OcrMyPdf.Gui.MVVM;
 using OcrMyPdf.Gui.View;
-using Microsoft.VisualBasic;
-using System.Windows.Input;
+using OcrMyPdf.Gui.ViewModel.Commands;
+using OcrMyPdf.Logic;
+using OcrMyPdf.Logic.ExitCodes;
+using OcrMyPdf.Logic.Options;
+using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace OcrMyPdf.Gui.ViewModel
 {

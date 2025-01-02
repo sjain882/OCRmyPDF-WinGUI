@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FramePFX.Themes;
+﻿namespace FramePFX.Themes;
 
 public enum ThemeType
 {

@@ -1,12 +1,7 @@
 ﻿using OcrMyPdf.Logic.Options;
 using OcrMyPdf.Logic.Utilities;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 
 namespace OcrMyPdf.Logic
 {

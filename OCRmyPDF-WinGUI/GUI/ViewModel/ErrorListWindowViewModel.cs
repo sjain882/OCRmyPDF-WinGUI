@@ -1,12 +1,6 @@
 ﻿using OcrMyPdf.Gui.MVVM;
 using OcrMyPdf.Logic;
-using OcrMyPdf.Logic.ExitCodes;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OcrMyPdf.Gui.ViewModel
 {
