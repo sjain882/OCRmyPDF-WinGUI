@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./Icons/Style%201/OCRmyPDF-WinGUI.ico" alt="OCRmyPDF - Simple Windows Frontend" width="35" align="top">
+  <img src="./Icon/Style%201/OCRmyPDF-WinGUI.ico" alt="OCRmyPDF - Simple Windows Frontend" width="35" align="top">
   <b>OCRmyPDF - Simple Windows Frontend</b>
   <br>
 </h1>
@@ -12,9 +12,9 @@
 <br>
 
 
-[![ISSUES](https://img.shields.io/github/issues/facebook/react?color=F57C00&style=flat)](https://github.com/sjain882/OCRmyPDF-WinGUI/issues)
-[![VERSION](https://img.shields.io/github/v/release/facebook/react?color=26A69A&style=flat&label=version)](https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest)
-[![DOWNLOAD](https://img.shields.io/github/downloads/facebook/react/total?color=2E7D32&label=download&style=flat)](https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest/download/OCRmyPDF-WinGUI.exe)
+[![ISSUES](https://img.shields.io/github/issues/sjain882/OCRmyPDF-WinGUI?color=F57C00&style=flat)](https://github.com/sjain882/OCRmyPDF-WinGUI/issues)
+[![VERSION](https://img.shields.io/github/v/release/sjain882/OCRmyPDF-WinGUI?color=26A69A&style=flat&label=version)](https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest)
+[![DOWNLOAD](https://img.shields.io/github/downloads/sjain882/OCRmyPDF-WinGUI/total?color=2E7D32&label=download&style=flat)](https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest/download/OCRmyPDF-WinGUI.exe)
 [![DOTNET8](https://img.shields.io/badge/.NET%20-%208.0-512bd4)](https://dotnet.microsoft.com/en-us/download)
 
 Responsive .NET 8 GUI for **[OCRmyPDF](https://github.com/ocrmypdf/OCRmyPDF)**, adhering to WPF MVVM principles.
