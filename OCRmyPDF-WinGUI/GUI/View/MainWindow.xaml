@@ -16,11 +16,13 @@
     mc:Ignorable="d">
     <!--  Background="#292929" for DarkGreyTheme  -->
 
+
     <!--  This Window Resource is automatically removed at runtime.  -->
     <!--  It is present so that the Designer remains usable.  -->
     <!--<Window.Resources>
         <ResourceDictionary x:Name="ForDesignerOnly" Source="../Theme/Custom/LightThemeAdditions.xaml" />
     </Window.Resources>-->
+
 
     <!--  ********** WINDOW DIMENSIONS START **********  -->
 
@@ -36,6 +38,7 @@
     -->
 
     <!--  *********** WINDOW DIMENSIONS END ***********  -->
+
 
     <!--  Main grid  -->
     <Grid Margin="5">
@@ -74,6 +77,7 @@
 
         <!--  File selection labels & buttons  -->
         <Grid Grid.Row="0">
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="13*" />
                 <ColumnDefinition Width="17*" />
