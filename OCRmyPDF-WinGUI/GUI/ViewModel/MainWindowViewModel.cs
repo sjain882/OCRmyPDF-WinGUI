@@ -423,7 +423,7 @@ namespace OcrMyPdf.Gui.ViewModel
                         ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs;
 
                         // Update the progress bar
-                        ProgressBarPercentage = (int)Math.Round(((double)currentPDF / (double)totalPDFs) * 100);
+                        ProgressBarPercentage = (int)Math.Round((currentPDF / (double)totalPDFs) * 100);
 
                         IsRunning = true;
 
@@ -434,7 +434,7 @@ namespace OcrMyPdf.Gui.ViewModel
                         // If there was an error, record it
                         if (exitCode != ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
-                            App.Current.Dispatcher.Invoke((Action)delegate
+                            App.Current.Dispatcher.Invoke(delegate
                             {
                                 this.ocrErrors.Add(new OCRError(path, new ExitCodeTemplate(exitCode)));
                             });
@@ -442,7 +442,7 @@ namespace OcrMyPdf.Gui.ViewModel
                         // Otherwise, store it in the list of successfully converted files
                         else if (exitCode == ExitCodeCollection.ExitCodeList.Single(o => o.identifier == "OK").code)
                         {
-                            App.Current.Dispatcher.Invoke((Action)delegate
+                            App.Current.Dispatcher.Invoke(delegate
                             {
                                 this.ocrSuccesses.Add(path);
                             });
