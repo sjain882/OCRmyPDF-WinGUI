@@ -13,8 +13,10 @@ namespace OcrMyPdf.Gui.View
     /// </summary>
     public partial class MainWindow : Window
     {
+
         MainWindowViewModel ViewModel;
         private DispatcherTimer dispatcherTimer;
+
 
         public MainWindow()
         {
@@ -127,6 +129,8 @@ namespace OcrMyPdf.Gui.View
                     {
                         // if not, prevent drag & drop
                         dropEnabled = false;
+
+                        // and notify the user
                         PDFOnlyWarningLbl.Visibility = System.Windows.Visibility.Visible;
                         dispatcherTimer.Start();
                         break;
@@ -146,7 +150,7 @@ namespace OcrMyPdf.Gui.View
         }
 
 
-        // 5 second auto-dismiss for non-PDF file drag & drop warning label
+        // 4 second auto-dismiss for non-PDF file drag & drop warning label
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             // After 1 timer interval...
@@ -156,6 +160,8 @@ namespace OcrMyPdf.Gui.View
             dispatcherTimer.IsEnabled = false;
         }
 
+
+        // When the main application window is closed, close all other windows & exit
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
