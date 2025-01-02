@@ -14,34 +14,34 @@ namespace OcrMyPdf.Gui.ViewModel
 
         private const string PROGRESS_PREFIX = "Processing PDF ";
         private const int PROGRESS_DOT_DELAY = 200;
-        
+        private int progressBarPercentage;
+        private Visibility progressBarVisibility;
+        private string progressLabelText;
+
         public ObservableCollection<string> filePathsList;
         public OCROptionSet ocrOptions;
         public ObservableCollection<OCRError> ocrErrors;
         public ObservableCollection<string> ocrSuccesses;
+
+        private int advancedOptionsHeight;
+        private bool advancedOptionsExpanded;
+
         CancellationTokenSource cts;
+        private string currentPDF;
+        private bool isRunning;
+        private string startStopBtnText;
 
         public ErrorListWindow errorListWindow;
 
-        private int progressBarPercentage;
-        private Visibility progressBarVisibility;
-        private string progressText;
-        private string currentPDF;
-        private string progressLabelText;
-        private string startStopBtnText;
-        private bool isRunning;
-        private int advancedOptionsHeight;
-        private bool advancedOptionsExpanded;
         private int win_xHeight;
         private int win_yHeight;
         private int win_left;
         private int win_top;
 
 
-        // Constructor
         public MainWindowViewModel()
         {
-            // Set the window dimensions
+            // Set the default window dimensions
             this.XWidth = 500;
             this.YHeight = 640;
 
@@ -53,11 +53,11 @@ namespace OcrMyPdf.Gui.ViewModel
             this.ProgressBarPercentage = 0;
             this.ProgressBarVisibility = Visibility.Collapsed;
 
+            // Init
             filePathsList = new ObservableCollection<string>();
             ocrOptions = new OCROptionSet();
             ocrErrors = new ObservableCollection<OCRError>();
             ocrSuccesses = new ObservableCollection<string>();
-
             progressLabelText = "";
             startStopBtnText = "Start!";
             isRunning = false;
@@ -65,14 +65,20 @@ namespace OcrMyPdf.Gui.ViewModel
             // Create "remove file from file list" command object, passing a reference to this ViewModel to it 
             RemoveFileCommand = new RemoveFileCommand(this);
 
-            // Create "Label Update progress command" object, passing a reference to this ViewModel to it 
+            // Create "Update progress label command" object, passing a reference to this ViewModel to it 
             StartOCRCommand = new StartOCRCommand(this);
 
         }
 
+
         // -------------------- DATA BINDINGS START --------------------
 
+
+
+
         // ---------------------- FILE PATHS LIST ----------------------
+
+        // ----- List of queued files
 
         public ObservableCollection<string> FilePathsList
         {
@@ -85,6 +91,11 @@ namespace OcrMyPdf.Gui.ViewModel
             get { return currentPDF; }
             set { currentPDF = value; OnPropertyChanged(); }
         }
+
+        // ----- Remove file from file list command binding
+        public RemoveFileCommand RemoveFileCommand { get; set; }
+
+
 
 
         // -------------------------- OPTIONS --------------------------
@@ -153,6 +164,8 @@ namespace OcrMyPdf.Gui.ViewModel
         }
 
 
+
+
         // ---------------------- ADVANCED OPTIONS ----------------------
 
         // ----- Auto clear successful conversions
@@ -172,6 +185,8 @@ namespace OcrMyPdf.Gui.ViewModel
         }
 
 
+
+
         // -------------------------- BUTTONS --------------------------
 
         // ----- Start/Stop button text
@@ -181,8 +196,13 @@ namespace OcrMyPdf.Gui.ViewModel
             set { this.startStopBtnText = value; OnPropertyChanged(); }
         }
 
+        // ----- Start/Stop button command binding
+        public StartOCRCommand StartOCRCommand { get; set; }
 
-        // ------------------- PROGRESS/STATUS LABEL -------------------
+
+
+
+        // ----------------- PROGRESS BAR & STATUS TEXT ----------------
 
         // ----- Progress label text
 
@@ -216,17 +236,12 @@ namespace OcrMyPdf.Gui.ViewModel
             set { isRunning = value; OnPropertyChanged(); }
         }
 
-        // ----- Start! button command binding
-        public StartOCRCommand StartOCRCommand { get; set; }
 
 
-        // ----- Remove file from file list command binding
-        public RemoveFileCommand RemoveFileCommand { get; set; }
 
+        // --------------------- ADVANCED OPTIONS ----------------------
 
-        // --------------------- WINDOW DIMENSIONS ---------------------
-
-        // ----- Advanced Options Expander Height -----
+        // ----- Advanced Options Expander Height
 
         public int AdvancedOptionsHeight
         {
@@ -238,8 +253,7 @@ namespace OcrMyPdf.Gui.ViewModel
             }
         }
 
-
-        // ----- Is Advanced Options Expanded? -----
+        // ----- Is Advanced Options Expanded?
 
         public bool AdvancedOptionsExpanded
         {
@@ -263,6 +277,8 @@ namespace OcrMyPdf.Gui.ViewModel
                 OnPropertyChanged();
             }
         }
+
+
 
 
         // --------------------- WINDOW DIMENSIONS ---------------------
@@ -301,6 +317,8 @@ namespace OcrMyPdf.Gui.ViewModel
             set { this.win_top = value; OnPropertyChanged(); }
         }
 
+
+
         // --------------------- DATA BINDINGS END ---------------------
 
 
@@ -316,27 +334,25 @@ namespace OcrMyPdf.Gui.ViewModel
                 IsRunning = true;
 
                 // Start the progress update
-                UpdateProgressTextTask(cts.Token);
+                UpdateProgressDotsTask(cts.Token);
 
                 // Run the long task (convert PDF)
                 string longTaskText = await Task.Run(() => LongTask(cts));
 
-                await Task.Delay(PROGRESS_DOT_DELAY); // Additional delay to prevent alternating finished text by looping task
+                await Task.Delay(PROGRESS_DOT_DELAY);
 
                 // Update the progress text label
                 ProgressLabelText = longTaskText;
 
                 // The task has ended
                 IsRunning = false;
-
                 this.StartStopBtnText = "Start!";
 
-                // If there were errors, display them
+                // If there were errors...
                 if (this.ocrErrors.Count > 0)
                 {
+                    // ... list them in a new window
                     errorListWindow = new ErrorListWindow(ocrErrors) { Left = this.Left - this.XWidth - 10, Top = this.Top };
-                    //errorListWindow.errorList.SelectedValue = ocrErrors.FirstOrDefault();
-                    //errorListWindow.errorList.SelectedIndex = 0;
 
                     // If the user opted to automatically clear successful conversions, do so
                     if (ocrOptions.clearSuccesses)
@@ -347,8 +363,10 @@ namespace OcrMyPdf.Gui.ViewModel
                         }
                     }
 
+                    // Show the error list window
                     errorListWindow.Show();
 
+                    // Guide the user on what to do next
                     MessageBox.Show("Unfortunately, some errors occurred during the conversion process.\r\n\r\n"
                                     + "First, select a file from the list to view its error.\r\n\r\n"
                                     + "Then, make the appropriate changes to your configuration.\r\n\r\n"
@@ -362,13 +380,10 @@ namespace OcrMyPdf.Gui.ViewModel
 
 
         // Update progress text label
-        private void UpdateProgressTextTask(CancellationToken token)
+        private void UpdateProgressDotsTask(CancellationToken token)
         {
             Task.Run(async () =>
             {
-                // Set the prefix
-                // ProgressLabelText = PROGRESS_PREFIX;
-
                 while (!token.IsCancellationRequested || IsRunning)
                 {
                     // Delay between each progress dot appearing on the GUI
@@ -380,14 +395,9 @@ namespace OcrMyPdf.Gui.ViewModel
                     // Set the progress dot
                     ProgressLabelText = dotsCount < 5 ? ProgressLabelText + "." : ProgressLabelText.Replace(".", "");
                 }
-
-                // if (token.IsCancellationRequested)
-                // {
-                //     ProgressLabelText = "Conversion cancelled.";
-                // }
-
             });
         }
+
 
         public void CancelOCR()
         {
@@ -401,7 +411,6 @@ namespace OcrMyPdf.Gui.ViewModel
             // Start the task asynchronously
             var result = Task.Run(async () =>
             {
-
                 OCRRunner ocrRunner = new OCRRunner(this.ocrOptions);
 
                 if (filePathsList.Count > 0)
@@ -412,14 +421,11 @@ namespace OcrMyPdf.Gui.ViewModel
                     // Show the progress bar
                     ProgressBarVisibility = Visibility.Visible;
 
-                    // Replace this with OCR.Run
-                    // await Task.Delay(5000);
                     foreach (string path in filePathsList)
                     {
                         currentPDF += 1;
 
                         // Update the progress text
-                        // ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs + " (" + Math.Round((double)currentPDF / totalPDFs * 100, 2) + "%)";
                         ProgressLabelText = PROGRESS_PREFIX + currentPDF + " of " + totalPDFs;
 
                         // Update the progress bar
