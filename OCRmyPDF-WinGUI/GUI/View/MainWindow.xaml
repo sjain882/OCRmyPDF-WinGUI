@@ -68,7 +68,7 @@
             <!--<RowDefinition Height="90" />-->
 
             <!--  Start/Stop button  -->
-            <RowDefinition Height="45" />
+            <RowDefinition Height="65" />
 
             <!--  Status label & progress bar  -->
             <RowDefinition Height="30" />

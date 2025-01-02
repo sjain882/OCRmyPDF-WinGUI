@@ -43,7 +43,7 @@ namespace OcrMyPdf.Gui.ViewModel
         {
             // Set the default window dimensions
             this.XWidth = 500;
-            this.YHeight = 640;
+            this.YHeight = 660;
 
             // Advanced options are non-expanded by default
             this.AdvancedOptionsExpanded = false;
