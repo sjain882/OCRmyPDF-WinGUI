@@ -5,7 +5,6 @@ namespace OcrMyPdf.Gui.MVVM
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
-
         public event PropertyChangedEventHandler? PropertyChanged;
 
         // Call at end of each property's setter
@@ -13,6 +12,5 @@ namespace OcrMyPdf.Gui.MVVM
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
