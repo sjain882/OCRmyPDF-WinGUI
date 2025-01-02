@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="60%" height="60%"/>
+<img src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Preview.gif?raw=true" width="55%" height="55%"/>
 
 <br>
 
