@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="./Icon/Style1/OCRmyPDF-WinGUI.ico" alt="OCRmyPDF - Simple Windows Frontend" width="35" align="top">
+  <img src="./Icon.ico" alt="OCRmyPDF - Simple Windows Frontend" width="35" align="top">
   <b>OCRmyPDF - Simple Windows Frontend</b>
   <br>
 </h1>
