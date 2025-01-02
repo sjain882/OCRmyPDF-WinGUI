@@ -56,6 +56,5 @@ namespace OcrMyPdf.Gui.View
         {
             TextInteractions.SearchOCRError(ErrorName.Content.ToString());
         }
-
     }
 }
