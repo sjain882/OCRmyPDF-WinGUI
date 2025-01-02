@@ -14,7 +14,6 @@ namespace OcrMyPdf.Gui.ViewModel
         public ErrorListWindowViewModel(ObservableCollection<OCRError> ocrErrors)
         {
             this.ocrErrors = ocrErrors;
-            //this.selectedError = new OCRError("", new ExitCodeTemplate(3));
         }
 
 
