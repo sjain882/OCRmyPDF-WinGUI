@@ -63,6 +63,7 @@ namespace OcrMyPdf.Gui.Theme
                 Window.Style = null;
                 App.Current.Resources.Clear();
                 Window.Resources.Clear();
+
                 App.Current.Resources.MergedDictionaries.Add(DefaultStyle);
                 RefreshControls();
 
