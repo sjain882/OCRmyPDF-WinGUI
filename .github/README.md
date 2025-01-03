@@ -1,4 +1,4 @@
-<h1 align="center">
+<h1 align="left">
   <img src="./Icon.ico" alt="OCRmyPDF - Simple Windows Frontend" width="35" align="top">
   <b>OCRmyPDF - Simple Windows Frontend</b>
   <br>
