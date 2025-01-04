@@ -11,6 +11,12 @@
 <br>
 <br>
 
+<p align="center"> <b>
+  <a href="https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest">📦 Download Now</a> •
+  <a href="https://github.com/sjain882/OCRmyPDF-WinGUI/issues">🐛 Found a Bug?</a> •
+  <a href="https://github.com/sjain882/OCRmyPDF-WinGUI/issues">💡 Share Ideas</a> •
+  <a href="https://github.com/sjain882/OCRmyPDF-WinGUI/pulls">📈 Contribute</a>
+</b></p>
 
 [![ISSUES](https://img.shields.io/github/issues/sjain882/OCRmyPDF-WinGUI?color=F57C00&style=flat)](https://github.com/sjain882/OCRmyPDF-WinGUI/issues)
 [![VERSION](https://img.shields.io/github/v/release/sjain882/OCRmyPDF-WinGUI?color=26A69A&style=flat&label=version)](https://github.com/sjain882/OCRmyPDF-WinGUI/releases/latest)
