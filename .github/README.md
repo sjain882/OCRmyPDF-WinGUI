@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img style="width: 55%; height: 55%" src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Previews/MainWindow/Preview.gif?raw=true"/>
+<img style="width: 75%; height: 75%" src="https://github.com/sjain882/OCRmyPDF-WinGUI/blob/main/.github/Previews/MainWindow/Preview.gif?raw=true"/>
 
 <br>
 <br>
